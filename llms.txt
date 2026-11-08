@@ -1,0 +1,59 @@
+# Prajwal Gautam
+
+> Prajwal Gautam is an AI engineer, full-stack and app developer, AI video producer and SEO & growth marketer in Kathmandu, Nepal, building AI-powered websites and apps, ad campaigns and brands for clients worldwide.
+
+## Roles
+- AI Engineer
+- Full-Stack Web Developer
+- App Developer
+- AI Video Producer
+- SEO Specialist and Marketing Researcher
+- Ad Campaign Strategist (Google Ads, Meta Ads)
+- Growth, E-commerce and Brand Marketer
+
+## Services
+- **AI Engineering & Automation**: AI built into the product, not bolted on: language-model features, automations and AI-assisted research that save your team hours. Skills: LLM Integrations, Prompt Engineering, AI Automation, AI Research, AI Image Gen, AI Scriptwriting. Proof: AI-assisted research and content pipelines at Nepal Bhoomi and for freelance clients.
+- **Full-Stack Web Development**: Fast, responsive websites and web platforms, from database to pixel, built to run a real business. Skills: HTML & CSS, JavaScript, React, Node.js, PHP & Laravel, MySQL & MongoDB. Proof: HRMS, Fitfutures and First Math at Uno Technology.
+- **App Development & Integrations**: Mobile and web apps with payments, logins and live data wired in properly. Skills: Mobile Apps, Web Apps, REST APIs, Khalti Payments, Auth & Roles, Django. Proof: Khalti payments and shipping APIs for Sayapatri at Ek Ra Sunya.
+- **AI Video Production**: Scroll-stopping video made faster with AI: scripts, visuals, edits, grading and motion. Skills: AI Video, Video Editing, Motion Graphics, Color Grading, Remotion, Thumbnails. Proof: 3–4 property videos a day at Nepal Bhoomi, plus an AI-made YouTube channel.
+- **SEO & Marketing Research**: Research what your customers search for, then rank for it, on Google and in AI answers. Skills: Technical SEO, Keyword Research, SEO Content, Market Research, Audience Analytics, YouTube SEO. Proof: SEO captions, keyword research and audience analysis at Nepal Bhoomi.
+- **Ad Campaigns, Growth & Branding**: Paid campaigns, brand and funnels that turn attention into customers, measured every month. Skills: Google Ads, Meta Ads, Growth Marketing, E-commerce Marketing, Branding, Performance Reports. Proof: Ad performance tracking and monthly growth reports at Nepal Bhoomi.
+
+## Experience
+- **Nepal Bhoomi** (Lazimpat, Kathmandu): Video Editor, Designer & Growth Marketing. Produce 3–4 property videos a day, from script to edit to publishing. Run SEO captions, content calendars and audience research for buyers. Track retention and ad performance; present monthly growth reports.
+- **Freelance** (Remote): AI Video Producer. Promotional and explainer videos for schools and consultancies. IELTS, GRE, SAT and study-abroad topics made clear and watchable. Podcasts cut into shorts, plus an AI-made YouTube channel.
+- **Ek Ra Sunya Inc.** (Balkumari, Lalitpur): Backend Developer. Backend for the Sayapatri e-commerce platform. Integrated Khalti payments and MailQuote shipping costs. Live exchange rates with USD to AUD conversion.
+- **Uno Technology** (Gyaneshwor, Kathmandu): Full-Stack Web Developer. A Laravel HRMS with payroll, leave, attendance and dashboards. Fitfutures, an e-learning and school management system. First Math, a three-level quiz game with live scoring.
+
+## Live projects
+- [Nepal Bhoomi](https://www.nepalbhoomi.com): real-estate platform; video, SEO and growth.
+- [Slugforge Studio](https://slugforge.vercel.app): creative studio website and video services.
+
+## Other projects
+- Sayapatri E-commerce (Online store · Ek Ra Sunya): E-commerce platform where I built Khalti payments, MailQuote shipping-cost calculation and live USD to AUD currency conversion.
+- Fitfutures (E-learning · Uno Technology): E-learning and school management system with lessons, resources, progress tracking, admin dashboards and reporting.
+- HRMS (HR platform · Uno Technology): Laravel human resource system: employee records, payroll, leave and attendance, with role-based dashboards for admins and staff.
+- Service Marketplace (Freelance services): Connects people with local professionals and freelance services.
+- Blood Bank System (Healthcare): Blood donation and inventory app with donor registration, blood requests and real-time stock.
+- Food Ordering (Restaurant platform): Menus, orders and deliveries with real-time tracking and payment integration.
+- Real-Estate Platform (Property marketplace): Real-estate listing and search platform built with a collaborator.
+- DashboardUno (Admin dashboard): Analytics dashboard UI with charts and reusable components.
+- Discipline Coach (Habit & focus app): Mobile app that coaches daily discipline and habits. The repo hosts its published privacy policy.
+- Activity Companion (Social activity app): Find people to join real-life activities such as hikes, games and events.
+- First Math (Quiz game · Uno Technology): Maths and science quiz with Easy, Medium and Hard levels, points by difficulty and live scoring.
+- Expense Manager (Personal finance): Tracks spending by category with real-time summaries.
+- Nepal Bhoomi Reels (Property video series): Three to four property videos a day: scripted, edited, captioned for SEO and published across social, with monthly reporting.
+- Slugforge Productions (Studio video services): Editing, podcast repurposing, colour grading, AI-assisted video and motion graphics through Slugforge Studio.
+- Educational YouTube (AI-made channel): Educational videos made with AI-assisted scripts, images and visuals, edited with captions, transitions and music.
+- Study-Abroad Content (Freelance · education): Explainers on IELTS, GRE, SAT and study-abroad applications for schools and consultancies, plus podcasts cut into shorts.
+
+## Education
+- BSc CSIT, New Summit College, Tribhuvan University
+- +2 Science, Kathmandu Model College
+
+## Contact
+- Email: prajolgautam1234@gmail.com
+- Phone: +977 984-8137372
+- LinkedIn: https://www.linkedin.com/in/prajjwal-gautam/
+- GitHub: https://github.com/Prajjwalgautam
+- Location: Kathmandu, Nepal (UTC+5:45); works with clients worldwide
