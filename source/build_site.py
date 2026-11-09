@@ -20,90 +20,109 @@ SITE = "https://prajjwalgautam.com.np/"
 E = html.escape
 TODAY = "2026-11-09"
 
+# Palette: three pillar colours, used only as small marks. Keep these in sync with --build/--create/--grow in page.html.
+BUILD, CREATE, GROW = '#7B8CFF', '#F2334B', '#E8B04A'
+
+# Six skill groups. They colour the arms of the spinning card galaxy and fill the card labels.
 CATS = [
- dict(name='AI Engineering', word='AI', c='#FF8A3D', slug='ai-engineer-nepal', h='AI Engineering &amp; Automation',
-      blurb='AI built into the product: language-model features, assistants, automations and AI-powered content pipelines that save your team hours.',
-      proof='A Remotion + Python AI video pipeline (Whisper captions, upscaling, background removal, tracking) at Nepal Bhoomi',
+ dict(name='AI Engineering', word='AI', c='#8C9BFF', pillar='build',
       skills=['LLM Integrations','Prompt Engineering','AI Automation','AI Research','AI Image Gen','AI Scriptwriting']),
- dict(name='Full-Stack', word='CODE', c='#4D7BFF', slug='full-stack-developer-nepal', h='Full-Stack Web Development',
-      blurb='Secure, fast web platforms from database to pixel: auth, admin panels, payments and dashboards.',
-      proof='Nepal Bhoomi platform (Next.js, PostgreSQL, 2FA), Zylux admin (Next.js 15), Laravel HRMS',
+ dict(name='Full-Stack', word='CODE', c='#6F80F5', pillar='build',
       skills=['TypeScript','Next.js & React','Node.js','PHP & Laravel','PostgreSQL & MySQL','Tailwind CSS']),
- dict(name='Apps & APIs', word='APPS', c='#9B7BFF', slug='app-developer-nepal', h='App Development &amp; Integrations',
-      blurb='Mobile and web apps with sign-in, payments and live data wired in properly, built privacy-first.',
-      proof='AI Discipline Coach (Android), Khalti and shipping APIs for Sayapatri at Ek Ra Sunya',
+ dict(name='Apps & APIs', word='APPS', c='#B3BCFF', pillar='build',
       skills=['Android Apps','Web Apps','REST APIs','Khalti Payments','Auth, 2FA & OAuth','Prisma & Drizzle']),
- dict(name='AI Video & Motion', word='VIDEO', c='#F2334B', slug='ai-video-production', h='AI Video &amp; Motion Design',
-      blurb='Scroll-stopping video and SaaS-style motion, made faster with AI and code: scripts, 3D, edits, grading and sound.',
-      proof='3–4 property videos a day at Nepal Bhoomi, The 195 Project with Blender 3D, a brand sonic logo',
+ dict(name='Video & Motion', word='VIDEO', c=CREATE, pillar='create',
       skills=['AI Video','Motion Graphics','SaaS Animation','Blender 3D','Color Grading','Remotion']),
- dict(name='SEO & AEO', word='SEO', c='#2BC6E8', slug='aeo-geo-expert', h='SEO, AEO &amp; Marketing Research',
-      blurb='Rank on Google and become the answer in ChatGPT, Perplexity and Google AI Overviews.',
-      proof='SEO and keyword research at Nepal Bhoomi; this site’s schema, llms.txt and 14 keyword pages',
+ dict(name='SEO & AEO', word='SEO', c=GROW, pillar='grow',
       skills=['Technical SEO','AEO & GEO','Keyword Research','SEO Content','Market Research','Audience Analytics']),
- dict(name='Ads, Growth & Brand', word='GROWTH', c='#2EE6A6', slug='google-meta-ads-expert-nepal', h='Ad Campaigns, Growth &amp; Branding',
-      blurb='Paid campaigns, brand systems and graphics that turn attention into customers, measured every month.',
-      proof='Ad tracking and monthly growth reports at Nepal Bhoomi; Nepal Bhoomi sonic branding',
+ dict(name='Ads & Brand', word='GROWTH', c='#F3CD86', pillar='grow',
       skills=['Google Ads','Meta Ads','Growth Marketing','E-commerce Marketing','Branding','Graphic Design']),
 ]
-ROLES = ["AI engineer","full-stack developer","app developer","AI video producer","motion designer","SEO & AEO specialist","ad campaign strategist","growth marketer","brand strategist","marketing researcher"]
+
+# The one services section: Build is the core, Create and Grow are add-ons. Each item links to its service page.
+PILLARS = [
+ dict(k='build', label='Build', badge='Core service', h='AI-powered websites, web apps and mobile apps.',
+      p='From database and API to the screen your customers use, with sign-in, payments, dashboards and AI built in.',
+      items=[('AI features & automation','ai-engineer-nepal'),('Full-stack web development','full-stack-developer-nepal'),
+             ('Mobile & web apps','app-developer-nepal'),('Business websites','web-developer-kathmandu'),('Hire me as your AI developer','hire-ai-developer')],
+      proof='<b>Proof:</b> Nepal Bhoomi platform, Zylux admin, Laravel HRMS, Sayapatri payments'),
+ dict(k='create', label='Create', badge='Add-on', h='Launch videos and motion.',
+      p='Product explainers, UI animation and short-form video, made faster with AI and code.',
+      items=[('AI video production','ai-video-production'),('Motion design for SaaS','saas-motion-design')],
+      proof='<b>Proof:</b> Nepal Bhoomi property films, The 195 Project, a sonic logo'),
+ dict(k='grow', label='Grow', badge='Add-on', h='Get found, then get customers.',
+      p='Search, AI answers and ads, tracked every month.',
+      items=[('SEO','seo-expert-nepal'),('AEO & AI search','aeo-geo-expert'),('Google & Meta ads','google-meta-ads-expert-nepal'),
+             ('Growth marketing','growth-marketing-consultant'),('Branding','branding-digital-marketing-nepal')],
+      proof='<b>Proof:</b> Nepal Bhoomi SEO and monthly growth reports'),
+]
+
+# Who it's for: what I deliver per industry, in each pillar. Listed once, here only.
+INDUSTRIES = [
+ dict(n='Real estate', tag='Every day · Nepal Bhoomi', slug='real-estate-marketing-nepal',
+      build='Listing platforms, admin and lead capture', create='Property films and reels', grow='Lead ads and local SEO'),
+ dict(n='E-commerce', tag='Sayapatri, Zylux', slug='full-stack-developer-nepal',
+      build='Online stores, Khalti payments, admin dashboards', create='Product videos', grow='Meta ads and product SEO'),
+ dict(n='SaaS & tech', tag='Product teams', slug='saas-motion-design',
+      build='AI features, dashboards and APIs', create='Explainers and UI animation', grow='AEO and launch campaigns'),
+ dict(n='Education', tag='Fitfutures, study abroad', slug='app-developer-nepal',
+      build='E-learning and school platforms', create='Explainers and shorts', grow='YouTube SEO'),
+ dict(n='Jewellers', tag='Dedicated package', slug='jewellery-marketing-nepal',
+      build='Catalogue websites', create='Macro product films and 3D renders', grow='Festive and wedding-season ads'),
+ dict(n='Food & travel', tag='EBhojanalaya, The 195 Project', slug='seo-expert-nepal',
+      build='Ordering apps', create='Travel films', grow='Local SEO, Google Maps and AEO'),
+]
+
 JOBS = [
- dict(co='Nepal Bhoomi', logo='NB', c='#F2334B', where='Lazimpat, Kathmandu', title='Video, Design, Growth &amp; Platform', now=1,
-      pts=['Built a <b>code-driven video pipeline</b> (Remotion + Python AI: Whisper captions, upscaling, background removal, tracking) that ships <b>3–4 property reels a day</b>.',
-           'Co-built the <b>Nepal Bhoomi platform</b>: Next.js API, PostgreSQL, React admin, 2FA, Google sign-in and audit logging.',
-           'Own SEO captions, audience research, ad tracking and <b>monthly growth reports</b>; designed the brand’s <b>sonic logo</b>.']),
- dict(co='Freelance', ini='FL', c1='#F2334B', c2='#3a0812', c='#F2334B', where='Remote · worldwide', title='AI Video Producer &amp; Motion Designer',
-      pts=['Promotional and explainer videos for <b>schools and study-abroad consultancies</b> on IELTS, GRE, SAT and applications.',
-           'Long podcasts and interviews cut into <b>captioned short-form clips</b>.',
-           '<b>The 195 Project</b> documentary episodes with Blender 3D scenes, plus an <b>AI-made educational YouTube channel</b>.']),
- dict(co='Ek Ra Sunya Inc.', ini='ES', c1='#4D7BFF', c2='#0a1440', c='#4D7BFF', where='Balkumari, Lalitpur', title='Backend Developer',
+ dict(co='Nepal Bhoomi', logo='NB', c=CREATE, where='Lazimpat, Kathmandu', title='Platform Developer &amp; Digital Lead', now=1,
+      pts=['Co-built the <b>Nepal Bhoomi platform</b>: Next.js API, PostgreSQL, React admin, 2FA, Google sign-in and audit logging.',
+           'Built a <b>code-driven video pipeline</b> (Remotion + Python AI: Whisper captions, upscaling, background removal, tracking) for branded property reels.',
+           'Run SEO, audience research, ad tracking and <b>monthly growth reports</b>; designed the brand’s <b>sonic logo</b>.']),
+ dict(co='Ek Ra Sunya Inc.', ini='ES', c=BUILD, where='Balkumari, Lalitpur', title='Backend Developer',
       pts=['Shipped payments, shipping and currency features on the live <b>Sayapatri e-commerce platform</b>.',
            'Integrated <b>Khalti checkout</b> and <b>MailQuote</b> real-time shipping rates.',
            'Added <b>live exchange rates</b> with USD to AUD base-currency pricing.']),
- dict(co='Uno Technology', ini='UT', c1='#4D7BFF', c2='#0a1440', c='#4D7BFF', where='Gyaneshwor, Kathmandu', title='Full-Stack Web Developer',
+ dict(co='Uno Technology', ini='UT', c=BUILD, where='Gyaneshwor, Kathmandu', title='Full-Stack Web Developer',
       pts=['Built a <b>Laravel HRMS</b>: JWT auth, OTP password reset by email, attendance check-in/out, tasks, admin and employee roles.',
            'Built <b>Fitfutures</b>, an e-learning and school management platform with progress tracking and reports.',
            'Built <b>First Math</b>, a maths and science game with three levels per subject and live scoring.']),
+ dict(co='Freelance', ini='FL', c=CREATE, where='Remote · worldwide', title='Video Producer &amp; Motion Designer',
+      pts=['Promotional and explainer videos for <b>schools and study-abroad consultancies</b> on IELTS, GRE, SAT and applications.',
+           'Long podcasts and interviews cut into <b>captioned short-form clips</b>.',
+           '<b>The 195 Project</b> documentary episodes with Blender 3D scenes, plus an <b>AI-made educational YouTube channel</b>.']),
 ]
 WORK = [
- dict(k='web', name='Nepal Bhoomi', logo='NB', c1='#8a1f4a', type='Real-estate company · live', desc='Live property platform for houses, land, apartments and commercial space across Kathmandu Valley. I run its video, design, SEO and growth.', stack='Website · AI video · SEO · Ads', live='https://www.nepalbhoomi.com'),
- dict(k='web', name='Nepal Bhoomi Platform', ini='NB', c1='#b8892d', c2='#3a1424', type='Full-stack · co-built', desc='Next.js API with Prisma and PostgreSQL (Supabase), React + Tailwind site and admin. 2FA, Google sign-in, email verification, refresh-token theft detection, rate limiting, audit logs and row-level security across 20+ data models.', stack='Next.js · Prisma · PostgreSQL · React', repo='https://github.com/rookhit/Complete-realestate-project'),
- dict(k='web', name='Slugforge Studio', logo='SF', c1='#6b4cff', type='Creative studio · live', desc='Live website for a creative studio offering editing, AI video, motion graphics, branding, web development and digital marketing.', stack='Web design · 3D · Motion', live='https://slugforge.vercel.app'),
- dict(k='web', name='Zylux Commerce Admin', ini='ZX', c1='#2BC6E8', c2='#05303c', type='Next.js 15 dashboard', desc='Commerce admin with Clerk sign-in, products, categories, orders and users, TanStack data tables and Recharts sales overview, on Drizzle ORM and Neon Postgres.', stack='Next.js 15 · React 19 · TypeScript', repo='https://github.com/Prajjwalgautam/Zylux-Task'),
- dict(k='web', name='Sayapatri E-commerce', ini='SE', c1='#FF8A3D', c2='#4a1d05', type='Online store · Ek Ra Sunya', desc='E-commerce backend features: Khalti checkout, MailQuote shipping rates and live USD to AUD base-currency pricing.', stack='PHP · Laravel · REST APIs', st='Client project'),
- dict(k='web', name='Laravel HRMS', ini='HR', c1='#4D7BFF', c2='#0a1440', type='HR platform · Uno Technology', desc='JWT auth, OTP password reset by email, employee records, attendance check-in and check-out, tasks and role-based dashboards.', stack='Laravel · JWT · MySQL', repo='https://github.com/Prajjwalgautam/HRM-system-checkin-checkout'),
- dict(k='web', name='Fitfutures', ini='FF', c1='#2EE6A6', c2='#063a2a', type='E-learning · Uno Technology', desc='E-learning and school management platform with lessons, resources, progress tracking, admin dashboards and reports.', stack='HTML · CSS · JS · PHP', st='Client project'),
- dict(k='web', name='Role-Based Commerce Admin', ini='RC', c1='#9B7BFF', c2='#1e1050', type='Admin & user system', desc='Admin and user dashboards with JWT authentication, OTP email password reset, profile management and catalogue CRUD.', stack='PHP · JWT · Bootstrap', repo='https://github.com/Prajjwalgautam/Ecommerce-Admin-User-management-system'),
- dict(k='web', name='EBhojanalaya', ini='EB', c1='#F2334B', c2='#3a0812', type='Food ordering app', desc='Online food ordering: menus, cart and orders with a React front end and a Node.js server.', stack='React · Node.js', repo='https://github.com/Prajjwalgautam/Food-Delivery-system'),
- dict(k='web', name='This Portfolio', ini='PG', c1='#F2334B', c2='#0c0c0e', type='WebGL · SEO · AEO', desc='9,105 instanced WebGL skill cards that morph through ten states on scroll, a 3D text loader, a curved carousel and 14 SEO and AEO service pages.', stack='Three.js · GLSL · Python build', repo='https://github.com/Prajjwalgautam/Portfolio'),
- dict(k='app', name='AI Discipline Coach', ini='DC', c1='#F2334B', c2='#3a0812', type='Android app', desc='Habit and discipline coach for Android, built privacy-first: no internet permission and no data collected. Privacy policy published for Google Play.', stack='Android', priv='https://prajjwalgautam.github.io/discipline-coach-privacy/'),
- dict(k='app', name='Activity Companion', ini='AC', c1='#FF8A3D', c2='#4a1d05', type='Social activity app', desc='Find people for hikes, rides, cafes, sports and events. Matching by activity, interests, area and time, with ID verification and safety tools.', stack='Flutter · mobile', st='In development'),
- dict(k='app', name='First Math', ini='FM', c1='#E8C547', c2='#4a3400', type='Quiz game · Uno Technology', desc='Maths and science game with easy, medium and hard modes for each subject, sign-in and live points.', stack='PHP · JavaScript', repo='https://github.com/Prajjwalgautam/Project--First_Math'),
- dict(k='vid', name='Nepal Bhoomi Reels', logo='NB', c1='#8a1f4a', type='Property video series', desc='Three to four property videos a day: scripted, edited, graded, captioned for SEO and published, with monthly reports.', stack='Remotion · AI video · SEO', live='https://www.nepalbhoomi.com'),
- dict(k='vid', name='Remotion Video Engine', ini='RV', c1='#4D7BFF', c2='#0a1440', type='Programmatic video system', desc='Videos built from code: Remotion with Python AI tools for Whisper captions, upscaling, background removal and tracking, plus resumable renders.', stack='Remotion · TypeScript · Python', st='Internal tool'),
- dict(k='vid', name='The 195 Project', ini='195', c1='#E8C547', c2='#4a3400', type='Documentary series', desc='Documentary-style country episodes with Blender 3D scenes, edited in Remotion. Episode 11: Turkey, the country in layers.', stack='Blender · Remotion', st='Series'),
- dict(k='vid', name='Nepal Bhoomi Sound', logo='NB', c1='#2EE6A6', type='Sonic branding & music', desc='A 4–6 second sonic logo on madal, sarangi and bansuri for every video, and an AI-produced Dohori brand song with an animated video in production.', stack='Suno · AI video · Sound design', st='Brand audio'),
- dict(k='vid', name='Slugforge Productions', logo='SF', c1='#6b4cff', type='Studio video services', desc='Editing, podcast repurposing, colour grading, AI-assisted video and motion graphics.', stack='Editing · Grading · AI video', live='https://slugforge.vercel.app'),
- dict(k='vid', name='Study-Abroad Content', ini='SA', c1='#9B7BFF', c2='#1e1050', type='Freelance · education', desc='Explainers on IELTS, GRE, SAT and study-abroad applications, plus podcasts cut into shorts.', stack='Short-form · Motion', st='Freelance'),
+ dict(k='web', name='Nepal Bhoomi', logo='NB', type='Real-estate company · live', desc='Live property platform for houses, land, apartments and commercial space across Kathmandu Valley. I co-built it and run its video and SEO.', stack='Next.js · Video · SEO', live='https://www.nepalbhoomi.com'),
+ dict(k='web', name='Nepal Bhoomi Platform', ini='NB', type='Full-stack · co-built', desc='Next.js API with Prisma and PostgreSQL (Supabase), React + Tailwind site and admin. 2FA, Google sign-in, email verification, refresh-token theft detection, rate limiting, audit logs and row-level security across 20+ data models.', stack='Next.js · Prisma · PostgreSQL · React', repo='https://github.com/rookhit/Complete-realestate-project'),
+ dict(k='web', name='Slugforge Studio', logo='SF', type='Creative studio · live', desc='Live website for a creative studio offering editing, AI video, motion graphics, branding, web development and digital marketing.', stack='Web design · 3D · Motion', live='https://slugforge.vercel.app'),
+ dict(k='web', name='Zylux Commerce Admin', ini='ZX', type='Next.js 15 dashboard', desc='Commerce admin with Clerk sign-in, products, categories, orders and users, TanStack data tables and Recharts sales overview, on Drizzle ORM and Neon Postgres.', stack='Next.js 15 · React 19 · TypeScript', repo='https://github.com/Prajjwalgautam/Zylux-Task'),
+ dict(k='web', name='Sayapatri E-commerce', ini='SE', type='Online store · Ek Ra Sunya', desc='E-commerce backend features: Khalti checkout, MailQuote shipping rates and live USD to AUD base-currency pricing.', stack='PHP · Laravel · REST APIs', st='Client project'),
+ dict(k='web', name='Laravel HRMS', ini='HR', type='HR platform · Uno Technology', desc='JWT auth, OTP password reset by email, employee records, attendance check-in and check-out, tasks and role-based dashboards.', stack='Laravel · JWT · MySQL', repo='https://github.com/Prajjwalgautam/HRM-system-checkin-checkout'),
+ dict(k='web', name='Fitfutures', ini='FF', type='E-learning · Uno Technology', desc='E-learning and school management platform with lessons, resources, progress tracking, admin dashboards and reports.', stack='HTML · CSS · JS · PHP', st='Client project'),
+ dict(k='web', name='Role-Based Commerce Admin', ini='RC', type='Admin & user system', desc='Admin and user dashboards with JWT authentication, OTP email password reset, profile management and catalogue CRUD.', stack='PHP · JWT · Bootstrap', repo='https://github.com/Prajjwalgautam/Ecommerce-Admin-User-management-system'),
+ dict(k='web', name='EBhojanalaya', ini='EB', type='Food ordering app', desc='Online food ordering: menus, cart and orders with a React front end and a Node.js server.', stack='React · Node.js', repo='https://github.com/Prajjwalgautam/Food-Delivery-system'),
+ dict(k='web', name='This Portfolio', ini='PG', type='WebGL · SEO · AEO', desc='9,105 instanced WebGL skill cards that morph on scroll, a 3D text loader, a curved carousel and 14 SEO and AEO service pages.', stack='Three.js · GLSL · Python build', repo='https://github.com/Prajjwalgautam/Portfolio'),
+ dict(k='app', name='AI Discipline Coach', ini='DC', type='Android app', desc='Habit and discipline coach for Android, built privacy-first: no internet permission and no data collected. Privacy policy published for Google Play.', stack='Android', priv='https://prajjwalgautam.github.io/discipline-coach-privacy/'),
+ dict(k='app', name='Activity Companion', ini='AC', type='Social activity app', desc='Find people for hikes, rides, cafes, sports and events. Matching by activity, interests, area and time, with ID verification and safety tools.', stack='Mobile app', st='In development'),
+ dict(k='app', name='First Math', ini='FM', type='Quiz game · Uno Technology', desc='Maths and science game with easy, medium and hard modes for each subject, sign-in and live points.', stack='PHP · JavaScript', repo='https://github.com/Prajjwalgautam/Project--First_Math'),
+ dict(k='vid', name='Nepal Bhoomi Films', logo='NB', type='Property video series', desc='Property videos and reels: scripted, edited, graded, captioned for SEO and published, with monthly performance reports.', stack='Remotion · AI video · SEO', live='https://www.nepalbhoomi.com'),
+ dict(k='vid', name='Remotion Video Engine', ini='RV', type='Programmatic video system', desc='Videos built from code: Remotion with Python AI tools for Whisper captions, upscaling, background removal and tracking, plus resumable renders.', stack='Remotion · TypeScript · Python', st='Internal tool'),
+ dict(k='vid', name='The 195 Project', ini='195', type='Documentary series', desc='Documentary-style country episodes with Blender 3D scenes, edited in Remotion. Episode 11: Turkey, the country in layers.', stack='Blender · Remotion', st='Series'),
+ dict(k='vid', name='Nepal Bhoomi Sound', logo='NB', type='Sonic branding & music', desc='A 4–6 second sonic logo on madal, sarangi and bansuri for every video, and an AI-produced Dohori brand song with an animated video in production.', stack='Suno · AI video · Sound design', st='Brand audio'),
+ dict(k='vid', name='Slugforge Productions', logo='SF', type='Studio video services', desc='Editing, podcast repurposing, colour grading, AI-assisted video and motion graphics.', stack='Editing · Grading · AI video', live='https://slugforge.vercel.app'),
+ dict(k='vid', name='Study-Abroad Content', ini='SA', type='Freelance · education', desc='Explainers on IELTS, GRE, SAT and study-abroad applications, plus podcasts cut into shorts.', stack='Short-form · Motion', st='Freelance'),
 ]
+for w in WORK: w['c1'] = CREATE if w['k'] == 'vid' else BUILD
+
 FAQ = [
- ("What does Prajwal Gautam do?", "Prajwal Gautam is an AI engineer, full-stack and app developer, AI video producer and motion designer, and SEO, AEO and growth marketer based in Kathmandu, Nepal. He builds AI-powered websites and apps, produces video, and runs SEO, ads and branding for businesses worldwide."),
- ("What is AEO and do you offer it?", "AEO, Answer Engine Optimization, makes your business the answer that ChatGPT, Perplexity, Gemini and Google AI Overviews give. Yes: I add structured data, llms.txt, answer-first content and consistent citations, and track AI mentions monthly."),
- ("Which industries do you work with?", "Real estate (daily, at Nepal Bhoomi), education and study-abroad consultancies, e-commerce and retail, restaurants and travel, and I offer dedicated packages for jewellers and SaaS companies."),
- ("Do you make motion design and animation for SaaS?", "Yes. I build product explainers, UI animations and launch videos, often in Remotion so they can be re-rendered when your product changes, plus Blender 3D and WebGL."),
+ ("What does Prajwal Gautam do?", "Prajwal Gautam is an AI engineer and full-stack developer in Kathmandu, Nepal. He builds AI-powered websites, web apps and mobile apps, and offers launch video, motion design, SEO, AEO and ads as add-ons, so one person can take a product from code to customers."),
+ ("Which programming languages and frameworks do you use?", "TypeScript and JavaScript with Next.js, React and Node.js; PHP with Laravel; Python for AI and automation; SQL with PostgreSQL and MySQL; and GLSL for WebGL. On mobile I build Android and web apps. If your project needs a stack I don't use, I'll tell you before we start."),
  ("Can you build an AI-powered website or app for my business?", "Yes. I build with Next.js, React, Node.js, Laravel and PostgreSQL, add AI features such as language-model integrations, assistants and automations, and secure them with proper sign-in, 2FA and audit logs."),
- ("Do you really work in any language?", "I write TypeScript, JavaScript, PHP, Python and SQL, build with Next.js, React, Laravel and Node.js, and create content in English, Nepali and Hindi. If a project needs another stack, I will tell you honestly whether I am the right fit."),
+ ("What is AEO and do you offer it?", "AEO, Answer Engine Optimization, makes your business the answer that ChatGPT, Perplexity, Gemini and Google AI Overviews give. Yes: I add structured data, llms.txt, answer-first content and consistent citations, and track AI mentions monthly."),
+ ("Do you make motion design and animation for SaaS?", "Yes. I build product explainers, UI animations and launch videos, often in Remotion so they can be re-rendered when your product changes, plus Blender 3D and WebGL."),
+ ("Which industries do you work with?", "Real estate (every day at Nepal Bhoomi), e-commerce, SaaS and tech, education, jewellers, and food and travel. The table in the Services section shows what I deliver for each."),
  ("How much does a project cost?", "Every project gets a fixed-price quote after a free 20-minute call. SEO, AEO, ads and content are usually monthly retainers. You always see the price before work starts."),
- ("How do I start a project with you?", "Email prajolgautam1234@gmail.com or message me on WhatsApp at +977 984-8137372 with a short description of your goal. I reply within one working day, Nepal time (UTC+5:45)."),
-]
-SLASH = [('AI Engineering','ai-engineer-nepal'),('Full-Stack &amp; Apps','full-stack-developer-nepal'),('AI Video &amp; Motion','saas-motion-design'),('SEO, AEO &amp; Ads','aeo-geo-expert'),('Growth &amp; Branding','growth-marketing-consultant')]
-INDUSTRIES = [
- dict(n='Real Estate', tag='Proven · Nepal Bhoomi', line='Property reels, listing platforms and lead ads that sell land and homes.', chips=['Property reels','Listing sites','Lead ads','Sonic branding'], slug='real-estate-marketing-nepal'),
- dict(n='Jewellers', tag='Package for jewellers', line='Macro product films, 3D renders, graphics and wedding-season campaigns that make every piece shine.', chips=['Macro video','3D renders','Catalogues','Festive ads'], slug='jewellery-marketing-nepal'),
- dict(n='SaaS &amp; Tech', tag='Remotion · Blender · WebGL', line='Explainers, UI motion and launch videos, built from code so every product update re-renders.', chips=['Explainers','UI animation','Launch videos','3D & WebGL'], slug='saas-motion-design'),
- dict(n='E-commerce', tag='Proven · Sayapatri, Zylux', line='Stores, payments, admin dashboards and the ads and SEO that fill the cart.', chips=['Online stores','Khalti','Dashboards','Meta ads'], slug='growth-marketing-consultant'),
- dict(n='Education', tag='Proven · Fitfutures, freelance', line='E-learning platforms and study-abroad explainers that students and parents trust.', chips=['E-learning','Explainers','Shorts','YouTube SEO'], slug='ai-video-production'),
- dict(n='Food &amp; Travel', tag='Proven · EBhojanalaya, The 195 Project', line='Ordering systems, food and travel reels, and local SEO and AEO for Maps and AI search.', chips=['Ordering apps','Travel films','Local SEO','AEO'], slug='seo-expert-nepal'),
+ ("How do I start a project with you?", "Message me on WhatsApp at +977 984-8137372 or email prajolgautam1234@gmail.com with a short description of your goal. I reply within one working day, Nepal time (UTC+5:45)."),
 ]
 
 # ------------------------------------------------------------------ engine
@@ -117,8 +136,11 @@ def engine():
     R("{canvas, antialias:false, powerPreference:'high-performance'}", "{canvas, antialias:false, alpha:true, powerPreference:'high-performance'}")
     R("renderer.setClearColor(0x04060f,1);", "renderer.setClearColor(0x000000,0);")
     R("const N=raw.length/5; $('nCards').textContent=N.toLocaleString('en-US');", "const N=raw.length/5;")
-    eng = eng.replace('Unbounded, "Arial Black", sans-serif', '"Sofia Sans Extra Condensed", "Arial Narrow", sans-serif')
-    R("let fs=46; const t=k.s.toUpperCase();", "let fs=60; const t=k.s.toUpperCase();")
+    eng = eng.replace('900 ${fs}px Unbounded, "Arial Black", sans-serif', '600 ${fs}px "Instrument Sans", Arial, sans-serif')
+    R("let fs=46; const t=k.s.toUpperCase();", "let fs=52; const t=k.s.toUpperCase();")
+    # no heartbeat monitor on the page any more: keep the pulse, skip the drawing
+    R("const ecg=$('ecg'), eg=ecg.getContext('2d');", "const ecg=null, eg=null;")
+    R("U.uBeat.value=reduce?0:bt; $('bpm').textContent=Math.round(bpm);", "U.uBeat.value=reduce?0:bt; if(!ecg) return;")
     R("  const cc=CATC[ci];\n  return fromPoints(pts,W,H,24,1.6,(p,k)=>{ const own=data[k*4+2]===ci;",
       "  const cc=ci>=0?CATC[ci]:hex('#0C0C0E');\n  return fromPoints(pts,W,H,24,1.6,(p,k)=>{ const own=ci>=0&&data[k*4+2]===ci;")
     R("  galaxy:galaxy(), helix:helix(), wave:wave(),", """  galaxy:galaxy(), helix:helix(), wave:wave(), dust:dust(),""")
@@ -129,14 +151,14 @@ def engine():
 const STATES={""")
     R("  CATS.forEach((c,i)=>STATES['w'+i]=textShape(c.word,i));", "  CATS.forEach((c,i)=>STATES['w'+i]=textShape(c.word,i)); STATES.code=textShape('</>',-1);")
     R("  drawAtlas(); ready=true; lastPair='';", "  drawAtlas(); ready=true; lastPair=''; window.__engineReady=true;")
-    eng = eng.replace("#ff2e4d", "#F2334B")
+    eng = eng.replace("#ff2e4d", "#F2334B").replace("hex('#bcc2cb')", "hex('#b9b7b2')").replace("blue=hex('#3d6bff')", "blue=hex('#7B8CFF')").replace("deep=hex('#16205a')", "deep=hex('#2a3170')")
     a = eng.index("function layoutOf(name){"); b = eng.index("/* --- atlas --- */")
     eng = eng[:a] + """function layoutOf(name){
   const m=isMobile(), fx=Math.min(halfW-6.6,6.8);
-  if(name==='face') return m?{o:[0,halfH*.02,0],s:.78}:{o:[halfW*.04,-1.7,0],s:.9};
+  if(name==='face') return m?{o:[0,-halfH*.1,0],s:.66}:{o:[halfW*.4,-1.2,0],s:.88};
   if(name==='face2') return m?{o:[0,halfH-8.4,0],s:.8}:{o:[-fx,-.4,0],s:1};
   if(name==='code') return m?{o:[0,halfH*.55,0],s:.5}:{o:[halfW*.48,halfH*.3,0],s:.72};
-  if(name==='galaxy') return m?{o:[0,3,0],s:.62}:{o:[halfW*.3,0,0],s:1};
+  if(name==='galaxy') return m?{o:[0,-halfH*.38,0],s:.5}:{o:[halfW*.45,halfH*.18,0],s:.82};
   if(name==='helix') return m?{o:[0,halfH*.5,0],s:.5}:{o:[0,halfH*.42,0],s:Math.min(1,(halfW*2*.92)/26)};
   if(name==='wave'||name==='dust') return {o:[0,0,0],s:1};
   if(name==='nb'||name==='sf') return m?{o:[0,halfH*.42,0],s:.75}:{o:[halfW*.4,0,0],s:1};
@@ -163,7 +185,6 @@ const STATES={""")
     R("progress=y/Math.max(1,document.documentElement.scrollHeight-innerHeight);", "progress=y/Math.max(1,docH-innerHeight);")
     R("  anchors[0].y=0;\n}", "  anchors[0].y=0; docH=document.documentElement.scrollHeight;\n}")
     R("function readScroll(){", "var docH=document.documentElement.scrollHeight; addEventListener('resize',()=>{docH=document.documentElement.scrollHeight});\nfunction readScroll(){")
-    R("eg.strokeStyle='#F2334B';", "eg.strokeStyle='#ffffff';")
     R("if(e.target.closest('a,button,input,textarea,.glass')) return;", "if(e.target.closest('a,button,input,textarea,.glass,.car,.codebox,summary')) return;")
     return eng
 
@@ -172,52 +193,53 @@ def lg(o):
     if o.get('logo'):
         cls = 'light' if o['logo'] == 'NB' else 'dark'; alt = 'Nepal Bhoomi logo' if o['logo'] == 'NB' else 'Slugforge Studio logo'
         return f'<div class="lg {cls}"><img src="{{{{IMG_{o["logo"]}}}}}" alt="{alt}" width="112" height="112" loading="lazy"></div>'
-    return f'<div class="lg" style="--c1:{o.get("c1","#4D7BFF")};--c2:{o.get("c2","#0b1024")}"><span>{o["ini"]}</span></div>'
+    return f'<div class="lg" style="--c1:{o.get("c1") or o.get("c") or BUILD}"><span>{o["ini"]}</span></div>'
 
 def page_main(svc_link):
-    mega = ''.join(f'<span class="mc">{ch}</span>' for ch in 'PRAJWALGAUTAM')
-    mega_html = f'<span class="sr">Prajwal Gautam – </span><span class="mega" id="mega" aria-hidden="true">{mega}</span>'
-    slash = ''.join(f'<li><a href="{svc_link(slug)}">{t}</a></li>' for t, slug in SLASH)
-    legend = ''.join(f'<a href="{svc_link(c["slug"])}" style="--c:{c["c"]}"><i></i>{E(c["name"])}</a>' for c in CATS)
-    cats = ''.join(f'''<section class="cat" data-state="w{i}" data-theme="night" data-label="(02) Services · {E(c['name'])}" style="--c:{c['c']}" aria-labelledby="cat{i}"><div class="cat-card glass">
- <div class="cat-top"><span><b>{i+1:02d}</b> / 06 · Service</span><span>{len(c['skills'])} skills</span></div>
- <h2 class="cat-h" id="cat{i}">{c['h']}</h2><p>{c['blurb']}</p><div class="chips">{''.join(f'<span>{E(s)}</span>' for s in c['skills'])}</div>
- <p class="proof">Proof: <em>{c['proof']}</em></p><a class="more" href="{svc_link(c['slug'])}">{E(BY_SLUG[c['slug']]['kw'])} →</a></div></section>''' for i, c in enumerate(CATS))
-    jobs = ''.join(f'''<article class="job glass" style="--c:{j['c']}"><div class="job-top">{lg(j)}<div><h3>{E(j['co'])}{'<span class="now">NOW</span>' if j.get('now') else ''}</h3><div class="t">{j['title']}</div><div class="w">{j['where']}</div></div></div><ul>{''.join(f'<li>{p}</li>' for p in j['pts'])}</ul></article>''' for j in JOBS)
+    letters = lambda w: ''.join(f'<span class="mc">{ch}</span>' for ch in w)
+    mega_html = f'<span class="sr">Prajwal Gautam</span><span class="mega" aria-hidden="true">{letters("Prajwal")} {letters("Gautam")}</span>'
+    def pillar(p):
+        items = ''.join(f'<li><a href="{svc_link(slug)}">{E(t)}<span aria-hidden="true">↗</span></a></li>' for t, slug in p['items'])
+        return (f'<article class="pillar glass {p["k"]} rv"><div class="pillar-top"><span class="label"><i></i>{p["label"]}</span><span class="badge">{p["badge"]}</span></div>'
+                f'<h3>{E(p["h"])}</h3><p>{E(p["p"])}</p><ul class="svc-list">{items}</ul><p class="proofline">{p["proof"]}</p></article>')
+    pillars = ''.join(pillar(p) for p in PILLARS)
+    inds = ''.join(f'<tr><th scope="row"><a href="{svc_link(d["slug"])}">{E(d["n"])}</a><small>{E(d["tag"])}</small></th>'
+                   f'<td data-h="Build">{E(d["build"])}</td><td data-h="Create">{E(d["create"])}</td><td data-h="Grow">{E(d["grow"])}</td></tr>' for d in INDUSTRIES)
+    def job(j):
+        now = '<span class="now">NOW</span>' if j.get('now') else ''
+        pts = ''.join(f'<li>{p}</li>' for p in j['pts'])
+        return (f'<article class="job glass" style="--c:{j["c"]}"><div class="job-top">{lg(j)}<div><h3>{E(j["co"])}{now}</h3>'
+                f'<div class="t">{j["title"]}</div><div class="w">{j["where"]}</div></div></div><ul>{pts}</ul></article>')
+    jobs = ''.join(job(j) for j in JOBS)
     panels = []
     for i, w in enumerate(WORK):
         st = '<span class="live-dot">● Live</span>' if w.get('live') else f'<span>{E(w.get("st","Android app" if w.get("priv") else "Code on GitHub"))}</span>'
         link = (f'<a href="{w["live"]}" target="_blank" rel="noopener">Open live ↗</a>' if w.get('live') else
                 f'<a href="{w["repo"]}" target="_blank" rel="noopener">GitHub ↗</a>' if w.get('repo') else
                 f'<a href="{w["priv"]}" target="_blank" rel="noopener">Privacy policy ↗</a>' if w.get('priv') else '<a href="#contact">Ask me ↗</a>')
-        panels.append(f'''<article class="panel" data-k="{w['k']}" style="--c1:{w.get('c1','#4D7BFF')}" aria-label="{E(w['name'])}"><div class="p-top">{st}<span>{i+1:02d}</span></div><div class="p-mid">{lg(w)}<h3>{E(w['name'])}</h3><span class="p-type">{E(w['type'])}</span><p class="p-desc">{E(w['desc'])}</p></div><div class="p-foot"><span class="stk">{E(w['stack'])}</span>{link}</div></article>''')
-    rows = ''.join(f'''<a class="rowl" href="{svc_link(s['slug'])}"><span class="n">{i+1:02d}</span><h3>{E(s['kw'])}</h3><span class="d">{E(' · '.join(n for n, _ in s['offers'][:3]))}</span><span class="ar" aria-hidden="true">↗</span></a>''' for i, s in enumerate(SERVICES))
+        n = f'{i+1:02d}'
+        panels.append(f'<article class="panel" data-k="{w["k"]}" style="--c1:{w["c1"]}" aria-label="{E(w["name"])}"><div class="p-top">{st}<span>{n}</span></div>'
+                      f'<div class="p-mid">{lg(w)}<h3>{E(w["name"])}</h3><span class="p-type">{E(w["type"])}</span><p class="p-desc">{E(w["desc"])}</p></div>'
+                      f'<div class="p-foot"><span class="stk">{E(w["stack"])}</span>{link}</div></article>')
     faq = ''.join(f'<details class="qa"><summary><h3>{E(q)}</h3><span aria-hidden="true">+</span></summary><p>{E(a)}</p></details>' for q, a in FAQ)
-    foot_a = ''.join(f'<a href="{svc_link(s["slug"])}">{E(s["kw"])}</a>' for s in SERVICES[:7])
-    foot_b = ''.join(f'<a href="{svc_link(s["slug"])}">{E(s["kw"])}</a>' for s in SERVICES[7:])
-    inds = ''.join(f'''<a class="ind" href="{svc_link(d['slug'])}"><span class="ind-tag">({i+1:02d}) {E(d['tag'])}</span><h3>{d['n']}</h3><p>{E(d['line'])}</p><span class="chips">{''.join(f'<span>{E(c)}</span>' for c in d['chips'])}</span><span class="ind-go">{E(BY_SLUG[d['slug']]['kw'])} ↗</span></a>''' for i, d in enumerate(INDUSTRIES))
     cnt = {k: sum(1 for w in WORK if w['k'] == k) for k in ('web','app','vid')}
     t = open(os.path.join(ROOT, 'templates', 'page.html')).read()
-    rep = {'{{MEGA}}': mega_html, '{{MEGA_FOOT}}': ''.join(f'<span>{c}</span>' for c in 'PRAJWALGAUTAM'),
-           '{{SLASH}}': slash, '{{LEGEND}}': legend, '{{JOBS}}': jobs, '{{PANELS}}': ''.join(panels),
-           '{{ROWS}}': rows, '{{INDUSTRIES}}': inds, '{{FAQ}}': faq, '{{FOOT_A}}': foot_a, '{{FOOT_B}}': foot_b,
+    rep = {'{{MEGA}}': mega_html, '{{PILLARS}}': pillars, '{{INDUSTRIES}}': inds, '{{JOBS}}': jobs, '{{PANELS}}': ''.join(panels), '{{FAQ}}': faq,
            '{{N_ALL}}': str(len(WORK)), '{{N_WEB}}': str(cnt['web']), '{{N_APP}}': str(cnt['app']), '{{N_VID}}': str(cnt['vid']),
            '{{CATS_JSON}}': json.dumps([dict(name=c['name'], word=c['word'], c=c['c'], skills=c['skills']) for c in CATS]),
-           '{{ROLES_JSON}}': json.dumps(ROLES), '{{ENGINE}}': engine()}
-    # the MEGA token sits inside an h1 that already has a mega span in the template; replace that whole span
-    t = t.replace('<span class="mega" id="mega" aria-label="Prajwal Gautam">{{MEGA}}</span>', '{{MEGA}}')
+           '{{ENGINE}}': engine()}
     for k, v in rep.items():
         assert k in t, k; t = t.replace(k, v)
     return t
 
 # ------------------------------------------------------------------ SEO head
-DESC = "Prajwal Gautam is an AI engineer, full-stack and app developer, AI video and motion designer, and SEO, AEO, ads and growth marketer in Kathmandu, Nepal, working with real estate, jewellery, SaaS and e-commerce brands worldwide."
-TITLE = "Prajwal Gautam – AI Engineer, Full-Stack & App Developer, Growth Marketer in Nepal"
+DESC = "Prajwal Gautam is an AI engineer and full-stack developer in Kathmandu, Nepal. He builds AI-powered websites, web apps and mobile apps, with launch video, SEO, AEO and ads as add-ons, for real estate, e-commerce, SaaS and jewellery brands worldwide."
+TITLE = "Prajwal Gautam – AI Engineer & Full-Stack Developer in Nepal"
 KNOWS = sorted({s for c in CATS for s in c['skills']} | {"Artificial intelligence engineering","Answer Engine Optimization (AEO)","Generative Engine Optimization (GEO)","Motion design","SaaS product animation","Real estate marketing","Jewellery marketing","Graphic design","Next.js","TypeScript","PostgreSQL","Remotion","Blender","Full-stack web development","Mobile app development","AI video production","Search engine optimization","Google Ads","Meta Ads","Growth marketing","E-commerce marketing","Branding","Laravel","PHP","Node.js","React","Django","Python","JavaScript","SQL","Three.js","WebGL"})
 
 def person():
     return {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","alternateName":["Prajjwal Gautam"],"url":SITE,
-      "image":SITE+"assets/prajwal-gautam.webp","jobTitle":"AI Engineer, Full-Stack & App Developer, Growth Marketer","description":DESC,
+      "image":SITE+"assets/prajwal-gautam.webp","jobTitle":"AI Engineer & Full-Stack Developer","description":DESC,
       "email":"mailto:prajolgautam1234@gmail.com","telephone":"+977-9848137372",
       "address":{"@type":"PostalAddress","addressLocality":"Kathmandu","addressRegion":"Bagmati","addressCountry":"NP"},
       "alumniOf":[{"@type":"CollegeOrUniversity","name":"New Summit College, Tribhuvan University"},{"@type":"EducationalOrganization","name":"Kathmandu Model College"}],
@@ -248,7 +270,7 @@ def head_main():
 <meta name="author" content="Prajwal Gautam">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="{SITE}">
-<meta name="theme-color" content="#EDEEF0">
+<meta name="theme-color" content="#F3F2EF">
 <meta property="og:type" content="profile"><meta property="og:site_name" content="Prajwal Gautam">
 <meta property="og:title" content="{E(TITLE)}"><meta property="og:description" content="{E(DESC)}">
 <meta property="og:url" content="{SITE}"><meta property="og:image" content="{SITE}assets/og-image.jpg">
@@ -263,60 +285,64 @@ def head_main():
 
 # ------------------------------------------------------------------ service pages
 SVC_CSS = """
-:root{--paper:#EDEEF0;--ink:#0C0C0E;--night:#07080A;--dim:#5d6068;--accent:#F2334B;--line:rgba(12,12,14,.14);
---disp:"Sofia Sans Extra Condensed","Arial Narrow",Impact,sans-serif;--cond:"Sofia Sans Condensed","Arial Narrow",sans-serif;--body:"Sofia Sans","Noto Sans Devanagari",system-ui,sans-serif;--mono:"Spline Sans Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+:root{--paper:#F3F2EF;--ink:#121316;--ink-2:#2B2D33;--night:#0D0E11;--dim:#5F6168;--accent:#F2334B;--line:rgba(18,19,22,.12);
+--sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--serif:"Instrument Serif",Georgia,serif;--mono:"Spline Sans Mono",ui-monospace,Menlo,monospace;color-scheme:light}
 *{box-sizing:border-box}html{background:var(--paper)}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17.5px;line-height:1.65;-webkit-font-smoothing:antialiased;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 a{color:inherit}:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.wrap{max-width:1200px;margin:0 auto}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:18px;font-family:var(--mono);font-size:13px}
-.nav a{text-decoration:none}.nav .brk{display:flex;gap:22px}.nav .brk a::before{content:"[ ";opacity:.5}.nav .brk a::after{content:" ]";opacity:.5}
-.crumbs{font-family:var(--mono);font-size:12px;color:var(--dim);padding-block:22px 0}.crumbs a{text-decoration:none}.crumbs a:hover{text-decoration:underline}
-.paren{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin:0 0 10px}
-h1{margin:10px 0 0;font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(58px,10.5vw,168px);line-height:.82;letter-spacing:-.005em;text-wrap:balance}
-.lede{font-size:clamp(20px,1.9vw,27px);line-height:1.35;max-width:36ch;margin:26px 0 0;font-weight:500}
-.by{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:22px;text-transform:uppercase;letter-spacing:.04em}
+.wrap{max-width:1160px;margin:0 auto}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:18px;font-size:14px}
+.nav a{text-decoration:none}.nav .brk{display:flex;gap:24px;color:var(--dim)}.nav .brk a:hover{color:var(--ink)}
+.pg{font-weight:600;font-size:15px;display:flex;gap:10px;align-items:center}.pg i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hire{font-weight:600;padding:9px 16px;border-radius:999px;background:var(--ink);color:var(--paper)}
+.crumbs{font-family:var(--mono);font-size:11.5px;color:var(--dim);padding-block:22px 0}.crumbs a{text-decoration:none}.crumbs a:hover{text-decoration:underline}
+.paren{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin:0 0 10px}
+h1,h2,h3{font-weight:500;letter-spacing:-.03em;text-wrap:balance}
+h1{margin:10px 0 0;font-size:clamp(42px,6.4vw,92px);line-height:1;letter-spacing:-.04em}
+.lede{font-size:clamp(19px,1.7vw,24px);line-height:1.45;max-width:40ch;margin:24px 0 0;color:var(--ink-2)}
+.by{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:22px;text-transform:uppercase;letter-spacing:.06em}
 .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-.btn{display:inline-flex;gap:8px;align-items:center;padding:13px 20px;border-radius:999px;border:1px solid var(--ink);text-decoration:none;font-weight:600;font-size:15px}
+.btn{display:inline-flex;gap:8px;align-items:center;padding:12px 20px;border-radius:999px;border:1px solid var(--line);text-decoration:none;font-weight:600;font-size:15px}
+.btn:hover{border-color:var(--ink)}
 .btn.hot{background:var(--accent);border-color:var(--accent);color:#fff}
-section{padding-block:clamp(48px,9vh,96px);border-top:1px solid var(--line)}
+section{padding-block:clamp(48px,8vh,88px);border-top:1px solid var(--line)}
 section:first-of-type{border-top:0}
 .cols{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(20px,4vw,64px)}
-h2{margin:0;font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(40px,5vw,76px);line-height:.88;text-wrap:balance}
+h2{margin:0;font-size:clamp(30px,3.4vw,48px);line-height:1.08}
 .prose p{margin:0 0 16px;max-width:64ch}
-.offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
-.offers div{padding:20px 18px 20px 0;border-bottom:1px solid var(--line)}
-.offers h3{margin:0 0 6px;font-family:var(--cond);font-weight:800;font-size:24px;text-transform:uppercase;line-height:1}
-.offers p{margin:0;color:#34363c;font-size:16px}
+.offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.offers div{padding:20px 0;border-bottom:1px solid var(--line)}
+.offers h3{margin:0 0 6px;font-size:19px;font-weight:600;letter-spacing:-.015em;line-height:1.25}
+.offers p{margin:0;color:var(--ink-2);font-size:16px}
 ul.proof{margin:0;padding:0;list-style:none;display:grid;gap:12px}
 ul.proof li{padding-left:22px;position:relative;max-width:64ch}ul.proof li::before{content:"↗";position:absolute;left:0;color:var(--accent)}
 ol.steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
-ol.steps li{border-top:2px solid var(--ink);padding-top:14px;counter-increment:s}
-ol.steps li::before{content:"0" counter(s);font-family:var(--mono);font-size:12px;color:var(--accent)}
-ol.steps h3{margin:8px 0 6px;font-family:var(--cond);font-weight:800;font-size:22px;text-transform:uppercase;line-height:1}
-ol.steps p{margin:0;font-size:15px;color:#34363c}
-.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{font-family:var(--mono);font-size:13px;padding:7px 12px;border-radius:999px;border:1px solid var(--line)}
+ol.steps li{border-top:1.5px solid var(--ink);padding-top:14px;counter-increment:s}
+ol.steps li::before{content:"0" counter(s);font-family:var(--mono);font-size:11px;color:var(--accent)}
+ol.steps h3{margin:8px 0 6px;font-size:18px;font-weight:600;line-height:1.25}
+ol.steps p{margin:0;font-size:15px;color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{font-family:var(--mono);font-size:12.5px;padding:7px 12px;border-radius:999px;border:1px solid var(--line)}
 details{border-bottom:1px solid var(--line)}details:first-of-type{border-top:1px solid var(--line)}
 summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 2px}
-summary::-webkit-details-marker{display:none}summary h3{margin:0;font-family:var(--cond);font-weight:700;font-size:22px;line-height:1.15}
-summary span{font-size:22px;transition:transform .3s}details[open] summary span{transform:rotate(45deg);color:var(--accent)}
-details p{margin:0;padding:0 2px 18px;max-width:64ch;color:#2f3137}
-.cta{background:var(--night);color:#EDEEF0;border-radius:24px;padding:clamp(28px,5vw,56px);border:0;margin-block:40px}
-.cta h2{font-size:clamp(46px,6vw,96px)}.cta h2 span{color:var(--accent)}
-.cta .lines{display:grid;gap:6px;margin-top:22px;font-family:var(--mono);font-size:16px}.cta .btn{border-color:#EDEEF0}
-.rel a{display:grid;grid-template-columns:minmax(0,1fr) 30px;gap:12px;align-items:center;padding:18px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+summary::-webkit-details-marker{display:none}summary h3{margin:0;font-size:18.5px;font-weight:500;line-height:1.3}
+summary span{font-size:20px;transition:transform .3s;color:var(--dim)}details[open] summary span{transform:rotate(45deg);color:var(--accent)}
+details p{margin:0;padding:0 2px 18px;max-width:64ch;color:var(--ink-2)}
+.cta{background:var(--night);color:#F1F0ED;border-radius:22px;padding:clamp(28px,5vw,56px);border:0;margin-block:40px}
+.cta h2{font-size:clamp(34px,4.4vw,64px);line-height:1.04}.cta h2 span{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent)}
+.cta .lines{display:grid;gap:4px;margin-top:22px;font-family:var(--mono);font-size:14px;color:#9A9DA6}.cta .btn{border-color:rgba(241,240,237,.25)}.cta .btn:hover{border-color:#F1F0ED}
+.rel a{display:grid;grid-template-columns:minmax(0,1fr) 30px;gap:12px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--line);text-decoration:none}
 .rel a:first-child{border-top:1px solid var(--line)}
-.rel h3{margin:0;font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(28px,3.4vw,52px);line-height:.9}
+.rel h3{margin:0;font-size:clamp(20px,2vw,28px);line-height:1.15}
 .rel a:hover{color:var(--accent)}
-footer{padding-block:40px 60px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-footer a{text-decoration:none}footer a:hover{text-decoration:underline}
+footer{padding-block:32px 56px;border-top:1px solid var(--line);font-size:13px;color:var(--dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 @media (max-width:860px){.cols{grid-template-columns:minmax(0,1fr)}.offers{grid-template-columns:minmax(0,1fr)}ol.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.nav .brk{display:none}}
 @media (max-width:480px){ol.steps{grid-template-columns:minmax(0,1fr)}}
 """
 
 def page_service(s, home, svc_link, assets):
     url = f"{SITE}services/{s['slug']}/"
-    crumbs = [{"@type":"ListItem","position":1,"name":"Home","item":SITE},{"@type":"ListItem","position":2,"name":"Services","item":SITE+"#find"},{"@type":"ListItem","position":3,"name":s['kw'],"item":url}]
+    crumbs = [{"@type":"ListItem","position":1,"name":"Home","item":SITE},{"@type":"ListItem","position":2,"name":"Services","item":SITE+"#services"},{"@type":"ListItem","position":3,"name":s['kw'],"item":url}]
     graph = [
       {"@type":"WebPage","@id":url+"#webpage","url":url,"name":s['title'],"description":s['desc'],"inLanguage":"en","dateModified":TODAY,
        "isPartOf":{"@id":SITE+"#website"},"breadcrumb":{"@id":url+"#crumbs"},"about":{"@id":url+"#service"},"author":{"@id":SITE+"#person"}},
@@ -325,7 +351,7 @@ def page_service(s, home, svc_link, assets):
        "hasOfferCatalog":{"@type":"OfferCatalog","name":s['short'],"itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":n,"description":d}} for n, d in s['offers']]}},
       {"@type":"BreadcrumbList","@id":url+"#crumbs","itemListElement":crumbs},
       {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in s['faq']]},
-      {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","url":SITE,"jobTitle":"AI Engineer, Full-Stack & App Developer, Growth Marketer",
+      {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","url":SITE,"jobTitle":"AI Engineer & Full-Stack Developer",
        "sameAs":["https://www.linkedin.com/in/prajjwal-gautam/","https://github.com/Prajjwalgautam"]},
     ]
     ld = json.dumps({"@context":"https://schema.org","@graph":graph}, ensure_ascii=False)
@@ -352,20 +378,20 @@ def page_service(s, home, svc_link, assets):
 <meta name="geo.region" content="NP-BA"><meta name="geo.placename" content="Kathmandu">
 <link rel="icon" href="{assets}slugforge-logo.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@900&family=Sofia+Sans+Condensed:wght@700;800&family=Sofia+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Spline+Sans+Mono:wght@400&display=swap">
 <script type="application/ld+json">{ld}</script>
 <style>{SVC_CSS}</style>
 </head>
 <body>
 <div class="wrap">
-<nav class="nav" aria-label="Main"><a href="{home}">[ PG ] Prajwal Gautam</a><span class="brk"><a href="{home}#services">Services</a><a href="{home}#work">Work</a><a href="{home}#about">About</a></span><a href="{home}#contact" style="text-decoration:underline">Contact ↗</a></nav>
-<nav class="crumbs" aria-label="Breadcrumb"><a href="{home}">Home</a> / <a href="{home}#find">Services</a> / <span aria-current="page">{E(s['kw'])}</span></nav>
+<nav class="nav" aria-label="Main"><a class="pg" href="{home}"><i aria-hidden="true"></i>Prajwal Gautam</a><span class="brk"><a href="{home}#services">Services</a><a href="{home}#work">Work</a><a href="{home}#about">About</a></span><a class="hire" href="{home}#contact">Hire me</a></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="{home}">Home</a> / <a href="{home}#services">Services</a> / <span aria-current="page">{E(s['kw'])}</span></nav>
 <header style="padding-block:30px 60px">
   <p class="paren">(Service) · {E(s['short'])}</p>
   <h1>{E(s['kw'])}</h1>
   <p class="lede">{E(s['lede'])}</p>
   <div class="btns"><a class="btn hot" href="mailto:prajolgautam1234@gmail.com?subject={E(s['kw'])}%20project">Start a project</a><a class="btn" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp me</a><a class="btn" href="{home}#work">See my work</a></div>
-  <p class="by">By Prajwal Gautam · AI Engineer, Full-Stack &amp; App Developer, Growth Marketer · Kathmandu, Nepal · Updated November 2026</p>
+  <p class="by">By Prajwal Gautam · AI engineer &amp; full-stack developer · Kathmandu, Nepal · Updated November 2026</p>
 </header>
 <main>
 <section class="cols"><p class="paren">(Overview)</p><div class="prose">{''.join(f'<p>{E(p)}</p>' for p in s['intro'])}</div></section>
@@ -376,9 +402,9 @@ def page_service(s, home, svc_link, assets):
 <section class="cols"><h2>Tools &amp; languages</h2><div class="chips">{tools}</div></section>
 <section class="cols"><h2>How much does it cost?</h2><div class="prose">{''.join(f'<p>{E(p)}</p>' for p in s['cost'])}</div></section>
 <section class="cols"><h2>Frequently asked questions</h2><div>{faq}</div></section>
-<div class="cta"><p class="paren" style="color:#8d919b">(Contact)</p><h2>Let’s talk about your <span>{E(s['short'].lower())}</span> project.</h2>
+<div class="cta"><p class="paren" style="color:#9A9DA6">Hire me</p><h2>Got a {E(s['short'].lower())} project? <span>Let’s ship it.</span></h2>
 <div class="lines"><span>prajolgautam1234@gmail.com</span><span>WhatsApp +977 984-8137372</span><span>Kathmandu, Nepal · UTC+5:45 · replies within one working day</span></div>
-<div class="btns"><a class="btn hot" href="mailto:prajolgautam1234@gmail.com">Email me</a><a class="btn" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp ↗</a><a class="btn" href="https://www.linkedin.com/in/prajjwal-gautam/" target="_blank" rel="noopener">LinkedIn ↗</a></div></div>
+<div class="btns"><a class="btn hot" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp me</a><a class="btn" href="mailto:prajolgautam1234@gmail.com">Email me</a></div></div>
 <section><p class="paren">(Related services)</p><div class="rel">{rel}</div></section>
 </main>
 <footer><span>© 2026 Prajwal Gautam · Kathmandu, Nepal</span><span><a href="{home}">Home</a> · {' · '.join(f'<a href="{svc_link(x["slug"], True)}">{E(x["short"])}</a>' for x in SERVICES)}</span></footer>
@@ -428,12 +454,13 @@ Allow: /
 Sitemap: {SITE}sitemap.xml
 """)
     llms = ["# Prajwal Gautam", "", f"> {DESC}", "", "Website: " + SITE, "",
-            "## Roles", "- AI Engineer", "- Full-Stack Web Developer", "- App Developer (mobile and web)", "- AI Video Producer",
-            "- SEO and AEO/GEO Specialist (AI search optimization) and Marketing Researcher", "- Motion Designer (SaaS product animation, 3D)", "- Industries: real estate, jewellery, SaaS and tech, e-commerce, education, food and travel", "- Google Ads and Meta Ads Campaign Strategist", "- Growth, E-commerce and Brand Marketer", "",
+            "## What he does", "- Main role: AI engineer and full-stack developer (websites, web apps, mobile apps, APIs, AI features)",
+            "- Add-on: video and motion (AI video production, motion design for SaaS)", "- Add-on: growth (SEO, AEO/GEO, Google and Meta ads, branding)",
+            "- Industries: real estate, e-commerce, SaaS and tech, education, jewellers, food and travel", "",
             "## Service pages"] + [f"- [{s['kw']}]({SITE}services/{s['slug']}/): {s['desc']}" for s in SERVICES] + ["",
             "## Experience"] + [f"- {j['co']} ({j['where']}): {html.unescape(j['title'])}. " + ' '.join(re.sub('<[^>]+>', '', p) for p in j['pts']) for j in JOBS] + ["",
             "## Live projects", "- [Nepal Bhoomi](https://www.nepalbhoomi.com): real-estate platform; video, SEO and growth.", "- [Slugforge Studio](https://slugforge.vercel.app): creative studio website and video services.", "",
-            "## Languages", "- Code: PHP, JavaScript, Python, SQL, HTML/CSS", "- Frameworks: Laravel, Node.js, React, Django, Three.js", "- Spoken: English, Nepali, Hindi", "",
+            "## Languages", "- Code: TypeScript, JavaScript, PHP, Python, SQL, GLSL", "- Frameworks: Next.js, React, Node.js, Laravel, Prisma, Three.js", "- Spoken: English, Nepali, Hindi", "",
             "## Education", "- BSc CSIT, New Summit College, Tribhuvan University", "- +2 Science, Kathmandu Model College", "",
             "## Contact", "- Email: prajolgautam1234@gmail.com", "- Phone & WhatsApp: +977 984-8137372 (https://wa.me/9779848137372)", "- LinkedIn: https://www.linkedin.com/in/prajjwal-gautam/",
             "- GitHub: https://github.com/Prajjwalgautam", "- Location: Kathmandu, Nepal (UTC+5:45); works with clients worldwide", ""]

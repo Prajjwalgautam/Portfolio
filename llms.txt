@@ -1,19 +1,14 @@
 # Prajwal Gautam
 
-> Prajwal Gautam is an AI engineer, full-stack and app developer, AI video and motion designer, and SEO, AEO, ads and growth marketer in Kathmandu, Nepal, working with real estate, jewellery, SaaS and e-commerce brands worldwide.
+> Prajwal Gautam is an AI engineer and full-stack developer in Kathmandu, Nepal. He builds AI-powered websites, web apps and mobile apps, with launch video, SEO, AEO and ads as add-ons, for real estate, e-commerce, SaaS and jewellery brands worldwide.
 
 Website: https://prajjwalgautam.com.np/
 
-## Roles
-- AI Engineer
-- Full-Stack Web Developer
-- App Developer (mobile and web)
-- AI Video Producer
-- SEO and AEO/GEO Specialist (AI search optimization) and Marketing Researcher
-- Motion Designer (SaaS product animation, 3D)
-- Industries: real estate, jewellery, SaaS and tech, e-commerce, education, food and travel
-- Google Ads and Meta Ads Campaign Strategist
-- Growth, E-commerce and Brand Marketer
+## What he does
+- Main role: AI engineer and full-stack developer (websites, web apps, mobile apps, APIs, AI features)
+- Add-on: video and motion (AI video production, motion design for SaaS)
+- Add-on: growth (SEO, AEO/GEO, Google and Meta ads, branding)
+- Industries: real estate, e-commerce, SaaS and tech, education, jewellers, food and travel
 
 ## Service pages
 - [AI Engineer in Nepal](https://prajjwalgautam.com.np/services/ai-engineer-nepal/): Hire Prajwal Gautam, an AI engineer in Kathmandu, Nepal, for LLM integrations, AI automation, chatbots and AI-powered websites and apps for clients worldwide.
@@ -32,18 +27,18 @@ Website: https://prajjwalgautam.com.np/
 - [Motion Design & Animation for SaaS](https://prajjwalgautam.com.np/services/saas-motion-design/): Motion design and animation for SaaS and tech: product explainer videos, UI animations, launch videos and 3D, made in code with Remotion so they update with your product.
 
 ## Experience
-- Nepal Bhoomi (Lazimpat, Kathmandu): Video, Design, Growth & Platform. Built a code-driven video pipeline (Remotion + Python AI: Whisper captions, upscaling, background removal, tracking) that ships 3–4 property reels a day. Co-built the Nepal Bhoomi platform: Next.js API, PostgreSQL, React admin, 2FA, Google sign-in and audit logging. Own SEO captions, audience research, ad tracking and monthly growth reports; designed the brand’s sonic logo.
-- Freelance (Remote · worldwide): AI Video Producer & Motion Designer. Promotional and explainer videos for schools and study-abroad consultancies on IELTS, GRE, SAT and applications. Long podcasts and interviews cut into captioned short-form clips. The 195 Project documentary episodes with Blender 3D scenes, plus an AI-made educational YouTube channel.
+- Nepal Bhoomi (Lazimpat, Kathmandu): Platform Developer & Digital Lead. Co-built the Nepal Bhoomi platform: Next.js API, PostgreSQL, React admin, 2FA, Google sign-in and audit logging. Built a code-driven video pipeline (Remotion + Python AI: Whisper captions, upscaling, background removal, tracking) for branded property reels. Run SEO, audience research, ad tracking and monthly growth reports; designed the brand’s sonic logo.
 - Ek Ra Sunya Inc. (Balkumari, Lalitpur): Backend Developer. Shipped payments, shipping and currency features on the live Sayapatri e-commerce platform. Integrated Khalti checkout and MailQuote real-time shipping rates. Added live exchange rates with USD to AUD base-currency pricing.
 - Uno Technology (Gyaneshwor, Kathmandu): Full-Stack Web Developer. Built a Laravel HRMS: JWT auth, OTP password reset by email, attendance check-in/out, tasks, admin and employee roles. Built Fitfutures, an e-learning and school management platform with progress tracking and reports. Built First Math, a maths and science game with three levels per subject and live scoring.
+- Freelance (Remote · worldwide): Video Producer & Motion Designer. Promotional and explainer videos for schools and study-abroad consultancies on IELTS, GRE, SAT and applications. Long podcasts and interviews cut into captioned short-form clips. The 195 Project documentary episodes with Blender 3D scenes, plus an AI-made educational YouTube channel.
 
 ## Live projects
 - [Nepal Bhoomi](https://www.nepalbhoomi.com): real-estate platform; video, SEO and growth.
 - [Slugforge Studio](https://slugforge.vercel.app): creative studio website and video services.
 
 ## Languages
-- Code: PHP, JavaScript, Python, SQL, HTML/CSS
-- Frameworks: Laravel, Node.js, React, Django, Three.js
+- Code: TypeScript, JavaScript, PHP, Python, SQL, GLSL
+- Frameworks: Next.js, React, Node.js, Laravel, Prisma, Three.js
 - Spoken: English, Nepali, Hindi
 
 ## Education
