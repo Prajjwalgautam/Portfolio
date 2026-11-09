@@ -893,8 +893,8 @@ function layoutOf(name){
 }
 
 /* --- atlas --- */
-const atlas=document.createElement('canvas'); atlas.width=1024; atlas.height=1440; const atlasTex=new THREE.CanvasTexture(atlas);
-function drawAtlas(){ const g=atlas.getContext('2d'); g.clearRect(0,0,1024,1440); g.fillStyle='#fff'; g.textAlign='center'; g.textBaseline='middle';
+const atlas=document.createElement('canvas'); atlas.width=2048; atlas.height=2880; const atlasTex=new THREE.CanvasTexture(atlas); atlasTex.anisotropy=renderer.capabilities.getMaxAnisotropy();
+function drawAtlas(){ const g=atlas.getContext('2d'); g.setTransform(2,0,0,2,0,0); g.clearRect(0,0,1024,1440); g.fillStyle='#fff'; g.textAlign='center'; g.textBaseline='middle';
   SKILLS.forEach((k,i)=>{ const cx=(i%4)*256+128, cy=Math.floor(i/4)*160+80; let fs=60; const t=k.s.toUpperCase();
     g.font=`900 ${fs}px "Sofia Sans Extra Condensed", "Arial Narrow", sans-serif`; while(g.measureText(t).width>236&&fs>16){fs-=2; g.font=`900 ${fs}px "Sofia Sans Extra Condensed", "Arial Narrow", sans-serif`;} g.fillText(t,cx,cy+2); });
   atlasTex.needsUpdate=true; }

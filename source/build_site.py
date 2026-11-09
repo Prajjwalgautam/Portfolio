@@ -119,6 +119,10 @@ def engine():
     R("const N=raw.length/5; $('nCards').textContent=N.toLocaleString('en-US');", "const N=raw.length/5;")
     eng = eng.replace('Unbounded, "Arial Black", sans-serif', '"Sofia Sans Extra Condensed", "Arial Narrow", sans-serif')
     R("let fs=46; const t=k.s.toUpperCase();", "let fs=60; const t=k.s.toUpperCase();")
+    # sharper card labels: draw the skill atlas at 2x and filter it anisotropically
+    R("atlas.width=1024; atlas.height=1440; const atlasTex=new THREE.CanvasTexture(atlas);",
+      "atlas.width=2048; atlas.height=2880; const atlasTex=new THREE.CanvasTexture(atlas); atlasTex.anisotropy=renderer.capabilities.getMaxAnisotropy();")
+    R("g.clearRect(0,0,1024,1440);", "g.setTransform(2,0,0,2,0,0); g.clearRect(0,0,1024,1440);")
     R("  const cc=CATC[ci];\n  return fromPoints(pts,W,H,24,1.6,(p,k)=>{ const own=data[k*4+2]===ci;",
       "  const cc=ci>=0?CATC[ci]:hex('#0C0C0E');\n  return fromPoints(pts,W,H,24,1.6,(p,k)=>{ const own=ci>=0&&data[k*4+2]===ci;")
     R("  galaxy:galaxy(), helix:helix(), wave:wave(),", """  galaxy:galaxy(), helix:helix(), wave:wave(), dust:dust(),""")
