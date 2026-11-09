@@ -2,26 +2,18 @@
 
 **Live site: [prajjwalgautam.com.np](https://prajjwalgautam.com.np)**
 
-I'm Prajwal Gautam, an AI engineer and full-stack developer based in Kathmandu, Nepal.
+I'm Prajwal Gautam, an AI engineer, full-stack and app developer, and growth marketer based in Kathmandu, Nepal.
 This repo holds my personal portfolio website.
 
 ## What the site does
 
-- **One clear role.** AI engineer and full-stack developer first. Video and marketing are add-ons, not extra job titles.
-- **A face made of 9,105 skill cards.** Each card carries one real skill. They follow your cursor and, as you scroll,
-  reshape into a code symbol, a spinning galaxy of skills, a career helix, the logos of my live projects and a wave.
-- **One services section.** Three pillars (Build, Create, Grow) and a table showing what I deliver for each industry.
-- **My work, sorted.** Websites, apps and video in one curved carousel you can drag sideways or filter.
-- **A "Hire me" button** in the header that sends the client's message by WhatsApp or email.
-- **14 service pages**, one for each thing people search for (AI engineer in Nepal, full-stack developer, app developer,
-  SEO, AEO, AI video, SaaS motion design, real estate and jewellery marketing and more).
-
-## Design system
-
-- **Colours:** warm paper `#F3F2EF`, ink `#121316`, night `#0D0E11`, one brand red `#F2334B`.
-  Three pillar colours are used only as small marks: Build `#7B8CFF`, Create `#F2334B`, Grow `#E8B04A`.
-- **Type:** Instrument Sans for text and headings, Instrument Serif italic for the odd accent word,
-  Spline Sans Mono for small labels.
+- **A face made of 9,105 skill cards.** Each card carries one real skill. They follow your cursor, and as you scroll they
+  reshape into a code symbol, a spinning galaxy of my six services, a career helix, the logos of my live projects and a wave.
+- **A loader that "dispatches" my name.** The letters spin on a 3D ring, then fly into place as the page headline.
+- **My work, sorted.** Websites, apps and video sit in one curved carousel you can drag, scroll or filter.
+- **An "Ask me" button.** Clients write a message once and send it by email or WhatsApp.
+- **14 service pages**, one for each thing people search for (AI engineer in Nepal, SEO expert, app developer,
+  AI video, Google & Meta ads, AEO, real estate and jewellery marketing, SaaS motion design and more).
 
 ## Built with
 
@@ -29,7 +21,7 @@ This repo holds my personal portfolio website.
 - **Lenis** for smooth scrolling
 - Plain **HTML, CSS and JavaScript**. There is no framework and no build step in the browser.
 - **Python** to generate the pages from one template
-- Fonts: Instrument Sans, Instrument Serif and Spline Sans Mono from Google Fonts
+- Fonts: Sofia Sans and Spline Sans Mono from Google Fonts
 
 ## Folder guide
 
@@ -58,7 +50,7 @@ docs/
 ## Making changes
 
 1. Edit the text or layout:
-   - Home page wording and data (services, industries, experience, projects, FAQ) live at the top of `source/build_site.py`.
+   - Home page wording and data (services, experience, projects, FAQ) live at the top of `source/build_site.py`.
    - Service page wording lives in `source/service_pages.py`.
    - Layout, colours and animations live in `source/templates/page.html`.
 2. Rebuild the site:
@@ -76,4 +68,4 @@ social-share tags and a canonical link. `llms.txt` and `robots.txt` make the sit
 
 - Email: [prajolgautam1234@gmail.com](mailto:prajolgautam1234@gmail.com)
 - WhatsApp: [+977 984-8137372](https://wa.me/9779848137372)
-- LinkedIn: [Prajwal Gautam](https://www.linkedin.com/in/prajjwal-gautam/)
+- LinkedIn: [in/prajjwal-gautam](https://www.linkedin.com/in/prajjwal-gautam/)
