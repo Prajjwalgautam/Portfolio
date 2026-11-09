@@ -1,0 +1,10 @@
+# Preview copy made by the build script
+source/preview/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# System files
+.DS_Store
+Thumbs.db

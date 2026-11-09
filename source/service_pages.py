@@ -1,4 +1,5 @@
-# Content for the 10 keyword landing pages. Every claim is drawn from Prajwal's CVs and live projects.
+# Text for the 14 service pages (services/<slug>/index.html).
+# Edit the wording here, then run build_site.py. Every claim comes from real CVs and live projects.
 PROCESS = [
     ("Free 20-minute call", "We agree the goal, the audience, the budget and a deadline that both of us can keep."),
     ("Plan and quote", "You get a written plan and a fixed-price quote before any work starts. No surprises later."),

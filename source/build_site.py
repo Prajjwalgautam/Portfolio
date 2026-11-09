@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
-"""v6 builder. Produces:
-   site:     ../index.html, ../services/<slug>/index.html, ../sitemap.xml, ../robots.txt, ../llms.txt, ../assets/*
-   artifact: ./art/index.html (= prajwal-jar.html), ./art/services/<slug>/index.html, ./art/assets/*
+"""
+Builds the whole website from the template and the content files.
+
+Run it from anywhere:
+    python3 source/build_site.py
+
+What it writes into the repo root:
+    index.html                         the home page
+    services/<name>/index.html         one page per service (14 pages)
+    sitemap.xml, robots.txt, llms.txt  for Google and AI search engines
+
+It also writes a preview copy into source/preview/ (ignored by git).
 """
 import json, html, os, re, shutil
-from services6 import SERVICES, BY_SLUG, PROCESS
+from service_pages import SERVICES, BY_SLUG, PROCESS
 
 ROOT = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.dirname(ROOT)
 SITE = "https://prajjwalgautam.com.np/"
@@ -99,7 +108,7 @@ INDUSTRIES = [
 
 # ------------------------------------------------------------------ engine
 def engine():
-    s = open(os.path.join(ROOT, 'src-v5.html')).read()
+    s = open(os.path.join(ROOT, 'templates', 'card-engine.html')).read()
     eng = s[s.index('/* ================= WebGL ================= */'):s.rindex('})();')]
     def R(a, b, cnt=1):
         nonlocal eng
@@ -177,7 +186,7 @@ def page_main(svc_link):
     foot_b = ''.join(f'<a href="{svc_link(s["slug"])}">{E(s["kw"])}</a>' for s in SERVICES[7:])
     inds = ''.join(f'''<a class="ind" href="{svc_link(d['slug'])}"><span class="ind-tag">({i+1:02d}) {E(d['tag'])}</span><h3>{d['n']}</h3><p>{E(d['line'])}</p><span class="chips">{''.join(f'<span>{E(c)}</span>' for c in d['chips'])}</span><span class="ind-go">{E(BY_SLUG[d['slug']]['kw'])} ↗</span></a>''' for i, d in enumerate(INDUSTRIES))
     cnt = {k: sum(1 for w in WORK if w['k'] == k) for k in ('web','app','vid')}
-    t = open(os.path.join(ROOT, 'src-v6.html')).read()
+    t = open(os.path.join(ROOT, 'templates', 'page.html')).read()
     rep = {'{{MEGA}}': mega_html, '{{MEGA_FOOT}}': ''.join(f'<span>{c}</span>' for c in 'PRAJWALGAUTAM'),
            '{{SLASH}}': slash, '{{LEGEND}}': legend, '{{JOBS}}': jobs, '{{PANELS}}': ''.join(panels),
            '{{ROWS}}': rows, '{{INDUSTRIES}}': inds, '{{FAQ}}': faq, '{{FOOT_A}}': foot_a, '{{FOOT_B}}': foot_b,
@@ -369,7 +378,7 @@ def page_service(s, home, svc_link, assets):
 
 # ------------------------------------------------------------------ build
 def build():
-    face = open('/tmp/claude-0/face2.b64').read()
+    face = open(os.path.join(ROOT, 'data', 'face-cards.b64')).read()
     # ---- site
     site_link = lambda slug, from_svc=False: (f"../{slug}/" if from_svc else f"services/{slug}/")
     main = page_main(site_link)
@@ -420,7 +429,7 @@ Sitemap: {SITE}sitemap.xml
     open(os.path.join(REPO, 'llms.txt'), 'w').write('\n'.join(llms))
 
     # ---- artifact (multi-file)
-    art = os.path.join(ROOT, 'art'); shutil.rmtree(art, ignore_errors=True); os.makedirs(os.path.join(art, 'assets'))
+    art = os.path.join(ROOT, 'preview'); shutil.rmtree(art, ignore_errors=True); os.makedirs(os.path.join(art, 'assets'))
     for f in ['nepal-bhoomi-logo.webp', 'slugforge-logo.webp', 'prajwal-gautam.webp']:
         shutil.copy(os.path.join(REPO, 'assets', f), os.path.join(art, 'assets', f))
     art_link = lambda slug, from_svc=False: (f"../{slug}/index.html" if from_svc else f"services/{slug}/index.html")
@@ -431,7 +440,7 @@ Sitemap: {SITE}sitemap.xml
                   '<script>document.documentElement.classList.add(\'js\');document.body.dataset.theme=\'paper\'</script>')
     a = a.replace('</body>\n</html>\n', '')
     assert '<body' not in a and '</head>' not in a
-    open(os.path.join(ROOT, 'prajwal-jar.html'), 'w').write(a)
+    open(os.path.join(art, 'index.html'), 'w').write(a)
     for s in SERVICES:
         d = os.path.join(art, 'services', s['slug']); os.makedirs(d, exist_ok=True)
         open(os.path.join(d, 'index.html'), 'w').write(page_service(s, '../../', art_link, '../../assets/'))
