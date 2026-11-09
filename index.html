@@ -729,6 +729,10 @@ document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',a
 /* ---------- curved carousel ---------- */
 const car=$('car'), carRing=$('carRing'); const allPanels=[...carRing.children]; let panels=allPanels.slice();
 let pos=0, target=0, vel=0, PW=480, GAP=26, R=900, TH=30, drag=null, running=false, wheelT=0;
+/* auto-rotate: one project every ~4.5 s while the carousel is on screen; pauses on hover, drag, focus or a click, resumes 3 s later */
+let carSeen=false, carHover=false, carPauseUntil=0, carLastT=0; const AUTO=1/4.5;
+const autoOn=()=>!reduce&&carSeen&&!carHover&&!drag&&!document.hidden&&performance.now()>carPauseUntil&&!(car.matches(':focus-visible')||car.querySelector(':focus-visible'));
+const pauseCar=()=>{ carPauseUntil=performance.now()+3000; };
 function carLayout(){ const w=car.clientWidth; PW=Math.min(500, Math.max(250, w*(innerWidth<900?.78:.36))); const PH=Math.round(PW*(innerWidth<900?1.25:.74));
   car.style.setProperty('--pw',PW+'px'); car.style.setProperty('--ph',PH+'px'); R=PW*1.85; TH=2*Math.asin((PW+GAP)/(2*R))*180/Math.PI; carRender(); }
 function wrapIdx(i,n){ return ((i%n)+n)%n; }
@@ -743,13 +747,20 @@ function carRender(){
     p.style.zIndex=String(100-Math.round(ab*10)); p.tabIndex=ab<.5?0:-1; p.setAttribute('aria-hidden',ab<.5?'false':'true'); });
   $('carCount').textContent=String(wrapIdx(Math.round(pos),n)+1).padStart(2,'0')+' / '+String(n).padStart(2,'0');
 }
-function carTick(){
-  if(!drag){ const d=target-pos; vel=d*.14; pos+=vel; if(Math.abs(d)<.0008){ pos=target; vel=0; carRender(); running=false; return; } }
+function carTick(t){
+  const dt=Math.min(.1,((t||0)-carLastT)/1000||0); carLastT=t||0;
+  if(autoOn()){ target+=AUTO*dt; }
+  if(!drag){ const d=target-pos; vel=d*.14; pos+=vel; if(Math.abs(d)<.0008&&!autoOn()){ pos=target; vel=0; carRender(); running=false; return; } }
   carRender(); requestAnimationFrame(carTick);
 }
-function kick(){ if(!running){ running=true; requestAnimationFrame(carTick); } }
+function kick(){ if(!running){ running=true; carLastT=performance.now(); requestAnimationFrame(carTick); } }
+new IntersectionObserver(es=>es.forEach(e=>{ carSeen=e.isIntersecting; if(carSeen) kick(); }),{threshold:.25}).observe(car);
+car.addEventListener('pointerenter',e=>{ if(e.pointerType==='mouse') carHover=true; });
+car.addEventListener('pointerleave',()=>{ carHover=false; target=Math.round(target); pauseCar(); setTimeout(kick,3050); });
+document.addEventListener('visibilitychange',()=>{ if(!document.hidden) kick(); });
+car.addEventListener('focusout',()=>setTimeout(kick,50));
 carLayout(); addEventListener('resize',carLayout);
-car.addEventListener('pointerdown',e=>{ if(e.button!==0) return; drag={id:e.pointerId,x:e.clientX,y:e.clientY,p0:pos,axis:null,lx:e.clientX,lt:performance.now(),v:0}; });
+car.addEventListener('pointerdown',e=>{ if(e.button!==0) return; pauseCar(); target=Math.round(pos); drag={id:e.pointerId,x:e.clientX,y:e.clientY,p0:pos,axis:null,lx:e.clientX,lt:performance.now(),v:0}; });
 car.addEventListener('pointermove',e=>{ if(!drag||e.pointerId!==drag.id) return;
   const dx=e.clientX-drag.x, dy=e.clientY-drag.y;
   if(!drag.axis){ if(Math.abs(dx)<6&&Math.abs(dy)<6) return; drag.axis=Math.abs(dx)>Math.abs(dy)?'x':'y';
@@ -757,18 +768,18 @@ car.addEventListener('pointermove',e=>{ if(!drag||e.pointerId!==drag.id) return;
   const now=performance.now(); drag.v=(e.clientX-drag.lx)/Math.max(1,now-drag.lt); drag.lx=e.clientX; drag.lt=now;
   const np=drag.p0-dx/(PW+GAP); vel=np-pos; pos=np; kick(); });
 function endDrag(){ if(!drag) return; const wasX=drag.axis==='x', v=drag.v; drag=null;
-  if(wasX){ target=Math.round(pos-v*220/(PW+GAP)); car.__justDragged=true; setTimeout(()=>car.__justDragged=false,50); kick(); } }
+  if(wasX){ target=Math.round(pos-v*220/(PW+GAP)); car.__justDragged=true; setTimeout(()=>car.__justDragged=false,50); } pauseCar(); kick(); setTimeout(kick,3050); }
 car.addEventListener('pointerup',endDrag); car.addEventListener('pointercancel',()=>{ drag=null; target=Math.round(pos); kick(); });
 car.addEventListener('click',e=>{ if(car.__justDragged){ e.preventDefault(); e.stopPropagation(); return; }
   const p=e.target.closest('.panel'); if(!p) return; const i=panels.indexOf(p), n=panels.length; let a=i-pos; a=((a+n/2)%n+n)%n-n/2;
   if(Math.abs(a)>.5){ e.preventDefault(); target=Math.round(pos+a); kick(); } },true);
 car.addEventListener('wheel',e=>{ if(Math.abs(e.deltaX)<=Math.abs(e.deltaY)) return; e.preventDefault(); e.stopPropagation();
-  target+=e.deltaX/(PW+GAP); kick(); clearTimeout(wheelT); wheelT=setTimeout(()=>{ target=Math.round(target); kick(); },140); },{passive:false});
+  pauseCar(); target+=e.deltaX/(PW+GAP); kick(); setTimeout(kick,3050); clearTimeout(wheelT); wheelT=setTimeout(()=>{ target=Math.round(target); kick(); },140); },{passive:false});
 car.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'){ target=Math.round(target)+1; kick(); e.preventDefault(); } if(e.key==='ArrowLeft'){ target=Math.round(target)-1; kick(); e.preventDefault(); } });
-$('carNext').addEventListener('click',()=>{ target=Math.round(target)+1; kick(); }); $('carPrev').addEventListener('click',()=>{ target=Math.round(target)-1; kick(); });
+$('carNext').addEventListener('click',()=>{ pauseCar(); target=Math.round(target)+1; kick(); setTimeout(kick,3050); }); $('carPrev').addEventListener('click',()=>{ pauseCar(); target=Math.round(target)-1; kick(); setTimeout(kick,3050); });
 document.querySelectorAll('.tabs [role=tab]').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tabs [role=tab]').forEach(x=>x.setAttribute('aria-selected',String(x===t)));
-  const k=t.dataset.k; allPanels.forEach(p=>{ const on=k==='all'||p.dataset.k===k; p.hidden=!on; p.style.visibility='hidden'; }); panels=allPanels.filter(p=>!p.hidden); pos=0; target=0; vel=0; carRender(); }));
+  const k=t.dataset.k; allPanels.forEach(p=>{ const on=k==='all'||p.dataset.k===k; p.hidden=!on; p.style.visibility='hidden'; }); panels=allPanels.filter(p=>!p.hidden); pos=0; target=0; vel=0; carRender(); pauseCar(); kick(); setTimeout(kick,3050); }));
 
 /* ---------- smooth scroll ---------- */
 let lenis=null;
