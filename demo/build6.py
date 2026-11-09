@@ -85,7 +85,7 @@ FAQ = [
  ("Can you build an AI-powered website or app for my business?", "Yes. I build with Next.js, React, Node.js, Laravel and PostgreSQL, add AI features such as language-model integrations, assistants and automations, and secure them with proper sign-in, 2FA and audit logs."),
  ("Do you really work in any language?", "I write TypeScript, JavaScript, PHP, Python and SQL, build with Next.js, React, Laravel and Node.js, and create content in English, Nepali and Hindi. If a project needs another stack, I will tell you honestly whether I am the right fit."),
  ("How much does a project cost?", "Every project gets a fixed-price quote after a free 20-minute call. SEO, AEO, ads and content are usually monthly retainers. You always see the price before work starts."),
- ("How do I start a project with you?", "Email prajolgautam1234@gmail.com or call +977 984-8137372 with a short description of your goal. I reply within one working day, Nepal time (UTC+5:45)."),
+ ("How do I start a project with you?", "Email prajolgautam1234@gmail.com or message me on WhatsApp at +977 984-8137372 with a short description of your goal. I reply within one working day, Nepal time (UTC+5:45)."),
 ]
 SLASH = [('AI Engineering','ai-engineer-nepal'),('Full-Stack &amp; Apps','full-stack-developer-nepal'),('AI Video &amp; Motion','saas-motion-design'),('SEO, AEO &amp; Ads','aeo-geo-expert'),('Growth &amp; Branding','growth-marketing-consultant')]
 INDUSTRIES = [
@@ -141,6 +141,8 @@ const STATES={""")
     R(" const cur=anchors[Math.min(anchors.length-1,Math.round(sTarget))].c; chapLinks.forEach(a=>a.classList.toggle('on',a.dataset.c===cur));", "")
     R("  if(!reduce){ U.uIntro.value=Math.min(1,t/3); }", "  U.uIntro.value = reduce?1:(window.__introT0? Math.min(1,(performance.now()-window.__introT0)/2600) : 0);")
     R("  const shown=Math.round(N*Math.min(1,U.uIntro.value)); $('bootN').textContent=shown.toLocaleString('en-US'); if(U.uIntro.value>=1) $('bootTxt').textContent='Live ·';\n", "")
+    R("else if(kind<1.5){ p=rY(uTime*.08)*p;", "else if(kind<1.5){ p=rY(uTime*.3)*p;")
+    R("  float roll=arc*fract(r*3.7)*6.28;", "  float gx=(uKindA>.5&&uKindA<1.5?1.-e:0.)+(uKindB>.5&&uKindB<1.5?e:0.);\n  yaw+=gx*uTime*(.7+r*1.6); float roll=arc*fract(r*3.7)*6.28+gx*sin(uTime*.9+r*20.)*.5;")
     R("eg.strokeStyle='#F2334B';", "eg.strokeStyle='#ffffff';")
     R("if(e.target.closest('a,button,input,textarea,.glass')) return;", "if(e.target.closest('a,button,input,textarea,.glass,.car,.codebox,summary')) return;")
     return eng
@@ -177,7 +179,7 @@ def page_main(svc_link):
     cnt = {k: sum(1 for w in WORK if w['k'] == k) for k in ('web','app','vid')}
     t = open(os.path.join(ROOT, 'src-v6.html')).read()
     rep = {'{{MEGA}}': mega_html, '{{MEGA_FOOT}}': ''.join(f'<span>{c}</span>' for c in 'PRAJWALGAUTAM'),
-           '{{SLASH}}': slash, '{{LEGEND}}': legend, '{{CATS}}': cats, '{{JOBS}}': jobs, '{{PANELS}}': ''.join(panels),
+           '{{SLASH}}': slash, '{{LEGEND}}': legend, '{{JOBS}}': jobs, '{{PANELS}}': ''.join(panels),
            '{{ROWS}}': rows, '{{INDUSTRIES}}': inds, '{{FAQ}}': faq, '{{FOOT_A}}': foot_a, '{{FOOT_B}}': foot_b,
            '{{N_ALL}}': str(len(WORK)), '{{N_WEB}}': str(cnt['web']), '{{N_APP}}': str(cnt['app']), '{{N_VID}}': str(cnt['vid']),
            '{{CATS_JSON}}': json.dumps([dict(name=c['name'], word=c['word'], c=c['c'], skills=c['skills']) for c in CATS]),
@@ -342,7 +344,7 @@ def page_service(s, home, svc_link, assets):
   <p class="paren">(Service) · {E(s['short'])}</p>
   <h1>{E(s['kw'])}</h1>
   <p class="lede">{E(s['lede'])}</p>
-  <div class="btns"><a class="btn hot" href="mailto:prajolgautam1234@gmail.com?subject={E(s['kw'])}%20project">Start a project</a><a class="btn" href="{home}#work">See my work</a></div>
+  <div class="btns"><a class="btn hot" href="mailto:prajolgautam1234@gmail.com?subject={E(s['kw'])}%20project">Start a project</a><a class="btn" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp me</a><a class="btn" href="{home}#work">See my work</a></div>
   <p class="by">By Prajwal Gautam · AI Engineer, Full-Stack &amp; App Developer, Growth Marketer · Kathmandu, Nepal · Updated November 2026</p>
 </header>
 <main>
@@ -355,8 +357,8 @@ def page_service(s, home, svc_link, assets):
 <section class="cols"><h2>How much does it cost?</h2><div class="prose">{''.join(f'<p>{E(p)}</p>' for p in s['cost'])}</div></section>
 <section class="cols"><h2>Frequently asked questions</h2><div>{faq}</div></section>
 <div class="cta"><p class="paren" style="color:#8d919b">(Contact)</p><h2>Let’s talk about your <span>{E(s['short'].lower())}</span> project.</h2>
-<div class="lines"><span>prajolgautam1234@gmail.com</span><span>+977 984-8137372</span><span>Kathmandu, Nepal · UTC+5:45 · replies within one working day</span></div>
-<div class="btns"><a class="btn hot" href="mailto:prajolgautam1234@gmail.com">Email me</a><a class="btn" href="https://www.linkedin.com/in/prajjwal-gautam/" target="_blank" rel="noopener">LinkedIn ↗</a></div></div>
+<div class="lines"><span>prajolgautam1234@gmail.com</span><span>WhatsApp +977 984-8137372</span><span>Kathmandu, Nepal · UTC+5:45 · replies within one working day</span></div>
+<div class="btns"><a class="btn hot" href="mailto:prajolgautam1234@gmail.com">Email me</a><a class="btn" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp ↗</a><a class="btn" href="https://www.linkedin.com/in/prajjwal-gautam/" target="_blank" rel="noopener">LinkedIn ↗</a></div></div>
 <section><p class="paren">(Related services)</p><div class="rel">{rel}</div></section>
 </main>
 <footer><span>© 2026 Prajwal Gautam · Kathmandu, Nepal</span><span><a href="{home}">Home</a> · {' · '.join(f'<a href="{svc_link(x["slug"], True)}">{E(x["short"])}</a>' for x in SERVICES)}</span></footer>
@@ -413,7 +415,7 @@ Sitemap: {SITE}sitemap.xml
             "## Live projects", "- [Nepal Bhoomi](https://www.nepalbhoomi.com): real-estate platform; video, SEO and growth.", "- [Slugforge Studio](https://slugforge.vercel.app): creative studio website and video services.", "",
             "## Languages", "- Code: PHP, JavaScript, Python, SQL, HTML/CSS", "- Frameworks: Laravel, Node.js, React, Django, Three.js", "- Spoken: English, Nepali, Hindi", "",
             "## Education", "- BSc CSIT, New Summit College, Tribhuvan University", "- +2 Science, Kathmandu Model College", "",
-            "## Contact", "- Email: prajolgautam1234@gmail.com", "- Phone: +977 984-8137372", "- LinkedIn: https://www.linkedin.com/in/prajjwal-gautam/",
+            "## Contact", "- Email: prajolgautam1234@gmail.com", "- Phone & WhatsApp: +977 984-8137372 (https://wa.me/9779848137372)", "- LinkedIn: https://www.linkedin.com/in/prajjwal-gautam/",
             "- GitHub: https://github.com/Prajjwalgautam", "- Location: Kathmandu, Nepal (UTC+5:45); works with clients worldwide", ""]
     open(os.path.join(REPO, 'llms.txt'), 'w').write('\n'.join(llms))
 

@@ -75,7 +75,28 @@ a{color:inherit} button{font:inherit;color:inherit}
 .bar i{display:block;height:100%;width:0;background:var(--accent)}
 #ask{position:fixed;z-index:52;right:max(22px,env(safe-area-inset-right,0px));bottom:calc(22px + env(safe-area-inset-bottom,0px));width:88px;height:88px;border-radius:50%;
   display:grid;place-items:center;background:var(--accent);color:#fff;text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:.08em;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+#ask{border:0;cursor:pointer}
 #ask svg{position:absolute;inset:0;animation:spin2 12s linear infinite}
+.ask-panel,.ask-panel.glass{position:fixed;z-index:60;right:max(22px,env(safe-area-inset-right,0px));bottom:calc(124px + env(safe-area-inset-bottom,0px));width:min(380px,calc(100vw - 32px));max-height:calc(100dvh - 150px);overflow:auto;padding:22px;color:#fff;display:grid;gap:12px;
+  background:rgba(12,12,14,.96);transform-origin:100% 100%;animation:askIn .45s cubic-bezier(.2,.8,.2,1)}
+.ask-panel[hidden]{display:none}
+@keyframes askIn{from{opacity:0;transform:translateY(16px) scale(.94)}}
+.ask-top{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.ask-top h2{margin:0;font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:34px;line-height:.9}
+.ask-x{background:none;border:1px solid var(--line-n);color:#fff;width:34px;height:34px;border-radius:50%;font-size:20px;line-height:1;cursor:pointer;flex:none}
+.ask-sub{margin:0;font-size:14px;color:#b9bdc6}
+.ask-panel label{display:grid;gap:6px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9a9ea8}
+.ask-panel input,.ask-panel select,.ask-panel textarea{font:inherit;font-family:var(--body,inherit);font-size:15px;text-transform:none;letter-spacing:0;color:#fff;background:rgba(255,255,255,.06);border:1px solid var(--line-n);border-radius:10px;padding:10px 12px;width:100%;box-sizing:border-box}
+.ask-panel select option{color:#000}
+.ask-panel textarea{resize:vertical;min-height:84px}
+.ask-panel input:focus,.ask-panel select:focus,.ask-panel textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.ask-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ask-b{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 10px;border-radius:999px;text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:#fff;transition:transform .2s,filter .2s}
+.ask-b svg{width:18px;height:18px;flex:none}
+.ask-b.mail{background:var(--accent)}
+.ask-b.wa{background:#1FAF5A}
+.ask-b:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.ask-direct{display:grid;gap:2px;font-size:11px;color:#8d919b}
 @keyframes spin2{to{transform:rotate(360deg)}}
 #ring{position:fixed;left:0;top:0;z-index:58;pointer-events:none;width:42px;height:42px;margin:-21px 0 0 -21px;border:1.5px solid #fff;border-radius:50%;mix-blend-mode:difference;opacity:0;transition:width .25s,height .25s,margin .25s,opacity .3s}
 #ring.big{width:86px;height:86px;margin:-43px 0 0 -43px}
@@ -137,7 +158,7 @@ section{max-width:1440px;margin:0 auto;position:relative}
 
 /* ---------- night chapters ---------- */
 .night-h{font-family:var(--disp);font-weight:900;text-transform:uppercase;line-height:.84;margin:0}
-.svc-intro{min-height:120vh;display:grid;align-content:center;padding-block:20vh}
+.svc-intro{min-height:170vh;display:grid;align-content:center;padding-block:20vh}
 .svc-intro h2{font-size:clamp(60px,9vw,150px);max-width:8ch}
 .svc-intro p{max-width:46ch;color:var(--dim-n);margin-top:18px;font-size:18px}
 .legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px}
@@ -374,10 +395,22 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
   <a class="ct" href="#contact">Contact ↗</a>
 </nav>
 <div class="corner chrome" aria-hidden="true"><span id="chap">(00) Intro</span><canvas id="ecg" width="168" height="40"></canvas><span><span id="bpm">72</span> bpm</span></div>
-<a id="ask" href="#contact" aria-label="Ask me about your project">
+<button id="ask" type="button" aria-haspopup="dialog" aria-controls="askPanel" aria-expanded="false" aria-label="Ask me about your project">
   <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="cp" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text font-size="8.6" fill="#fff" letter-spacing="2.4" font-family="Spline Sans Mono, monospace"><textPath href="#cp">ANY IDEA · ANY LANGUAGE · ANY SCREEN ·</textPath></text></svg>
   <span>ASK ME</span>
-</a>
+</button>
+<div class="ask-panel glass" id="askPanel" role="dialog" aria-modal="false" aria-labelledby="askH" hidden data-lenis-prevent>
+  <div class="ask-top"><h2 id="askH">Tell me what you need.</h2><button type="button" class="ask-x" id="askX" aria-label="Close">×</button></div>
+  <p class="ask-sub">Write your question once, then send it by email or WhatsApp. I reply within one working day, Nepal time.</p>
+  <label>Your name<input id="askName" type="text" autocomplete="name" placeholder="Name or company"></label>
+  <label>What do you need?<select id="askTopic"><option>A website or web app</option><option>A mobile app</option><option>AI integration or automation</option><option>AI video or motion design</option><option>SEO / AEO</option><option>Google or Meta ads</option><option>Branding or growth marketing</option><option>Something else</option></select></label>
+  <label>Your message<textarea id="askMsg" rows="4" placeholder="Goal, budget, deadline, links…"></textarea></label>
+  <div class="ask-btns">
+    <a class="ask-b mail" id="askMail" href="mailto:prajolgautam1234@gmail.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m3 7 9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Email</a>
+    <a class="ask-b wa" id="askWa" href="https://wa.me/9779848137372" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
+  </div>
+  <div class="ask-direct mono"><span>prajolgautam1234@gmail.com</span><span>WhatsApp +977 984-8137372</span></div>
+</div>
 <div class="bar" aria-hidden="true"><i id="bar"></i></div>
 
 <main id="top">
@@ -423,10 +456,9 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
   <section class="svc-intro" id="services" data-state="galaxy" data-theme="night" data-label="(02) Services">
     <p class="paren">(02) Services</p>
     <h2 class="night-h kin">Six services.<br>One person.</h2>
-    <p>Every arm of this galaxy is one service, coloured to match. Keep scrolling and each arm steps forward and spells its name.</p>
+    <p>Every arm of this spinning galaxy is one service, coloured to match. Each card carries one real skill. Tap a service to see what it covers.</p>
     <div class="legend">{{LEGEND}}</div>
   </section>
-  <div id="cats">{{CATS}}</div>
 
   <section class="exp" id="experience" data-state="helix" data-theme="night" data-label="(03) Experience">
     <p class="paren">(03) Experience</p>
@@ -511,7 +543,7 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
       <p class="dim">AI-powered websites and apps, AI video, SEO, ad campaigns and branding for businesses in Nepal and worldwide. I reply within one working day, Nepal time (UTC+5:45).</p>
       <div class="lines">
         <div class="line"><div><div class="k">Email</div><div class="v" id="mail">prajolgautam1234@gmail.com</div></div><button type="button" data-copy="mail">Copy</button></div>
-        <div class="line"><div><div class="k">Phone</div><div class="v" id="phone">+977 984-8137372</div></div><button type="button" data-copy="phone">Copy</button></div>
+        <div class="line"><div><div class="k">WhatsApp &amp; phone</div><div class="v" id="phone">+977 984-8137372</div></div><a href="https://wa.me/9779848137372?text=Hi%20Prajwal%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">WhatsApp ↗</a></div>
         <div class="line"><div><div class="k">LinkedIn</div><div class="v">in/prajjwal-gautam</div></div><a href="https://www.linkedin.com/in/prajjwal-gautam/" target="_blank" rel="noopener">Open ↗</a></div>
         <div class="line"><div><div class="k">GitHub</div><div class="v">Prajjwalgautam</div></div><a href="https://github.com/Prajjwalgautam" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
@@ -525,7 +557,7 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
     <div><h4>Services</h4>{{FOOT_A}}</div>
     <div><h4>More</h4>{{FOOT_B}}</div>
     <div><h4>Live work</h4><a href="https://www.nepalbhoomi.com" target="_blank" rel="noopener">Nepal Bhoomi ↗</a><a href="https://slugforge.vercel.app" target="_blank" rel="noopener">Slugforge Studio ↗</a></div>
-    <div><h4>Elsewhere</h4><a href="https://www.linkedin.com/in/prajjwal-gautam/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://github.com/Prajjwalgautam" target="_blank" rel="noopener">GitHub ↗</a><a href="mailto:prajolgautam1234@gmail.com">Email</a></div>
+    <div><h4>Elsewhere</h4><a href="https://www.linkedin.com/in/prajjwal-gautam/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://github.com/Prajjwalgautam" target="_blank" rel="noopener">GitHub ↗</a><a href="mailto:prajolgautam1234@gmail.com">Email</a><a href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp ↗</a></div>
   </div>
   <div class="foot-legal"><span>© 2026 Prajwal Gautam · AI Engineer, Full-Stack &amp; App Developer, Growth Marketer · Kathmandu, Nepal</span><span>Updated November 2026</span></div>
 </footer>
@@ -708,6 +740,17 @@ if(!reduce && window.Lenis){ lenis=new Lenis({lerp:.085, smoothWheel:true}); }
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
   const id=a.getAttribute('href'); const t=id==='#top'?document.body:document.querySelector(id); if(!t) return;
   e.preventDefault(); lenis?lenis.scrollTo(t,{duration:2}):t.scrollIntoView({behavior:reduce?'auto':'smooth'}); }));
+const askB=$('ask'), askP=$('askPanel');
+const askSet=o=>{ askP.hidden=!o; askB.setAttribute('aria-expanded',o); if(o) $('askName').focus({preventScroll:true}); };
+askB.addEventListener('click',e=>{ e.stopPropagation(); askSet(askP.hidden); });
+$('askX').addEventListener('click',()=>{ askSet(false); askB.focus(); });
+addEventListener('keydown',e=>{ if(e.key==='Escape'&&!askP.hidden){ askSet(false); askB.focus(); } });
+document.addEventListener('pointerdown',e=>{ if(!askP.hidden&&!askP.contains(e.target)&&!askB.contains(e.target)) askSet(false); });
+const askUpd=()=>{ const n=$('askName').value.trim(), t=$('askTopic').value, m=$('askMsg').value.trim();
+  const body=`Hi Prajwal,\n\n${m||'I found your portfolio and would like to talk about a project.'}\n\nTopic: ${t}${n?`\n\n${n}`:''}`;
+  $('askMail').href='mailto:prajolgautam1234@gmail.com?subject='+encodeURIComponent(`${t} – project enquiry${n?` from ${n}`:''}`)+'&body='+encodeURIComponent(body);
+  $('askWa').href='https://wa.me/9779848137372?text='+encodeURIComponent(body); };
+['askName','askTopic','askMsg'].forEach(id=>$(id).addEventListener('input',askUpd)); askUpd();
 const magnet=$('ask'); addEventListener('pointermove',e=>{ const r=magnet.getBoundingClientRect(); const cx=r.left+r.width/2, cy=r.top+r.height/2; const dx=e.clientX-cx, dy=e.clientY-cy, d=Math.hypot(dx,dy);
   magnet.style.transform=d<140?`translate(${dx*.25}px,${dy*.25}px)`:''; });
 
