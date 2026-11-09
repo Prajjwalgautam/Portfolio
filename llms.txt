@@ -1,6 +1,6 @@
 # Prajwal Gautam
 
-> Prajwal Gautam is an AI engineer, full-stack and app developer, AI video producer and SEO, ads and growth marketer in Kathmandu, Nepal, building AI-powered websites, apps and campaigns for clients worldwide.
+> Prajwal Gautam is an AI engineer, full-stack and app developer, AI video and motion designer, and SEO, AEO, ads and growth marketer in Kathmandu, Nepal, working with real estate, jewellery, SaaS and e-commerce brands worldwide.
 
 Website: https://prajjwalgautam.com.np/
 
@@ -9,7 +9,9 @@ Website: https://prajjwalgautam.com.np/
 - Full-Stack Web Developer
 - App Developer (mobile and web)
 - AI Video Producer
-- SEO Specialist and Marketing Researcher
+- SEO and AEO/GEO Specialist (AI search optimization) and Marketing Researcher
+- Motion Designer (SaaS product animation, 3D)
+- Industries: real estate, jewellery, SaaS and tech, e-commerce, education, food and travel
 - Google Ads and Meta Ads Campaign Strategist
 - Growth, E-commerce and Brand Marketer
 
@@ -24,12 +26,16 @@ Website: https://prajjwalgautam.com.np/
 - [Web Developer in Kathmandu](https://prajjwalgautam.com.np/services/web-developer-kathmandu/): Freelance web developer in Kathmandu, Nepal building fast, SEO-ready websites, 3D interactive sites and web apps for local businesses and international clients.
 - [Hire a Freelance AI Developer](https://prajjwalgautam.com.np/services/hire-ai-developer/): Hire a freelance AI developer who can also build the full product and market it: LLM apps, AI automation and AI content, remote from Nepal for clients worldwide.
 - [Digital Marketing & Branding in Nepal](https://prajjwalgautam.com.np/services/branding-digital-marketing-nepal/): Digital marketing and branding in Kathmandu, Nepal: brand identity, social media, content strategy, video, SEO and ads, delivered by one person across every channel.
+- [AEO & GEO Expert](https://prajjwalgautam.com.np/services/aeo-geo-expert/): AEO and GEO expert in Nepal: get your business cited in ChatGPT, Perplexity, Gemini, Claude and Google AI Overviews with structured data, answer-first content and entity SEO.
+- [Real Estate Marketing in Nepal](https://prajjwalgautam.com.np/services/real-estate-marketing-nepal/): Real estate marketing in Kathmandu, Nepal: property reels and drone videos, listing websites, SEO, AEO and Meta and Google ads that sell land, houses and apartments.
+- [Jewellery Marketing & Product Video](https://prajjwalgautam.com.np/services/jewellery-marketing-nepal/): Jewellery marketing for jewellers in Nepal and abroad: macro product videos, 3D renders, graphics, catalogue websites, festive and wedding-season ads.
+- [Motion Design & Animation for SaaS](https://prajjwalgautam.com.np/services/saas-motion-design/): Motion design and animation for SaaS and tech: product explainer videos, UI animations, launch videos and 3D, made in code with Remotion so they update with your product.
 
 ## Experience
-- Nepal Bhoomi (Lazimpat, Kathmandu): Video Editor, Designer & Growth Marketing. Produce 3–4 property videos a day, from script to edit to publishing. Run SEO captions, content calendars and audience research for buyers. Track retention and ad performance; present monthly growth reports.
-- Freelance (Remote): AI Video Producer. Promotional and explainer videos for schools and consultancies. IELTS, GRE, SAT and study-abroad topics made clear and watchable. Podcasts cut into shorts, plus an AI-made YouTube channel.
-- Ek Ra Sunya Inc. (Balkumari, Lalitpur): Backend Developer. Backend for the Sayapatri e-commerce platform. Integrated Khalti payments and MailQuote shipping costs. Live exchange rates with USD to AUD conversion.
-- Uno Technology (Gyaneshwor, Kathmandu): Full-Stack Web Developer. A Laravel HRMS with payroll, leave, attendance and dashboards. Fitfutures, an e-learning and school management system. First Math, a three-level quiz game with live scoring.
+- Nepal Bhoomi (Lazimpat, Kathmandu): Video, Design, Growth & Platform. Built a code-driven video pipeline (Remotion + Python AI: Whisper captions, upscaling, background removal, tracking) that ships 3–4 property reels a day. Co-built the Nepal Bhoomi platform: Next.js API, PostgreSQL, React admin, 2FA, Google sign-in and audit logging. Own SEO captions, audience research, ad tracking and monthly growth reports; designed the brand’s sonic logo.
+- Freelance (Remote · worldwide): AI Video Producer & Motion Designer. Promotional and explainer videos for schools and study-abroad consultancies on IELTS, GRE, SAT and applications. Long podcasts and interviews cut into captioned short-form clips. The 195 Project documentary episodes with Blender 3D scenes, plus an AI-made educational YouTube channel.
+- Ek Ra Sunya Inc. (Balkumari, Lalitpur): Backend Developer. Shipped payments, shipping and currency features on the live Sayapatri e-commerce platform. Integrated Khalti checkout and MailQuote real-time shipping rates. Added live exchange rates with USD to AUD base-currency pricing.
+- Uno Technology (Gyaneshwor, Kathmandu): Full-Stack Web Developer. Built a Laravel HRMS: JWT auth, OTP password reset by email, attendance check-in/out, tasks, admin and employee roles. Built Fitfutures, an e-learning and school management platform with progress tracking and reports. Built First Math, a maths and science game with three levels per subject and live scoring.
 
 ## Live projects
 - [Nepal Bhoomi](https://www.nepalbhoomi.com): real-estate platform; video, SEO and growth.

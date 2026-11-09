@@ -166,7 +166,7 @@ section{max-width:1440px;margin:0 auto;position:relative}
 .jobs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .job{padding:22px;display:grid;gap:12px;align-content:start}
 .job-top{display:flex;gap:14px;align-items:center}
-.job .lg{width:52px;height:52px;flex:none}
+.job .lg{width:52px;height:52px;flex:none;font-size:52px}
 .job h3{margin:0;font-family:var(--cond);font-weight:800;font-size:24px;letter-spacing:-.01em;line-height:1;text-transform:uppercase}
 .job .t{font-size:14px;color:var(--c);font-weight:600}
 .job .w{font-family:var(--mono);font-size:11px;color:var(--dim-n)}
@@ -226,8 +226,9 @@ section{max-width:1440px;margin:0 auto;position:relative}
 .panel::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 70% at 85% 0%, color-mix(in srgb, var(--c1) 40%, transparent), transparent 60%);mix-blend-mode:screen;opacity:.7}
 .p-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(237,238,240,.7);position:relative;z-index:1}
 .p-top .live-dot{color:#5fe39c}
-.p-mid{display:grid;align-content:center;gap:10px;position:relative;z-index:1}
-.panel .lg{width:62px;height:62px}
+.p-mid{display:grid;grid-template-columns:minmax(0,1fr);align-content:center;gap:10px;position:relative;z-index:1}
+.p-mid h3{overflow-wrap:anywhere}
+.panel .lg{width:62px;height:62px;font-size:62px}
 .panel h3{margin:0;font-family:var(--disp);font-weight:900;font-size:clamp(34px,3.2vw,52px);line-height:.88;text-transform:uppercase}
 .p-type{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:rgba(237,238,240,.65)}
 .p-desc{margin:0;font-size:14.5px;line-height:1.45;color:#d7dae1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -256,8 +257,8 @@ section{max-width:1440px;margin:0 auto;position:relative}
 
 .find{padding-block:18vh 6vh}
 .find-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
-.find h2{margin:0;font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(64px,10vw,164px);line-height:.82}
-.find p{max-width:40ch;margin:0}
+.find h2,.inds h2{margin:0;font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(64px,10vw,164px);line-height:.82}
+.find p,.inds .find-head>p{max-width:40ch;margin:0}
 .rows{border-top:1px solid var(--line-p)}
 .rowl{display:grid;grid-template-columns:56px minmax(0,1fr) auto 36px;gap:18px;align-items:center;padding:18px 10px;border-bottom:1px solid var(--line-p);text-decoration:none;position:relative;isolation:isolate}
 .rowl::before{content:"";position:absolute;inset:0;background:var(--ink);transform:scaleY(0);transform-origin:bottom;transition:transform .45s cubic-bezier(.2,.8,.2,1);z-index:-1}
@@ -269,6 +270,16 @@ section{max-width:1440px;margin:0 auto;position:relative}
 .rowl .ar{font-size:24px;transition:transform .35s}
 .rowl:hover .ar{transform:rotate(45deg);color:var(--accent)}
 
+.inds{padding-block:18vh 6vh}
+.ind-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line-p);border-left:1px solid var(--line-p)}
+.ind{display:grid;gap:12px;align-content:start;padding:26px 24px 28px;border-right:1px solid var(--line-p);border-bottom:1px solid var(--line-p);text-decoration:none;position:relative;isolation:isolate;min-height:300px}
+.ind::before{content:"";position:absolute;inset:0;background:var(--ink);clip-path:circle(0% at 100% 0%);transition:clip-path .6s cubic-bezier(.7,0,.2,1);z-index:-1}
+.ind:hover,.ind:focus-visible{color:var(--paper)} .ind:hover::before,.ind:focus-visible::before{clip-path:circle(150% at 100% 0%)}
+.ind-tag{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
+.ind h3{margin:0;font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(46px,4.6vw,74px);line-height:.86}
+.ind p{margin:0;max-width:34ch}
+.ind .chips span{border-color:currentColor;opacity:.75;font-size:11px;padding:5px 9px}
+.ind-go{font-family:var(--mono);font-size:12px;margin-top:auto;text-decoration:underline;text-underline-offset:4px}
 .faq{padding-block:16vh 8vh;display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(24px,4vw,64px)}
 .faq h2{margin:0;font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(64px,9vw,150px);line-height:.82}
 .qa{border-bottom:1px solid var(--line-p)}
@@ -314,6 +325,8 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
   .jobs{grid-template-columns:minmax(0,1fr)}
   .about{grid-template-columns:minmax(0,1fr)}
   .faq{grid-template-columns:minmax(0,1fr)}
+  .ind-grid{grid-template-columns:minmax(0,1fr)}
+  .ind{min-height:0}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:18px}
   .rowl{grid-template-columns:36px minmax(0,1fr) 28px;gap:12px}
   .rowl .d{display:none}
@@ -355,6 +368,7 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
     <li><a href="#services">Services</a></li>
     <li><a href="#work">Work</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#industries">Industries</a></li>
     <li><a href="#find">Hire me for</a></li>
   </ul>
   <a class="ct" href="#contact">Contact ↗</a>
@@ -396,8 +410,8 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
         <div class="code-foot"><span id="codeLang">PHP</span><span>One brief. Any language.</span></div>
       </div>
       <dl class="langs rv">
-        <div><dt>Code</dt><dd>PHP · JavaScript · Python · SQL · HTML &amp; CSS</dd></div>
-        <div><dt>Frameworks</dt><dd>Laravel · Node.js · React · Django · Three.js</dd></div>
+        <div><dt>Code</dt><dd>TypeScript · JavaScript · PHP · Python · SQL · GLSL</dd></div>
+        <div><dt>Frameworks</dt><dd>Next.js · React · Node.js · Laravel · Prisma · Three.js · Remotion</dd></div>
         <div><dt>AI</dt><dd>LLM APIs · Prompt engineering · AI video &amp; image tools</dd></div>
         <div><dt>Spoken</dt><dd>English · <span class="dv">नेपाली</span> · <span class="dv">हिन्दी</span></dd></div>
         <div><dt>Screens</dt><dd>Web · iOS · Android · YouTube · Instagram · TikTok · Google</dd></div>
@@ -475,19 +489,24 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
     </div>
   </section>
 
-  <section class="find" id="find" data-state="dust" data-theme="paper" data-label="(07) Hire me for">
-    <div class="find-head"><div><p class="paren">(07) Hire me for</p><h2 class="kin">Find me<br>for</h2></div><p class="rv">Each service has its own page with what I do, proof, process, tools and answers to common questions.</p></div>
+  <section class="inds" id="industries" data-state="dust" data-theme="paper" data-label="(07) Industries" aria-labelledby="indh">
+    <div class="find-head"><div><p class="paren">(07) Industries</p><h2 id="indh" class="kin">Built for<br>your industry</h2></div><p class="rv">The same toolkit, tuned to how your customers buy. Real estate is where I work every day; jewellers and SaaS teams get dedicated packages.</p></div>
+    <div class="ind-grid">{{INDUSTRIES}}</div>
+  </section>
+
+  <section class="find" id="find" data-state="dust" data-theme="paper" data-label="(08) Hire me for">
+    <div class="find-head"><div><p class="paren">(08) Hire me for</p><h2 class="kin">Find me<br>for</h2></div><p class="rv">Fourteen services, each with its own page: what I do, proof, process, tools and answers to common questions.</p></div>
     <div class="rows">{{ROWS}}</div>
   </section>
 
-  <section class="faq" id="faq" data-state="dust" data-theme="paper" data-label="(08) FAQ" aria-labelledby="faqh">
-    <div><p class="paren">(08) Questions</p><h2 id="faqh" class="kin">FAQ</h2></div>
+  <section class="faq" id="faq" data-state="dust" data-theme="paper" data-label="(09) FAQ" aria-labelledby="faqh">
+    <div><p class="paren">(09) Questions</p><h2 id="faqh" class="kin">FAQ</h2></div>
     <div>{{FAQ}}</div>
   </section>
 
-  <section class="contact" id="contact" data-state="face2" data-theme="night" data-label="(09) Contact">
+  <section class="contact" id="contact" data-state="face2" data-theme="night" data-label="(10) Contact">
     <div class="contact-card glass">
-      <p class="paren">(09) Contact</p>
+      <p class="paren">(10) Contact</p>
       <h2 class="night-h">Let’s build<br>something <span>no one<br>has seen.</span></h2>
       <p class="dim">AI-powered websites and apps, AI video, SEO, ad campaigns and branding for businesses in Nepal and worldwide. I reply within one working day, Nepal time (UTC+5:45).</p>
       <div class="lines">

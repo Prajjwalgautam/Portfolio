@@ -13,72 +13,89 @@ TODAY = "2026-11-09"
 
 CATS = [
  dict(name='AI Engineering', word='AI', c='#FF8A3D', slug='ai-engineer-nepal', h='AI Engineering &amp; Automation',
-      blurb='AI built into the product: language-model features, assistants, automations and AI-assisted research that save your team hours.',
-      proof='AI-assisted research and content pipelines at Nepal Bhoomi and for freelance clients',
+      blurb='AI built into the product: language-model features, assistants, automations and AI-powered content pipelines that save your team hours.',
+      proof='A Remotion + Python AI video pipeline (Whisper captions, upscaling, background removal, tracking) at Nepal Bhoomi',
       skills=['LLM Integrations','Prompt Engineering','AI Automation','AI Research','AI Image Gen','AI Scriptwriting']),
  dict(name='Full-Stack', word='CODE', c='#4D7BFF', slug='full-stack-developer-nepal', h='Full-Stack Web Development',
-      blurb='Fast, responsive websites and web platforms, from database to pixel, built to run a real business.',
-      proof='HRMS, Fitfutures and First Math at Uno Technology',
-      skills=['HTML & CSS','JavaScript','React','Node.js','PHP & Laravel','MySQL & MongoDB']),
+      blurb='Secure, fast web platforms from database to pixel: auth, admin panels, payments and dashboards.',
+      proof='Nepal Bhoomi platform (Next.js, PostgreSQL, 2FA), Zylux admin (Next.js 15), Laravel HRMS',
+      skills=['TypeScript','Next.js & React','Node.js','PHP & Laravel','PostgreSQL & MySQL','Tailwind CSS']),
  dict(name='Apps & APIs', word='APPS', c='#9B7BFF', slug='app-developer-nepal', h='App Development &amp; Integrations',
-      blurb='Mobile and web apps with payments, logins and live data wired in properly.',
-      proof='Khalti payments and shipping APIs for Sayapatri at Ek Ra Sunya',
-      skills=['Mobile Apps','Web Apps','REST APIs','Khalti Payments','Auth & Roles','Django']),
- dict(name='AI Video', word='VIDEO', c='#F2334B', slug='ai-video-production', h='AI Video Production',
-      blurb='Scroll-stopping video made faster with AI: scripts, visuals, edits, grading and motion.',
-      proof='3–4 property videos a day at Nepal Bhoomi, plus an AI-made YouTube channel',
-      skills=['AI Video','Video Editing','Motion Graphics','Color Grading','Remotion','Thumbnails']),
- dict(name='SEO & Research', word='SEO', c='#2BC6E8', slug='seo-expert-nepal', h='SEO &amp; Marketing Research',
-      blurb='Research what your customers search for, then rank for it, on Google and in AI answers.',
-      proof='SEO captions, keyword research and audience analysis at Nepal Bhoomi',
-      skills=['Technical SEO','Keyword Research','SEO Content','Market Research','Audience Analytics','YouTube SEO']),
- dict(name='Ads & Growth', word='GROWTH', c='#2EE6A6', slug='google-meta-ads-expert-nepal', h='Ad Campaigns, Growth &amp; Branding',
-      blurb='Paid campaigns, brand and funnels that turn attention into customers, measured every month.',
-      proof='Ad performance tracking and monthly growth reports at Nepal Bhoomi',
-      skills=['Google Ads','Meta Ads','Growth Marketing','E-commerce Marketing','Branding','Performance Reports']),
+      blurb='Mobile and web apps with sign-in, payments and live data wired in properly, built privacy-first.',
+      proof='AI Discipline Coach (Android), Khalti and shipping APIs for Sayapatri at Ek Ra Sunya',
+      skills=['Android Apps','Web Apps','REST APIs','Khalti Payments','Auth, 2FA & OAuth','Prisma & Drizzle']),
+ dict(name='AI Video & Motion', word='VIDEO', c='#F2334B', slug='ai-video-production', h='AI Video &amp; Motion Design',
+      blurb='Scroll-stopping video and SaaS-style motion, made faster with AI and code: scripts, 3D, edits, grading and sound.',
+      proof='3–4 property videos a day at Nepal Bhoomi, The 195 Project with Blender 3D, a brand sonic logo',
+      skills=['AI Video','Motion Graphics','SaaS Animation','Blender 3D','Color Grading','Remotion']),
+ dict(name='SEO & AEO', word='SEO', c='#2BC6E8', slug='aeo-geo-expert', h='SEO, AEO &amp; Marketing Research',
+      blurb='Rank on Google and become the answer in ChatGPT, Perplexity and Google AI Overviews.',
+      proof='SEO and keyword research at Nepal Bhoomi; this site’s schema, llms.txt and 14 keyword pages',
+      skills=['Technical SEO','AEO & GEO','Keyword Research','SEO Content','Market Research','Audience Analytics']),
+ dict(name='Ads, Growth & Brand', word='GROWTH', c='#2EE6A6', slug='google-meta-ads-expert-nepal', h='Ad Campaigns, Growth &amp; Branding',
+      blurb='Paid campaigns, brand systems and graphics that turn attention into customers, measured every month.',
+      proof='Ad tracking and monthly growth reports at Nepal Bhoomi; Nepal Bhoomi sonic branding',
+      skills=['Google Ads','Meta Ads','Growth Marketing','E-commerce Marketing','Branding','Graphic Design']),
 ]
-ROLES = ["AI engineer","full-stack developer","app developer","AI video producer","SEO specialist","ad campaign strategist","growth marketer","brand strategist","marketing researcher"]
+ROLES = ["AI engineer","full-stack developer","app developer","AI video producer","motion designer","SEO & AEO specialist","ad campaign strategist","growth marketer","brand strategist","marketing researcher"]
 JOBS = [
- dict(co='Nepal Bhoomi', logo='NB', c='#F2334B', where='Lazimpat, Kathmandu', title='Video Editor, Designer &amp; Growth Marketing', now=1,
-      pts=['Produce <b>3–4 property videos a day</b>, from script to edit to publishing.','Run SEO captions, content calendars and audience research for buyers.','Track retention and ad performance; present <b>monthly growth reports</b>.']),
- dict(co='Freelance', ini='FL', c1='#F2334B', c2='#3a0812', c='#F2334B', where='Remote', title='AI Video Producer',
-      pts=['Promotional and explainer videos for <b>schools and consultancies</b>.','IELTS, GRE, SAT and study-abroad topics made clear and watchable.','Podcasts cut into shorts, plus an <b>AI-made YouTube channel</b>.']),
+ dict(co='Nepal Bhoomi', logo='NB', c='#F2334B', where='Lazimpat, Kathmandu', title='Video, Design, Growth &amp; Platform', now=1,
+      pts=['Built a <b>code-driven video pipeline</b> (Remotion + Python AI: Whisper captions, upscaling, background removal, tracking) that ships <b>3–4 property reels a day</b>.',
+           'Co-built the <b>Nepal Bhoomi platform</b>: Next.js API, PostgreSQL, React admin, 2FA, Google sign-in and audit logging.',
+           'Own SEO captions, audience research, ad tracking and <b>monthly growth reports</b>; designed the brand’s <b>sonic logo</b>.']),
+ dict(co='Freelance', ini='FL', c1='#F2334B', c2='#3a0812', c='#F2334B', where='Remote · worldwide', title='AI Video Producer &amp; Motion Designer',
+      pts=['Promotional and explainer videos for <b>schools and study-abroad consultancies</b> on IELTS, GRE, SAT and applications.',
+           'Long podcasts and interviews cut into <b>captioned short-form clips</b>.',
+           '<b>The 195 Project</b> documentary episodes with Blender 3D scenes, plus an <b>AI-made educational YouTube channel</b>.']),
  dict(co='Ek Ra Sunya Inc.', ini='ES', c1='#4D7BFF', c2='#0a1440', c='#4D7BFF', where='Balkumari, Lalitpur', title='Backend Developer',
-      pts=['Backend for the <b>Sayapatri e-commerce platform</b>.','Integrated <b>Khalti payments</b> and MailQuote shipping costs.','Live exchange rates with USD to AUD conversion.']),
+      pts=['Shipped payments, shipping and currency features on the live <b>Sayapatri e-commerce platform</b>.',
+           'Integrated <b>Khalti checkout</b> and <b>MailQuote</b> real-time shipping rates.',
+           'Added <b>live exchange rates</b> with USD to AUD base-currency pricing.']),
  dict(co='Uno Technology', ini='UT', c1='#4D7BFF', c2='#0a1440', c='#4D7BFF', where='Gyaneshwor, Kathmandu', title='Full-Stack Web Developer',
-      pts=['A <b>Laravel HRMS</b> with payroll, leave, attendance and dashboards.','<b>Fitfutures</b>, an e-learning and school management system.','<b>First Math</b>, a three-level quiz game with live scoring.']),
+      pts=['Built a <b>Laravel HRMS</b>: JWT auth, OTP password reset by email, attendance check-in/out, tasks, admin and employee roles.',
+           'Built <b>Fitfutures</b>, an e-learning and school management platform with progress tracking and reports.',
+           'Built <b>First Math</b>, a maths and science game with three levels per subject and live scoring.']),
 ]
 WORK = [
- dict(k='web', name='Nepal Bhoomi', logo='NB', c1='#8a1f4a', type='Real-estate company', desc='Live property platform for houses, land, apartments and commercial space across Kathmandu Valley. I run its video, design, SEO and social growth.', stack='Website · AI video · SEO · Ads', live='https://www.nepalbhoomi.com'),
- dict(k='web', name='Slugforge Studio', logo='SF', c1='#6b4cff', type='Creative studio', desc='Live website for a creative studio offering editing, AI video, motion graphics, branding, web development and digital marketing.', stack='Web design · 3D · Motion', live='https://slugforge.vercel.app'),
- dict(k='web', name='Sayapatri E-commerce', ini='SE', c1='#FF8A3D', c2='#4a1d05', type='Online store · Ek Ra Sunya', desc='E-commerce backend with Khalti payments, MailQuote shipping-cost calculation and live USD to AUD conversion.', stack='PHP · Laravel · REST APIs', st='Client project'),
- dict(k='web', name='Fitfutures', ini='FF', c1='#2EE6A6', c2='#063a2a', type='E-learning · Uno Technology', desc='E-learning and school management system with lessons, progress tracking, admin dashboards and reports.', stack='HTML · CSS · JS · PHP', st='Client project'),
- dict(k='web', name='HRMS', ini='HR', c1='#4D7BFF', c2='#0a1440', type='HR platform · Uno Technology', desc='Laravel HR system: employee records, payroll, leave and attendance, with role-based dashboards.', stack='Laravel · PHP · MySQL', repo='https://github.com/Prajjwalgautam/HRM-system-checkin-checkout'),
- dict(k='web', name='Service Marketplace', ini='SM', c1='#9B7BFF', c2='#1e1050', type='Freelance services', desc='Connects people with local professionals and freelance services.', stack='React · Node.js · MongoDB', repo='https://github.com/Prajjwalgautam/Ecommerce-Admin-User-management-system'),
- dict(k='web', name='Blood Bank System', ini='BB', c1='#F2334B', c2='#3a0812', type='Healthcare', desc='Blood donation and inventory app with donor registration, requests and real-time stock.', stack='Node.js · MySQL', st='Case study'),
- dict(k='web', name='Food Ordering', ini='FO', c1='#FF8A3D', c2='#4a1d05', type='Restaurant platform', desc='Menus, orders and deliveries with real-time tracking and payment integration.', stack='Node.js · MySQL', repo='https://github.com/Prajjwalgautam/Food-Delivery-system'),
- dict(k='web', name='Real-Estate Platform', ini='RE', c1='#E8C547', c2='#4a3400', type='Property marketplace', desc='Real-estate listing and search platform built with a collaborator.', stack='Full stack', repo='https://github.com/rookhit/Complete-realestate-project'),
- dict(k='web', name='DashboardUno', ini='DU', c1='#2BC6E8', c2='#05303c', type='Admin dashboard', desc='Analytics dashboard UI with charts and reusable components.', stack='Frontend', repo='https://github.com/Prajjwalgautam/DashboardUno'),
- dict(k='app', name='Discipline Coach', ini='DC', c1='#F2334B', c2='#3a0812', type='Habit & focus app', desc='Mobile app that coaches daily discipline and habits, with a published privacy policy.', stack='Mobile app', repo='https://github.com/Prajjwalgautam/discipline-coach-privacy'),
- dict(k='app', name='Activity Companion', ini='AC', c1='#FF8A3D', c2='#4a1d05', type='Social activity app', desc='Find people to join real-life activities such as hikes, games and events.', stack='Mobile app', st='In development'),
- dict(k='app', name='First Math', ini='FM', c1='#E8C547', c2='#4a3400', type='Quiz game · Uno Technology', desc='Maths and science quiz with three difficulty levels and live scoring.', stack='HTML · CSS · JS · PHP', repo='https://github.com/Prajjwalgautam/Project--First_Math'),
- dict(k='app', name='Expense Manager', ini='EM', c1='#2EE6A6', c2='#063a2a', type='Personal finance', desc='Tracks spending by category with real-time summaries.', stack='Python · Django · MySQL', repo='https://github.com/Prajjwalgautam/Expense-tracker'),
- dict(k='vid', name='Nepal Bhoomi Reels', logo='NB', c1='#8a1f4a', type='Property video series', desc='Three to four property videos a day: scripted, edited, captioned for SEO and published, with monthly reports.', stack='AI video · Editing · SEO', live='https://www.nepalbhoomi.com'),
+ dict(k='web', name='Nepal Bhoomi', logo='NB', c1='#8a1f4a', type='Real-estate company · live', desc='Live property platform for houses, land, apartments and commercial space across Kathmandu Valley. I run its video, design, SEO and growth.', stack='Website · AI video · SEO · Ads', live='https://www.nepalbhoomi.com'),
+ dict(k='web', name='Nepal Bhoomi Platform', ini='NB', c1='#b8892d', c2='#3a1424', type='Full-stack · co-built', desc='Next.js API with Prisma and PostgreSQL (Supabase), React + Tailwind site and admin. 2FA, Google sign-in, email verification, refresh-token theft detection, rate limiting, audit logs and row-level security across 20+ data models.', stack='Next.js · Prisma · PostgreSQL · React', repo='https://github.com/rookhit/Complete-realestate-project'),
+ dict(k='web', name='Slugforge Studio', logo='SF', c1='#6b4cff', type='Creative studio · live', desc='Live website for a creative studio offering editing, AI video, motion graphics, branding, web development and digital marketing.', stack='Web design · 3D · Motion', live='https://slugforge.vercel.app'),
+ dict(k='web', name='Zylux Commerce Admin', ini='ZX', c1='#2BC6E8', c2='#05303c', type='Next.js 15 dashboard', desc='Commerce admin with Clerk sign-in, products, categories, orders and users, TanStack data tables and Recharts sales overview, on Drizzle ORM and Neon Postgres.', stack='Next.js 15 · React 19 · TypeScript', repo='https://github.com/Prajjwalgautam/Zylux-Task'),
+ dict(k='web', name='Sayapatri E-commerce', ini='SE', c1='#FF8A3D', c2='#4a1d05', type='Online store · Ek Ra Sunya', desc='E-commerce backend features: Khalti checkout, MailQuote shipping rates and live USD to AUD base-currency pricing.', stack='PHP · Laravel · REST APIs', st='Client project'),
+ dict(k='web', name='Laravel HRMS', ini='HR', c1='#4D7BFF', c2='#0a1440', type='HR platform · Uno Technology', desc='JWT auth, OTP password reset by email, employee records, attendance check-in and check-out, tasks and role-based dashboards.', stack='Laravel · JWT · MySQL', repo='https://github.com/Prajjwalgautam/HRM-system-checkin-checkout'),
+ dict(k='web', name='Fitfutures', ini='FF', c1='#2EE6A6', c2='#063a2a', type='E-learning · Uno Technology', desc='E-learning and school management platform with lessons, resources, progress tracking, admin dashboards and reports.', stack='HTML · CSS · JS · PHP', st='Client project'),
+ dict(k='web', name='Role-Based Commerce Admin', ini='RC', c1='#9B7BFF', c2='#1e1050', type='Admin & user system', desc='Admin and user dashboards with JWT authentication, OTP email password reset, profile management and catalogue CRUD.', stack='PHP · JWT · Bootstrap', repo='https://github.com/Prajjwalgautam/Ecommerce-Admin-User-management-system'),
+ dict(k='web', name='EBhojanalaya', ini='EB', c1='#F2334B', c2='#3a0812', type='Food ordering app', desc='Online food ordering: menus, cart and orders with a React front end and a Node.js server.', stack='React · Node.js', repo='https://github.com/Prajjwalgautam/Food-Delivery-system'),
+ dict(k='web', name='This Portfolio', ini='PG', c1='#F2334B', c2='#0c0c0e', type='WebGL · SEO · AEO', desc='9,105 instanced WebGL skill cards that morph through ten states on scroll, a 3D text loader, a curved carousel and 14 SEO and AEO service pages.', stack='Three.js · GLSL · Python build', repo='https://github.com/Prajjwalgautam/Portfolio'),
+ dict(k='app', name='AI Discipline Coach', ini='DC', c1='#F2334B', c2='#3a0812', type='Android app', desc='Habit and discipline coach for Android, built privacy-first: no internet permission and no data collected. Privacy policy published for Google Play.', stack='Android', priv='https://prajjwalgautam.github.io/discipline-coach-privacy/'),
+ dict(k='app', name='Activity Companion', ini='AC', c1='#FF8A3D', c2='#4a1d05', type='Social activity app', desc='Find people for hikes, rides, cafes, sports and events. Matching by activity, interests, area and time, with ID verification and safety tools.', stack='Flutter · mobile', st='In development'),
+ dict(k='app', name='First Math', ini='FM', c1='#E8C547', c2='#4a3400', type='Quiz game · Uno Technology', desc='Maths and science game with easy, medium and hard modes for each subject, sign-in and live points.', stack='PHP · JavaScript', repo='https://github.com/Prajjwalgautam/Project--First_Math'),
+ dict(k='vid', name='Nepal Bhoomi Reels', logo='NB', c1='#8a1f4a', type='Property video series', desc='Three to four property videos a day: scripted, edited, graded, captioned for SEO and published, with monthly reports.', stack='Remotion · AI video · SEO', live='https://www.nepalbhoomi.com'),
+ dict(k='vid', name='Remotion Video Engine', ini='RV', c1='#4D7BFF', c2='#0a1440', type='Programmatic video system', desc='Videos built from code: Remotion with Python AI tools for Whisper captions, upscaling, background removal and tracking, plus resumable renders.', stack='Remotion · TypeScript · Python', st='Internal tool'),
+ dict(k='vid', name='The 195 Project', ini='195', c1='#E8C547', c2='#4a3400', type='Documentary series', desc='Documentary-style country episodes with Blender 3D scenes, edited in Remotion. Episode 11: Turkey, the country in layers.', stack='Blender · Remotion', st='Series'),
+ dict(k='vid', name='Nepal Bhoomi Sound', logo='NB', c1='#2EE6A6', type='Sonic branding & music', desc='A 4–6 second sonic logo on madal, sarangi and bansuri for every video, and an AI-produced Dohori brand song with an animated video in production.', stack='Suno · AI video · Sound design', st='Brand audio'),
  dict(k='vid', name='Slugforge Productions', logo='SF', c1='#6b4cff', type='Studio video services', desc='Editing, podcast repurposing, colour grading, AI-assisted video and motion graphics.', stack='Editing · Grading · AI video', live='https://slugforge.vercel.app'),
- dict(k='vid', name='Educational YouTube', ini='YT', c1='#F2334B', c2='#3a0812', type='AI-made channel', desc='Educational videos made with AI-assisted scripts, images and visuals, edited with captions and music.', stack='AI scripting · Editing', st='Channel'),
- dict(k='vid', name='Study-Abroad Content', ini='SA', c1='#4D7BFF', c2='#0a1440', type='Freelance · education', desc='Explainers on IELTS, GRE, SAT and study-abroad applications, plus podcasts cut into shorts.', stack='Short-form · Motion', st='Freelance'),
+ dict(k='vid', name='Study-Abroad Content', ini='SA', c1='#9B7BFF', c2='#1e1050', type='Freelance · education', desc='Explainers on IELTS, GRE, SAT and study-abroad applications, plus podcasts cut into shorts.', stack='Short-form · Motion', st='Freelance'),
 ]
 FAQ = [
- ("What does Prajwal Gautam do?", "Prajwal Gautam is an AI engineer, full-stack and app developer, AI video producer and growth marketer based in Kathmandu, Nepal. He builds AI-powered websites and apps, produces AI video, and runs SEO, ad campaigns and branding for businesses worldwide."),
- ("Can you build an AI-powered website or app for my business?", "Yes. I build websites, web platforms and mobile apps with Laravel, Node.js, React and Django, and add AI features such as language-model integrations, assistants and automations."),
- ("Do you really work in any language?", "I write PHP, JavaScript, Python, SQL and HTML/CSS, work with Laravel, Node.js, React and Django, and create content in English, Nepali and Hindi. If your project needs another stack, I will tell you honestly whether I am the right fit."),
- ("Do you handle SEO and ad campaigns as well as development?", "Yes. I do keyword and market research, technical SEO, SEO content, Google and Meta ad campaigns, and monthly performance reports, so one person covers building the product and growing it."),
- ("Do you produce AI video?", "Yes. I produce 3–4 property videos a day for Nepal Bhoomi, run an AI-made educational YouTube channel, and create promotional and explainer videos for schools and consultancies."),
- ("Do you work with clients outside Nepal?", "Yes. I work remotely from Kathmandu (UTC+5:45), which overlaps with working hours in Asia, the Middle East, Europe and Australia."),
- ("How much does a project cost?", "Every project gets a fixed-price quote after a free 20-minute call. SEO, ads and content are usually monthly retainers. You always see the price before work starts."),
- ("How do I start a project with you?", "Email prajolgautam1234@gmail.com or call +977 984-8137372 with a short description of your goal. I reply within one working day, Nepal time."),
+ ("What does Prajwal Gautam do?", "Prajwal Gautam is an AI engineer, full-stack and app developer, AI video producer and motion designer, and SEO, AEO and growth marketer based in Kathmandu, Nepal. He builds AI-powered websites and apps, produces video, and runs SEO, ads and branding for businesses worldwide."),
+ ("What is AEO and do you offer it?", "AEO, Answer Engine Optimization, makes your business the answer that ChatGPT, Perplexity, Gemini and Google AI Overviews give. Yes: I add structured data, llms.txt, answer-first content and consistent citations, and track AI mentions monthly."),
+ ("Which industries do you work with?", "Real estate (daily, at Nepal Bhoomi), education and study-abroad consultancies, e-commerce and retail, restaurants and travel, and I offer dedicated packages for jewellers and SaaS companies."),
+ ("Do you make motion design and animation for SaaS?", "Yes. I build product explainers, UI animations and launch videos, often in Remotion so they can be re-rendered when your product changes, plus Blender 3D and WebGL."),
+ ("Can you build an AI-powered website or app for my business?", "Yes. I build with Next.js, React, Node.js, Laravel and PostgreSQL, add AI features such as language-model integrations, assistants and automations, and secure them with proper sign-in, 2FA and audit logs."),
+ ("Do you really work in any language?", "I write TypeScript, JavaScript, PHP, Python and SQL, build with Next.js, React, Laravel and Node.js, and create content in English, Nepali and Hindi. If a project needs another stack, I will tell you honestly whether I am the right fit."),
+ ("How much does a project cost?", "Every project gets a fixed-price quote after a free 20-minute call. SEO, AEO, ads and content are usually monthly retainers. You always see the price before work starts."),
+ ("How do I start a project with you?", "Email prajolgautam1234@gmail.com or call +977 984-8137372 with a short description of your goal. I reply within one working day, Nepal time (UTC+5:45)."),
 ]
-SLASH = [('AI Engineering','ai-engineer-nepal'),('Full-Stack &amp; Apps','full-stack-developer-nepal'),('AI Video','ai-video-production'),('SEO &amp; Ads','seo-expert-nepal'),('Growth &amp; Branding','growth-marketing-consultant')]
+SLASH = [('AI Engineering','ai-engineer-nepal'),('Full-Stack &amp; Apps','full-stack-developer-nepal'),('AI Video &amp; Motion','saas-motion-design'),('SEO, AEO &amp; Ads','aeo-geo-expert'),('Growth &amp; Branding','growth-marketing-consultant')]
+INDUSTRIES = [
+ dict(n='Real Estate', tag='Proven · Nepal Bhoomi', line='Property reels, listing platforms and lead ads that sell land and homes.', chips=['Property reels','Listing sites','Lead ads','Sonic branding'], slug='real-estate-marketing-nepal'),
+ dict(n='Jewellers', tag='Package for jewellers', line='Macro product films, 3D renders, graphics and wedding-season campaigns that make every piece shine.', chips=['Macro video','3D renders','Catalogues','Festive ads'], slug='jewellery-marketing-nepal'),
+ dict(n='SaaS &amp; Tech', tag='Remotion · Blender · WebGL', line='Explainers, UI motion and launch videos, built from code so every product update re-renders.', chips=['Explainers','UI animation','Launch videos','3D & WebGL'], slug='saas-motion-design'),
+ dict(n='E-commerce', tag='Proven · Sayapatri, Zylux', line='Stores, payments, admin dashboards and the ads and SEO that fill the cart.', chips=['Online stores','Khalti','Dashboards','Meta ads'], slug='growth-marketing-consultant'),
+ dict(n='Education', tag='Proven · Fitfutures, freelance', line='E-learning platforms and study-abroad explainers that students and parents trust.', chips=['E-learning','Explainers','Shorts','YouTube SEO'], slug='ai-video-production'),
+ dict(n='Food &amp; Travel', tag='Proven · EBhojanalaya, The 195 Project', line='Ordering systems, food and travel reels, and local SEO and AEO for Maps and AI search.', chips=['Ordering apps','Travel films','Local SEO','AEO'], slug='seo-expert-nepal'),
+]
 
 # ------------------------------------------------------------------ engine
 def engine():
@@ -147,19 +164,21 @@ def page_main(svc_link):
     jobs = ''.join(f'''<article class="job glass" style="--c:{j['c']}"><div class="job-top">{lg(j)}<div><h3>{E(j['co'])}{'<span class="now">NOW</span>' if j.get('now') else ''}</h3><div class="t">{j['title']}</div><div class="w">{j['where']}</div></div></div><ul>{''.join(f'<li>{p}</li>' for p in j['pts'])}</ul></article>''' for j in JOBS)
     panels = []
     for i, w in enumerate(WORK):
-        st = '<span class="live-dot">● Live</span>' if w.get('live') else f'<span>{E(w.get("st","Code on GitHub"))}</span>'
+        st = '<span class="live-dot">● Live</span>' if w.get('live') else f'<span>{E(w.get("st","Android app" if w.get("priv") else "Code on GitHub"))}</span>'
         link = (f'<a href="{w["live"]}" target="_blank" rel="noopener">Open live ↗</a>' if w.get('live') else
-                f'<a href="{w["repo"]}" target="_blank" rel="noopener">GitHub ↗</a>' if w.get('repo') else '<a href="#contact">Ask me ↗</a>')
+                f'<a href="{w["repo"]}" target="_blank" rel="noopener">GitHub ↗</a>' if w.get('repo') else
+                f'<a href="{w["priv"]}" target="_blank" rel="noopener">Privacy policy ↗</a>' if w.get('priv') else '<a href="#contact">Ask me ↗</a>')
         panels.append(f'''<article class="panel" data-k="{w['k']}" style="--c1:{w.get('c1','#4D7BFF')}" aria-label="{E(w['name'])}"><div class="p-top">{st}<span>{i+1:02d}</span></div><div class="p-mid">{lg(w)}<h3>{E(w['name'])}</h3><span class="p-type">{E(w['type'])}</span><p class="p-desc">{E(w['desc'])}</p></div><div class="p-foot"><span class="stk">{E(w['stack'])}</span>{link}</div></article>''')
     rows = ''.join(f'''<a class="rowl" href="{svc_link(s['slug'])}"><span class="n">{i+1:02d}</span><h3>{E(s['kw'])}</h3><span class="d">{E(' · '.join(n for n, _ in s['offers'][:3]))}</span><span class="ar" aria-hidden="true">↗</span></a>''' for i, s in enumerate(SERVICES))
     faq = ''.join(f'<details class="qa"><summary><h3>{E(q)}</h3><span aria-hidden="true">+</span></summary><p>{E(a)}</p></details>' for q, a in FAQ)
-    foot_a = ''.join(f'<a href="{svc_link(s["slug"])}">{E(s["kw"])}</a>' for s in SERVICES[:5])
-    foot_b = ''.join(f'<a href="{svc_link(s["slug"])}">{E(s["kw"])}</a>' for s in SERVICES[5:])
+    foot_a = ''.join(f'<a href="{svc_link(s["slug"])}">{E(s["kw"])}</a>' for s in SERVICES[:7])
+    foot_b = ''.join(f'<a href="{svc_link(s["slug"])}">{E(s["kw"])}</a>' for s in SERVICES[7:])
+    inds = ''.join(f'''<a class="ind" href="{svc_link(d['slug'])}"><span class="ind-tag">({i+1:02d}) {E(d['tag'])}</span><h3>{d['n']}</h3><p>{E(d['line'])}</p><span class="chips">{''.join(f'<span>{E(c)}</span>' for c in d['chips'])}</span><span class="ind-go">{E(BY_SLUG[d['slug']]['kw'])} ↗</span></a>''' for i, d in enumerate(INDUSTRIES))
     cnt = {k: sum(1 for w in WORK if w['k'] == k) for k in ('web','app','vid')}
     t = open(os.path.join(ROOT, 'src-v6.html')).read()
     rep = {'{{MEGA}}': mega_html, '{{MEGA_FOOT}}': ''.join(f'<span>{c}</span>' for c in 'PRAJWALGAUTAM'),
            '{{SLASH}}': slash, '{{LEGEND}}': legend, '{{CATS}}': cats, '{{JOBS}}': jobs, '{{PANELS}}': ''.join(panels),
-           '{{ROWS}}': rows, '{{FAQ}}': faq, '{{FOOT_A}}': foot_a, '{{FOOT_B}}': foot_b,
+           '{{ROWS}}': rows, '{{INDUSTRIES}}': inds, '{{FAQ}}': faq, '{{FOOT_A}}': foot_a, '{{FOOT_B}}': foot_b,
            '{{N_ALL}}': str(len(WORK)), '{{N_WEB}}': str(cnt['web']), '{{N_APP}}': str(cnt['app']), '{{N_VID}}': str(cnt['vid']),
            '{{CATS_JSON}}': json.dumps([dict(name=c['name'], word=c['word'], c=c['c'], skills=c['skills']) for c in CATS]),
            '{{ROLES_JSON}}': json.dumps(ROLES), '{{ENGINE}}': engine()}
@@ -170,9 +189,9 @@ def page_main(svc_link):
     return t
 
 # ------------------------------------------------------------------ SEO head
-DESC = "Prajwal Gautam is an AI engineer, full-stack and app developer, AI video producer and SEO, ads and growth marketer in Kathmandu, Nepal, building AI-powered websites, apps and campaigns for clients worldwide."
+DESC = "Prajwal Gautam is an AI engineer, full-stack and app developer, AI video and motion designer, and SEO, AEO, ads and growth marketer in Kathmandu, Nepal, working with real estate, jewellery, SaaS and e-commerce brands worldwide."
 TITLE = "Prajwal Gautam – AI Engineer, Full-Stack & App Developer, Growth Marketer in Nepal"
-KNOWS = sorted({s for c in CATS for s in c['skills']} | {"Artificial intelligence engineering","Full-stack web development","Mobile app development","AI video production","Search engine optimization","Google Ads","Meta Ads","Growth marketing","E-commerce marketing","Branding","Laravel","PHP","Node.js","React","Django","Python","JavaScript","SQL","Three.js","WebGL"})
+KNOWS = sorted({s for c in CATS for s in c['skills']} | {"Artificial intelligence engineering","Answer Engine Optimization (AEO)","Generative Engine Optimization (GEO)","Motion design","SaaS product animation","Real estate marketing","Jewellery marketing","Graphic design","Next.js","TypeScript","PostgreSQL","Remotion","Blender","Full-stack web development","Mobile app development","AI video production","Search engine optimization","Google Ads","Meta Ads","Growth marketing","E-commerce marketing","Branding","Laravel","PHP","Node.js","React","Django","Python","JavaScript","SQL","Three.js","WebGL"})
 
 def person():
     return {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","alternateName":["Prajjwal Gautam"],"url":SITE,
@@ -388,7 +407,7 @@ Sitemap: {SITE}sitemap.xml
 """)
     llms = ["# Prajwal Gautam", "", f"> {DESC}", "", "Website: " + SITE, "",
             "## Roles", "- AI Engineer", "- Full-Stack Web Developer", "- App Developer (mobile and web)", "- AI Video Producer",
-            "- SEO Specialist and Marketing Researcher", "- Google Ads and Meta Ads Campaign Strategist", "- Growth, E-commerce and Brand Marketer", "",
+            "- SEO and AEO/GEO Specialist (AI search optimization) and Marketing Researcher", "- Motion Designer (SaaS product animation, 3D)", "- Industries: real estate, jewellery, SaaS and tech, e-commerce, education, food and travel", "- Google Ads and Meta Ads Campaign Strategist", "- Growth, E-commerce and Brand Marketer", "",
             "## Service pages"] + [f"- [{s['kw']}]({SITE}services/{s['slug']}/): {s['desc']}" for s in SERVICES] + ["",
             "## Experience"] + [f"- {j['co']} ({j['where']}): {html.unescape(j['title'])}. " + ' '.join(re.sub('<[^>]+>', '', p) for p in j['pts']) for j in JOBS] + ["",
             "## Live projects", "- [Nepal Bhoomi](https://www.nepalbhoomi.com): real-estate platform; video, SEO and growth.", "- [Slugforge Studio](https://slugforge.vercel.app): creative studio website and video services.", "",
