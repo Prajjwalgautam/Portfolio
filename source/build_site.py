@@ -35,7 +35,7 @@ CATS = [
       skills=['Android Apps','Web Apps','REST APIs','Khalti Payments','Auth, 2FA & OAuth','Prisma & Drizzle']),
  dict(name='AI Video & Motion', word='VIDEO', c='#F2334B', slug='ai-video-production', h='AI Video &amp; Motion Design',
       blurb='Scroll-stopping video and SaaS-style motion, made faster with AI and code: scripts, 3D, edits, grading and sound.',
-      proof='3–4 property videos a day at Nepal Bhoomi, The 195 Project with Blender 3D, a brand sonic logo',
+      proof='Nepal Bhoomi property films, The 195 Project with Blender 3D, a brand sonic logo',
       skills=['AI Video','Motion Graphics','SaaS Animation','Blender 3D','Color Grading','Remotion']),
  dict(name='SEO & AEO', word='SEO', c='#2BC6E8', slug='aeo-geo-expert', h='SEO, AEO &amp; Marketing Research',
       blurb='Rank on Google and become the answer in ChatGPT, Perplexity and Google AI Overviews.',
@@ -49,7 +49,7 @@ CATS = [
 ROLES = ["AI engineer","full-stack developer","app developer","AI video producer","motion designer","SEO & AEO specialist","ad campaign strategist","growth marketer","brand strategist","marketing researcher"]
 JOBS = [
  dict(co='Nepal Bhoomi', logo='NB', c='#F2334B', where='Lazimpat, Kathmandu', title='Video, Design, Growth &amp; Platform', now=1,
-      pts=['Built a <b>code-driven video pipeline</b> (Remotion + Python AI: Whisper captions, upscaling, background removal, tracking) that ships <b>3–4 property reels a day</b>.',
+      pts=['Built a <b>code-driven video pipeline</b> (Remotion + Python AI: Whisper captions, upscaling, background removal, tracking) for branded <b>property reels</b>.',
            'Co-built the <b>Nepal Bhoomi platform</b>: Next.js API, PostgreSQL, React admin, 2FA, Google sign-in and audit logging.',
            'Own SEO captions, audience research, ad tracking and <b>monthly growth reports</b>; designed the brand’s <b>sonic logo</b>.']),
  dict(co='Freelance', ini='FL', c1='#F2334B', c2='#3a0812', c='#F2334B', where='Remote · worldwide', title='AI Video Producer &amp; Motion Designer',
@@ -79,7 +79,7 @@ WORK = [
  dict(k='app', name='AI Discipline Coach', ini='DC', c1='#F2334B', c2='#3a0812', type='Android app', desc='Habit and discipline coach for Android, built privacy-first: no internet permission and no data collected. Privacy policy published for Google Play.', stack='Android', priv='https://prajjwalgautam.github.io/discipline-coach-privacy/'),
  dict(k='app', name='Activity Companion', ini='AC', c1='#FF8A3D', c2='#4a1d05', type='Social activity app', desc='Find people for hikes, rides, cafes, sports and events. Matching by activity, interests, area and time, with ID verification and safety tools.', stack='Flutter · mobile', st='In development'),
  dict(k='app', name='First Math', ini='FM', c1='#E8C547', c2='#4a3400', type='Quiz game · Uno Technology', desc='Maths and science game with easy, medium and hard modes for each subject, sign-in and live points.', stack='PHP · JavaScript', repo='https://github.com/Prajjwalgautam/Project--First_Math'),
- dict(k='vid', name='Nepal Bhoomi Reels', logo='NB', c1='#8a1f4a', type='Property video series', desc='Three to four property videos a day: scripted, edited, graded, captioned for SEO and published, with monthly reports.', stack='Remotion · AI video · SEO', live='https://www.nepalbhoomi.com'),
+ dict(k='vid', name='Nepal Bhoomi Reels', logo='NB', c1='#8a1f4a', type='Property video series', desc='Property videos and reels: scripted, edited, graded, captioned for SEO and published, with monthly reports.', stack='Remotion · AI video · SEO', live='https://www.nepalbhoomi.com'),
  dict(k='vid', name='Remotion Video Engine', ini='RV', c1='#4D7BFF', c2='#0a1440', type='Programmatic video system', desc='Videos built from code: Remotion with Python AI tools for Whisper captions, upscaling, background removal and tracking, plus resumable renders.', stack='Remotion · TypeScript · Python', st='Internal tool'),
  dict(k='vid', name='The 195 Project', ini='195', c1='#E8C547', c2='#4a3400', type='Documentary series', desc='Documentary-style country episodes with Blender 3D scenes, edited in Remotion. Episode 11: Turkey, the country in layers.', stack='Blender · Remotion', st='Series'),
  dict(k='vid', name='Nepal Bhoomi Sound', logo='NB', c1='#2EE6A6', type='Sonic branding & music', desc='A 4–6 second sonic logo on madal, sarangi and bansuri for every video, and an AI-produced Dohori brand song with an animated video in production.', stack='Suno · AI video · Sound design', st='Brand audio'),
@@ -92,7 +92,7 @@ FAQ = [
  ("Which industries do you work with?", "Real estate (daily, at Nepal Bhoomi), education and study-abroad consultancies, e-commerce and retail, restaurants and travel, and I offer dedicated packages for jewellers and SaaS companies."),
  ("Do you make motion design and animation for SaaS?", "Yes. I build product explainers, UI animations and launch videos, often in Remotion so they can be re-rendered when your product changes, plus Blender 3D and WebGL."),
  ("Can you build an AI-powered website or app for my business?", "Yes. I build with Next.js, React, Node.js, Laravel and PostgreSQL, add AI features such as language-model integrations, assistants and automations, and secure them with proper sign-in, 2FA and audit logs."),
- ("Do you really work in any language?", "I write TypeScript, JavaScript, PHP, Python and SQL, build with Next.js, React, Laravel and Node.js, and create content in English, Nepali and Hindi. If a project needs another stack, I will tell you honestly whether I am the right fit."),
+ ("Which programming languages and frameworks do you use?", "TypeScript and JavaScript with Next.js, React and Node.js; PHP with Laravel; Python for AI and automation; SQL with PostgreSQL and MySQL; and GLSL for WebGL. If your project needs a stack I don't use, I'll tell you before we start."),
  ("How much does a project cost?", "Every project gets a fixed-price quote after a free 20-minute call. SEO, AEO, ads and content are usually monthly retainers. You always see the price before work starts."),
  ("How do I start a project with you?", "Email prajolgautam1234@gmail.com or message me on WhatsApp at +977 984-8137372 with a short description of your goal. I reply within one working day, Nepal time (UTC+5:45)."),
 ]

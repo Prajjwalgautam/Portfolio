@@ -475,7 +475,7 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
       <div class="row"><div class="lgw"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/></svg><div class="lg light"><img src="{{IMG_NB}}" alt="Nepal Bhoomi logo" width="112" height="97"></div></div><div><div class="url">nepalbhoomi.com</div><div class="role">Video · Design · SEO · Growth</div></div></div>
       <h2 class="night-h">Nepal<br>Bhoomi</h2>
       <p>The real-estate brand behind houses, land and apartments for sale and rent across Kathmandu, Lalitpur and Bhaktapur. I produce its property films, graphics, SEO content and social campaigns, and report what sells.</p>
-      <dl><div><dt>3–4</dt><dd>property videos a day</dd></div><div><dt>Monthly</dt><dd>growth reports</dd></div><div><dt>Live</dt><dd>website &amp; journal</dd></div></dl>
+      <dl><div><dt>Video</dt><dd>property films &amp; reels</dd></div><div><dt>Monthly</dt><dd>growth reports</dd></div><div><dt>Live</dt><dd>website &amp; journal</dd></div></dl>
       <div class="btns"><a class="btn fill" href="https://www.nepalbhoomi.com" target="_blank" rel="noopener">Visit nepalbhoomi.com ↗</a></div>
     </div>
   </section>
@@ -515,7 +515,7 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
       <p class="big rv">I studied Computer Science, shipped Laravel and Node systems for two software companies, then took over video, SEO and growth for a real-estate brand. Today I combine AI engineering, full-stack and app development with AI video, research, ads and branding. I can <em>build your product</em>, <em>film it</em> and <em>grow it</em>, with no hand-offs between agencies.</p>
       <div class="facts">
         <div><b class="odo" data-to="15+">00+</b><span>web &amp; app projects</span></div>
-        <div><b class="odo" data-to="3–4">0–0</b><span>videos a day</span></div>
+        <div><b class="odo" data-to="2">0</b><span>live brands</span></div>
         <div><b class="odo" data-to="36">00</b><span>skills</span></div>
         <div><b class="odo" data-to="3">0</b><span>languages spoken</span></div>
       </div>
@@ -546,8 +546,8 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
       <div class="lines">
         <div class="line"><div><div class="k">Email</div><div class="v" id="mail">prajolgautam1234@gmail.com</div></div><button type="button" data-copy="mail">Copy</button></div>
         <div class="line"><div><div class="k">WhatsApp &amp; phone</div><div class="v" id="phone">+977 984-8137372</div></div><a href="https://wa.me/9779848137372?text=Hi%20Prajwal%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">WhatsApp ↗</a></div>
-        <div class="line"><div><div class="k">LinkedIn</div><div class="v">in/prajjwal-gautam</div></div><a href="https://www.linkedin.com/in/prajjwal-gautam/" target="_blank" rel="noopener">Open ↗</a></div>
-        <div class="line"><div><div class="k">GitHub</div><div class="v">Prajjwalgautam</div></div><a href="https://github.com/Prajjwalgautam" target="_blank" rel="noopener">Open ↗</a></div>
+        <div class="line"><div><div class="k">LinkedIn</div><div class="v">Prajwal Gautam</div></div><a href="https://www.linkedin.com/in/prajjwal-gautam/" target="_blank" rel="noopener">Open ↗</a></div>
+        <div class="line"><div><div class="k">GitHub</div><div class="v">Prajwal Gautam</div></div><a href="https://github.com/Prajjwalgautam" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
     </div>
   </section>
@@ -707,34 +707,47 @@ document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',a
 
 /* ---------- curved carousel ---------- */
 const car=$('car'), carRing=$('carRing'); const allPanels=[...carRing.children]; let panels=allPanels.slice();
-let pos=0, target=0, vel=0, dragging=false, lastX=0, moved=0, PW=480, GAP=26, R=900, TH=30;
+let pos=0, target=0, vel=0, PW=480, GAP=26, R=900, TH=30, drag=null, running=false, wheelT=0;
 function carLayout(){ const w=car.clientWidth; PW=Math.min(500, Math.max(250, w*(innerWidth<900?.78:.36))); const PH=Math.round(PW*(innerWidth<900?1.25:.74));
-  car.style.setProperty('--pw',PW+'px'); car.style.setProperty('--ph',PH+'px'); R=PW*1.85; TH=2*Math.asin((PW+GAP)/(2*R))*180/Math.PI; }
-carLayout(); addEventListener('resize',carLayout);
+  car.style.setProperty('--pw',PW+'px'); car.style.setProperty('--ph',PH+'px'); R=PW*1.85; TH=2*Math.asin((PW+GAP)/(2*R))*180/Math.PI; carRender(); }
 function wrapIdx(i,n){ return ((i%n)+n)%n; }
 function carRender(){
   const n=panels.length; carRing.style.transform=`translateZ(${R}px)`;
   panels.forEach((p,i)=>{ let a=i-pos; a=((a+n/2)%n+n)%n-n/2; const ab=Math.abs(a);
-    p.style.visibility=ab>2.7?'hidden':'visible'; if(ab>2.7) return;
-    const bend=Math.max(-8,Math.min(8,vel*14));
-    p.style.transform=`rotateY(${-a*TH}deg) translateZ(${-R}px) rotateY(${bend*.3}deg) scale(${1-Math.min(.12,Math.abs(vel)*.4)})`;
-    p.style.opacity=String(1-Math.max(0,Math.min(1,(ab-1.6)/1.1)));
+    if(ab>2.7){ if(p.style.visibility!=='hidden') p.style.visibility='hidden'; return; }
+    p.style.visibility='visible';
+    const bend=Math.max(-6,Math.min(6,vel*10));
+    p.style.transform=`rotateY(${(-a*TH).toFixed(3)}deg) translateZ(${-R}px) rotateY(${(bend*.3).toFixed(3)}deg)`;
+    p.style.opacity=(1-Math.max(0,Math.min(1,(ab-1.6)/1.1))).toFixed(3);
     p.style.zIndex=String(100-Math.round(ab*10)); p.tabIndex=ab<.5?0:-1; p.setAttribute('aria-hidden',ab<.5?'false':'true'); });
-  const cur=wrapIdx(Math.round(pos),n); $('carCount').textContent=String(cur+1).padStart(2,'0')+' / '+String(n).padStart(2,'0');
+  $('carCount').textContent=String(wrapIdx(Math.round(pos),n)+1).padStart(2,'0')+' / '+String(n).padStart(2,'0');
 }
-function carLoop(){ if(!dragging){ const d=target-pos; vel+=d*.06; vel*=.78; pos+=vel; } carRender(); requestAnimationFrame(carLoop); }
-car.addEventListener('pointerdown',e=>{ if(e.button!==0) return; dragging=true; moved=0; lastX=e.clientX; car.setPointerCapture(e.pointerId); vel=0; });
-car.addEventListener('pointermove',e=>{ if(!dragging) return; const dx=e.clientX-lastX; lastX=e.clientX; moved+=Math.abs(dx); const d=-dx/(PW+GAP); pos+=d; vel=d; });
-function endDrag(){ if(!dragging) return; dragging=false; target=Math.round(pos+vel*6); }
-car.addEventListener('pointerup',endDrag); car.addEventListener('pointercancel',endDrag);
-car.addEventListener('click',e=>{ if(moved>6){ e.preventDefault(); e.stopPropagation(); return; } const p=e.target.closest('.panel'); if(!p) return; const i=panels.indexOf(p); const n=panels.length; let a=i-pos; a=((a+n/2)%n+n)%n-n/2; if(Math.abs(a)>.5){ e.preventDefault(); target=Math.round(pos+a); } },true);
-car.addEventListener('wheel',e=>{ if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){ e.preventDefault(); target=pos+e.deltaX/(PW+GAP)*1.4; clearTimeout(car.__w); car.__w=setTimeout(()=>target=Math.round(target),120); } },{passive:false});
-car.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'){ target=Math.round(target)+1; e.preventDefault(); } if(e.key==='ArrowLeft'){ target=Math.round(target)-1; e.preventDefault(); } });
-$('carNext').addEventListener('click',()=>target=Math.round(target)+1); $('carPrev').addEventListener('click',()=>target=Math.round(target)-1);
+function carTick(){
+  if(!drag){ const d=target-pos; vel=d*.14; pos+=vel; if(Math.abs(d)<.0008){ pos=target; vel=0; carRender(); running=false; return; } }
+  carRender(); requestAnimationFrame(carTick);
+}
+function kick(){ if(!running){ running=true; requestAnimationFrame(carTick); } }
+carLayout(); addEventListener('resize',carLayout);
+car.addEventListener('pointerdown',e=>{ if(e.button!==0) return; drag={id:e.pointerId,x:e.clientX,y:e.clientY,p0:pos,axis:null,lx:e.clientX,lt:performance.now(),v:0}; });
+car.addEventListener('pointermove',e=>{ if(!drag||e.pointerId!==drag.id) return;
+  const dx=e.clientX-drag.x, dy=e.clientY-drag.y;
+  if(!drag.axis){ if(Math.abs(dx)<6&&Math.abs(dy)<6) return; drag.axis=Math.abs(dx)>Math.abs(dy)?'x':'y';
+    if(drag.axis==='y'){ drag=null; return; } car.setPointerCapture(e.pointerId); }
+  const now=performance.now(); drag.v=(e.clientX-drag.lx)/Math.max(1,now-drag.lt); drag.lx=e.clientX; drag.lt=now;
+  const np=drag.p0-dx/(PW+GAP); vel=np-pos; pos=np; kick(); });
+function endDrag(){ if(!drag) return; const wasX=drag.axis==='x', v=drag.v; drag=null;
+  if(wasX){ target=Math.round(pos-v*220/(PW+GAP)); car.__justDragged=true; setTimeout(()=>car.__justDragged=false,50); kick(); } }
+car.addEventListener('pointerup',endDrag); car.addEventListener('pointercancel',()=>{ drag=null; target=Math.round(pos); kick(); });
+car.addEventListener('click',e=>{ if(car.__justDragged){ e.preventDefault(); e.stopPropagation(); return; }
+  const p=e.target.closest('.panel'); if(!p) return; const i=panels.indexOf(p), n=panels.length; let a=i-pos; a=((a+n/2)%n+n)%n-n/2;
+  if(Math.abs(a)>.5){ e.preventDefault(); target=Math.round(pos+a); kick(); } },true);
+car.addEventListener('wheel',e=>{ if(Math.abs(e.deltaX)<=Math.abs(e.deltaY)) return; e.preventDefault(); e.stopPropagation();
+  target+=e.deltaX/(PW+GAP); kick(); clearTimeout(wheelT); wheelT=setTimeout(()=>{ target=Math.round(target); kick(); },140); },{passive:false});
+car.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'){ target=Math.round(target)+1; kick(); e.preventDefault(); } if(e.key==='ArrowLeft'){ target=Math.round(target)-1; kick(); e.preventDefault(); } });
+$('carNext').addEventListener('click',()=>{ target=Math.round(target)+1; kick(); }); $('carPrev').addEventListener('click',()=>{ target=Math.round(target)-1; kick(); });
 document.querySelectorAll('.tabs [role=tab]').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tabs [role=tab]').forEach(x=>x.setAttribute('aria-selected',String(x===t)));
-  const k=t.dataset.k; allPanels.forEach(p=>{ const on=k==='all'||p.dataset.k===k; p.hidden=!on; }); panels=allPanels.filter(p=>!p.hidden); pos=0; target=0; vel=0; }));
-carLoop();
+  const k=t.dataset.k; allPanels.forEach(p=>{ const on=k==='all'||p.dataset.k===k; p.hidden=!on; p.style.visibility='hidden'; }); panels=allPanels.filter(p=>!p.hidden); pos=0; target=0; vel=0; carRender(); }));
 
 /* ---------- smooth scroll ---------- */
 let lenis=null;
