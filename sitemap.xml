@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
-    <loc>https://prajjwalgautam.com.np/</loc>
-    <lastmod>2026-11-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <image:image><image:loc>https://prajjwalgautam.com.np/assets/prajwal-gautam.webp</image:loc></image:image>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://prajjwalgautam.com.np/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://prajjwalgautam.com.np/services/ai-engineer-nepal/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://prajjwalgautam.com.np/services/full-stack-developer-nepal/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://prajjwalgautam.com.np/services/app-developer-nepal/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://prajjwalgautam.com.np/services/ai-video-production/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://prajjwalgautam.com.np/services/seo-expert-nepal/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://prajjwalgautam.com.np/services/google-meta-ads-expert-nepal/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://prajjwalgautam.com.np/services/growth-marketing-consultant/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://prajjwalgautam.com.np/services/web-developer-kathmandu/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://prajjwalgautam.com.np/services/hire-ai-developer/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://prajjwalgautam.com.np/services/branding-digital-marketing-nepal/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
