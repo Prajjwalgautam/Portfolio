@@ -187,6 +187,8 @@ section{max-width:1440px;margin:0 auto;position:relative}
 .legend i{width:10px;height:10px;border-radius:2px;background:var(--c)}
 .legend a:hover{text-decoration:underline}
 .glass{border:1px solid var(--line-n);border-radius:20px;background:rgba(10,11,14,.62);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
+/* Slower devices: the engine adds .lite, which swaps the live blur for a solid panel */
+.lite .glass{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(10,11,14,.92)}
 .cat{min-height:110vh;display:grid;align-content:end;padding-block:40vh 10vh}
 .cat-card{max-width:600px;padding:28px;display:grid;gap:14px}
 .cat-top{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim-n)}
@@ -979,7 +981,7 @@ function layout(){
 let anchors=[];
 function computeAnchors(){
   const H=innerHeight; anchors=[...document.querySelectorAll('[data-state]')].map(el=>({y:Math.max(0,el.offsetTop+el.offsetHeight/2-H/2), st:el.dataset.state, c:el.dataset.c}));
-  anchors[0].y=0;
+  anchors[0].y=0; docH=document.documentElement.scrollHeight;
 }
 let sTarget=0, sSmooth=0, progress=0, beatPh=0, bpm=72;
 const ecg=$('ecg'), eg=ecg.getContext('2d'); let ecgX=0;
@@ -991,11 +993,12 @@ function heartbeat(dt){
   const y=H*.62 - (Math.exp(-Math.pow((f-.06)/.012,2))*H*.5) + (Math.exp(-Math.pow((f-.09)/.012,2))*H*.22) - Math.exp(-Math.pow((f-.24)/.04,2))*H*.12;
   eg.strokeStyle='#ffffff'; eg.lineWidth=2.5; eg.beginPath(); eg.moveTo(W-4,ecgX||y); eg.lineTo(W-1,y); eg.stroke(); ecgX=y;
 }
+var docH=document.documentElement.scrollHeight; addEventListener('resize',()=>{docH=document.documentElement.scrollHeight});
 function readScroll(){
   const y=scrollY; let k=0; while(k<anchors.length-1 && anchors[k+1].y<=y) k++;
   if(k>=anchors.length-1){ sTarget=anchors.length-1; }
   else { const t=(y-anchors[k].y)/Math.max(1,anchors[k+1].y-anchors[k].y); sTarget=k+sstep(.18,.82,t); }
-  progress=y/Math.max(1,document.documentElement.scrollHeight-innerHeight); $('bar').style.width=(100*progress)+'%';
+  progress=y/Math.max(1,docH-innerHeight); $('bar').style.width=(100*progress)+'%';
  
 }
 addEventListener('scroll',readScroll,{passive:true});
@@ -1031,6 +1034,9 @@ let tagTick=0;
 /* --- loop --- */
 addEventListener('resize',layout); layout(); readScroll();
 const clock=new THREE.Clock(); let lastT=0;
+const PR=[Math.min(devicePixelRatio, isMobile()?1.5:1.75), 1.25, 1, .8]; let prLvl=0, pSum=0, pN=0;
+function perfCheck(dt,t){ if(t<4||document.hidden) return; pSum+=dt; pN++; if(pN<90) return; const avg=pSum/pN; pSum=0; pN=0;
+  if(avg>1/40 && prLvl<PR.length-1){ prLvl++; if(PR[prLvl]<PR[0]){ renderer.setPixelRatio(PR[prLvl]); layout(); } document.documentElement.classList.add('lite'); } }
 function frame(time){
   if(lenis) lenis.raf(time);
   const t=clock.getElapsedTime(); const dt=Math.min(.1,t-lastT); lastT=t; const k60=x=>1-Math.pow(1-x,dt*60); U.uTime.value=t;
@@ -1048,6 +1054,7 @@ function frame(time){
   cx+=(px-cx)*.25; cy+=(py-cy)*.25; ring.style.transform=`translate(${cx}px,${cy}px)`;
   if(hasPointer && ++tagTick%3===0){ const k=nearestSkill(); if(k>=0){ const s=SKILLS[data[k*4]]; tag.innerHTML=`${s.s} <b>· ${CATS[s.ci].name}</b>`; tag.style.transform=`translate(${px+18}px,${py+18}px)`; tag.style.opacity=1; } else tag.style.opacity=0; }
   if(composer) composer.render(); else renderer.render(scene,camera);
+  perfCheck(dt,t);
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);

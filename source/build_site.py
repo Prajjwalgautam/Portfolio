@@ -152,6 +152,17 @@ const STATES={""")
     R("  const shown=Math.round(N*Math.min(1,U.uIntro.value)); $('bootN').textContent=shown.toLocaleString('en-US'); if(U.uIntro.value>=1) $('bootTxt').textContent='Live ·';\n", "")
     R("else if(kind<1.5){ p=rY(uTime*.08)*p;", "else if(kind<1.5){ p=rY(uTime*.3)*p;")
     R("  float roll=arc*fract(r*3.7)*6.28;", "  float gx=(uKindA>.5&&uKindA<1.5?1.-e:0.)+(uKindB>.5&&uKindB<1.5?e:0.);\n  yaw+=gx*uTime*(.7+r*1.6); float roll=arc*fract(r*3.7)*6.28+gx*sin(uTime*.9+r*20.)*.5;")
+    # Adaptive quality: if a device can't hold ~40 fps, lower the render resolution step by step and drop the glass blur.
+    R("  if(composer) composer.render(); else renderer.render(scene,camera);\n  requestAnimationFrame(frame);",
+      "  if(composer) composer.render(); else renderer.render(scene,camera);\n  perfCheck(dt,t);\n  requestAnimationFrame(frame);")
+    R("const clock=new THREE.Clock(); let lastT=0;",
+      "const clock=new THREE.Clock(); let lastT=0;\n"
+      "const PR=[Math.min(devicePixelRatio, isMobile()?1.5:1.75), 1.25, 1, .8]; let prLvl=0, pSum=0, pN=0;\n"
+      "function perfCheck(dt,t){ if(t<4||document.hidden) return; pSum+=dt; pN++; if(pN<90) return; const avg=pSum/pN; pSum=0; pN=0;\n"
+      "  if(avg>1/40 && prLvl<PR.length-1){ prLvl++; if(PR[prLvl]<PR[0]){ renderer.setPixelRatio(PR[prLvl]); layout(); } document.documentElement.classList.add('lite'); } }")
+    R("progress=y/Math.max(1,document.documentElement.scrollHeight-innerHeight);", "progress=y/Math.max(1,docH-innerHeight);")
+    R("  anchors[0].y=0;\n}", "  anchors[0].y=0; docH=document.documentElement.scrollHeight;\n}")
+    R("function readScroll(){", "var docH=document.documentElement.scrollHeight; addEventListener('resize',()=>{docH=document.documentElement.scrollHeight});\nfunction readScroll(){")
     R("eg.strokeStyle='#F2334B';", "eg.strokeStyle='#ffffff';")
     R("if(e.target.closest('a,button,input,textarea,.glass')) return;", "if(e.target.closest('a,button,input,textarea,.glass,.car,.codebox,summary')) return;")
     return eng
