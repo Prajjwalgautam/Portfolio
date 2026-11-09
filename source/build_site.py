@@ -355,6 +355,7 @@ def page_service(s, home, svc_link, assets):
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@900&family=Sofia+Sans+Condensed:wght@700;800&family=Sofia+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400&display=swap">
 <script type="application/ld+json">{ld}</script>
 <style>{SVC_CSS}</style>
+<script>/* always open a service page at the top */if(!location.hash){{try{{history.scrollRestoration="manual"}}catch(e){{}}scrollTo(0,0);addEventListener("DOMContentLoaded",()=>scrollTo(0,0));addEventListener("load",()=>scrollTo(0,0));addEventListener("pageshow",()=>scrollTo(0,0))}}</script>
 </head>
 <body>
 <div class="wrap">
