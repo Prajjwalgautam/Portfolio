@@ -450,7 +450,7 @@ Sitemap: {SITE}sitemap.xml
         shutil.copy(os.path.join(REPO, 'assets', f), os.path.join(art, 'assets', f))
     art_link = lambda slug, from_svc=False: (f"../{slug}/index.html" if from_svc else f"services/{slug}/index.html")
     a = page_main(art_link)
-    a = a.replace('{{HEAD}}', '<title>Prajwal Gautam Portfolio</title>\n<meta name="claude:viewport-fit-sides" content="cover">').replace('{{FACE}}', face)
+    a = a.replace('{{HEAD}}', '<title>Prajwal Gautam Portfolio</title>').replace('{{FACE}}', face)
     a = (a.replace('{{IMG_NB}}', 'assets/nepal-bhoomi-logo.webp').replace('{{IMG_SF}}', 'assets/slugforge-logo.webp').replace('{{IMG_PHOTO}}', 'assets/prajwal-gautam.webp'))
     a = a.replace('</head>\n<body data-theme="paper">\n<script>document.documentElement.classList.add(\'js\')</script>',
                   '<script>document.documentElement.classList.add(\'js\');document.body.dataset.theme=\'paper\'</script>')

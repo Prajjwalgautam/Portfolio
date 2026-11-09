@@ -93,7 +93,7 @@ SERVICES = [
   title='AI Video Production Services – Prajwal Gautam | AI Video Editor, Nepal',
   desc='AI video production by Prajwal Gautam: AI-assisted scripts, visuals, editing, colour grading and motion graphics for brands, real estate, education and YouTube.',
   lede='Video at the speed of social media: AI-assisted scripting and visuals, finished by a human editor who knows what makes people stop scrolling.',
-  intro=['I produce three to four property videos every day for Nepal Bhoomi, a real-estate company in Kathmandu, and run an educational YouTube channel made with AI-assisted scripts and visuals.',
+  intro=['I produce the property videos for Nepal Bhoomi, a real-estate company in Kathmandu, and run an educational YouTube channel made with AI-assisted scripts and visuals.',
          'AI speeds up research, scripting and visuals. Editing, pacing, colour, sound and the final judgement stay human. That is how you get volume without losing quality.'],
   what_h='What are AI video production services?',
   what=['AI video production uses AI tools at each stage of making a video: researching the topic, drafting the script, generating images or b-roll, voiceovers and subtitles, and speeding up the edit.',
