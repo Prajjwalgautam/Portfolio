@@ -50,7 +50,7 @@ CATS = [
 ]
 ROLES = ["AI engineer","full-stack developer","app developer","AI video producer","motion designer","SEO & AEO specialist","ad campaign strategist","growth marketer","brand strategist","marketing researcher"]
 JOBS = [
- dict(co='Nepal Bhoomi', logo='NB', c='#F2334B', where='Lazimpat, Kathmandu', title='Video, Design, Growth &amp; Platform', now=1,
+ dict(co='Nepal Bhoomi', logo='NB', c='#F2334B', where='Lazimpat, Kathmandu', title='Video, Design, Growth &amp; Platform',
       pts=['Built a <b>code-driven video pipeline</b> (Remotion + Python AI: Whisper captions, upscaling, background removal, tracking) for branded <b>property reels</b>.',
            'Co-built the <b>Nepal Bhoomi platform</b>: Next.js API, PostgreSQL, React admin, 2FA, Google sign-in and audit logging.',
            'Own SEO captions, audience research, ad tracking and <b>monthly growth reports</b>; designed the brand’s <b>sonic logo</b>.']),

@@ -80,7 +80,16 @@ a{color:inherit} button{font:inherit;color:inherit}
 /* ---------- chrome ---------- */
 .chrome{position:fixed;z-index:50;color:#fff;mix-blend-mode:difference}
 .nav{top:env(safe-area-inset-top,0px);left:0;right:0;display:flex;justify-content:space-between;align-items:center;gap:16px;
-  padding:18px max(24px,env(safe-area-inset-right,0px)) 18px max(24px,env(safe-area-inset-left,0px))}
+  padding:18px max(24px,env(safe-area-inset-right,0px)) 18px max(24px,env(safe-area-inset-left,0px));
+  transition:transform .55s cubic-bezier(.2,.8,.2,1), padding .4s, background-color .4s, color .4s, border-color .4s;border-bottom:1px solid transparent;will-change:transform}
+/* Header: hides while you scroll down to read, slides back on any scroll up (or mouse at the top),
+   and turns into a frosted bar mid-page so it never sits on top of text */
+.nav.hide{transform:translateY(-110%)}
+.nav.solid{mix-blend-mode:normal;color:var(--ink);background:rgba(237,238,240,.9);border-bottom-color:rgba(12,12,14,.08);
+  backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);padding-top:12px;padding-bottom:12px}
+body[data-theme="night"] .nav.solid{color:var(--snow);background:rgba(7,8,10,.82);border-bottom-color:rgba(255,255,255,.08)}
+.corner{transition:opacity .4s, transform .5s cubic-bezier(.2,.8,.2,1)}
+body.reading .corner{opacity:0;transform:translateY(14px)}
 .pg{font-family:var(--mono);font-size:13px;text-decoration:none;display:flex;gap:10px;align-items:center;letter-spacing:.04em}
 .pg b{font-weight:500;display:inline-flex;gap:3px}
 .pg b i{font-style:normal;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
@@ -407,7 +416,7 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
 <div id="ring" aria-hidden="true"></div>
 <div id="tag" aria-hidden="true"></div>
 
-<nav class="nav chrome" aria-label="Main">
+<nav class="nav chrome" id="nav" aria-label="Main">
   <a class="pg" href="#top" aria-label="Prajwal Gautam, back to top"><b><i>[</i>PG<i>]</i></b><span>Prajwal Gautam</span></a>
   <ul class="brk">
     <li><a href="#services">Services</a></li>
@@ -488,7 +497,7 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
     <p class="paren">(03) Experience</p>
     <h2 class="night-h kin">Two strands.<br>One career.</h2>
     <div class="strands"><span style="--c:#4d7bff"><i></i>Building: developer roles</span><span style="--c:#F2334B"><i></i>Selling: video, design &amp; growth</span></div>
-    <div class="jobs"><article class="job glass" style="--c:#F2334B"><div class="job-top"><div class="lg light"><img src="assets/nepal-bhoomi-logo.webp" alt="Nepal Bhoomi logo" width="112" height="112" loading="lazy"></div><div><h3>Nepal Bhoomi<span class="now">NOW</span></h3><div class="t">Video, Design, Growth &amp; Platform</div><div class="w">Lazimpat, Kathmandu</div></div></div><ul><li>Built a <b>code-driven video pipeline</b> (Remotion + Python AI: Whisper captions, upscaling, background removal, tracking) for branded <b>property reels</b>.</li><li>Co-built the <b>Nepal Bhoomi platform</b>: Next.js API, PostgreSQL, React admin, 2FA, Google sign-in and audit logging.</li><li>Own SEO captions, audience research, ad tracking and <b>monthly growth reports</b>; designed the brand’s <b>sonic logo</b>.</li></ul></article><article class="job glass" style="--c:#F2334B"><div class="job-top"><div class="lg" style="--c1:#F2334B;--c2:#3a0812"><span>FL</span></div><div><h3>Freelance</h3><div class="t">AI Video Producer &amp; Motion Designer</div><div class="w">Remote · worldwide</div></div></div><ul><li>Promotional and explainer videos for <b>schools and study-abroad consultancies</b> on IELTS, GRE, SAT and applications.</li><li>Long podcasts and interviews cut into <b>captioned short-form clips</b>.</li><li><b>The 195 Project</b> documentary episodes with Blender 3D scenes, plus an <b>AI-made educational YouTube channel</b>.</li></ul></article><article class="job glass" style="--c:#4D7BFF"><div class="job-top"><div class="lg" style="--c1:#4D7BFF;--c2:#0a1440"><span>ES</span></div><div><h3>Ek Ra Sunya Inc.</h3><div class="t">Backend Developer</div><div class="w">Balkumari, Lalitpur</div></div></div><ul><li>Shipped payments, shipping and currency features on the live <b>Sayapatri e-commerce platform</b>.</li><li>Integrated <b>Khalti checkout</b> and <b>MailQuote</b> real-time shipping rates.</li><li>Added <b>live exchange rates</b> with USD to AUD base-currency pricing.</li></ul></article><article class="job glass" style="--c:#4D7BFF"><div class="job-top"><div class="lg" style="--c1:#4D7BFF;--c2:#0a1440"><span>UT</span></div><div><h3>Uno Technology</h3><div class="t">Full-Stack Web Developer</div><div class="w">Gyaneshwor, Kathmandu</div></div></div><ul><li>Built a <b>Laravel HRMS</b>: JWT auth, OTP password reset by email, attendance check-in/out, tasks, admin and employee roles.</li><li>Built <b>Fitfutures</b>, an e-learning and school management platform with progress tracking and reports.</li><li>Built <b>First Math</b>, a maths and science game with three levels per subject and live scoring.</li></ul></article></div>
+    <div class="jobs"><article class="job glass" style="--c:#F2334B"><div class="job-top"><div class="lg light"><img src="assets/nepal-bhoomi-logo.webp" alt="Nepal Bhoomi logo" width="112" height="112" loading="lazy"></div><div><h3>Nepal Bhoomi</h3><div class="t">Video, Design, Growth &amp; Platform</div><div class="w">Lazimpat, Kathmandu</div></div></div><ul><li>Built a <b>code-driven video pipeline</b> (Remotion + Python AI: Whisper captions, upscaling, background removal, tracking) for branded <b>property reels</b>.</li><li>Co-built the <b>Nepal Bhoomi platform</b>: Next.js API, PostgreSQL, React admin, 2FA, Google sign-in and audit logging.</li><li>Own SEO captions, audience research, ad tracking and <b>monthly growth reports</b>; designed the brand’s <b>sonic logo</b>.</li></ul></article><article class="job glass" style="--c:#F2334B"><div class="job-top"><div class="lg" style="--c1:#F2334B;--c2:#3a0812"><span>FL</span></div><div><h3>Freelance</h3><div class="t">AI Video Producer &amp; Motion Designer</div><div class="w">Remote · worldwide</div></div></div><ul><li>Promotional and explainer videos for <b>schools and study-abroad consultancies</b> on IELTS, GRE, SAT and applications.</li><li>Long podcasts and interviews cut into <b>captioned short-form clips</b>.</li><li><b>The 195 Project</b> documentary episodes with Blender 3D scenes, plus an <b>AI-made educational YouTube channel</b>.</li></ul></article><article class="job glass" style="--c:#4D7BFF"><div class="job-top"><div class="lg" style="--c1:#4D7BFF;--c2:#0a1440"><span>ES</span></div><div><h3>Ek Ra Sunya Inc.</h3><div class="t">Backend Developer</div><div class="w">Balkumari, Lalitpur</div></div></div><ul><li>Shipped payments, shipping and currency features on the live <b>Sayapatri e-commerce platform</b>.</li><li>Integrated <b>Khalti checkout</b> and <b>MailQuote</b> real-time shipping rates.</li><li>Added <b>live exchange rates</b> with USD to AUD base-currency pricing.</li></ul></article><article class="job glass" style="--c:#4D7BFF"><div class="job-top"><div class="lg" style="--c1:#4D7BFF;--c2:#0a1440"><span>UT</span></div><div><h3>Uno Technology</h3><div class="t">Full-Stack Web Developer</div><div class="w">Gyaneshwor, Kathmandu</div></div></div><ul><li>Built a <b>Laravel HRMS</b>: JWT auth, OTP password reset by email, attendance check-in/out, tasks, admin and employee roles.</li><li>Built <b>Fitfutures</b>, an e-learning and school management platform with progress tracking and reports.</li><li>Built <b>First Math</b>, a maths and science game with three levels per subject and live scoring.</li></ul></article></div>
   </section>
 
   <section class="live" id="live-nb" data-state="nb" data-theme="night" data-label="(04) Live work">
@@ -785,6 +794,18 @@ document.querySelectorAll('.tabs [role=tab]').forEach(t=>t.addEventListener('cli
 /* ---------- smooth scroll ---------- */
 let lenis=null;
 if(!reduce && window.Lenis){ lenis=new Lenis({lerp:.085, smoothWheel:true}); }
+/* ---------- header: hide on scroll down, show on scroll up / mouse at top, frosted when mid-page ---------- */
+(()=>{ const nav=document.getElementById('nav'); let lastY=scrollY, showUntil=0;
+  const update=()=>{ const y=scrollY, top=y<80;
+    if(top){ nav.classList.remove('hide','solid'); document.body.classList.remove('reading'); }
+    else { nav.classList.add('solid');
+      if(y>lastY+6 && performance.now()>showUntil && !nav.contains(document.activeElement)){ nav.classList.add('hide'); document.body.classList.add('reading'); }
+      else if(y<lastY-6){ nav.classList.remove('hide'); document.body.classList.remove('reading'); } }
+    lastY=y; };
+  addEventListener('scroll',update,{passive:true});
+  addEventListener('mousemove',e=>{ if(e.clientY<70 && scrollY>=80){ nav.classList.remove('hide'); document.body.classList.remove('reading'); showUntil=performance.now()+1500; } },{passive:true});
+  nav.addEventListener('focusin',()=>nav.classList.remove('hide'));
+  update(); })();
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
   const id=a.getAttribute('href'); const t=id==='#top'?document.body:document.querySelector(id); if(!t) return;
   e.preventDefault(); lenis?lenis.scrollTo(t,{duration:2}):t.scrollIntoView({behavior:reduce?'auto':'smooth'}); }));
