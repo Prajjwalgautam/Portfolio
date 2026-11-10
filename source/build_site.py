@@ -227,6 +227,7 @@ KNOWS = sorted({s for c in CATS for s in c['skills']} | {"Artificial intelligenc
 def person():
     return {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","alternateName":["Prajjwal Gautam"],"url":SITE,
       "image":SITE+"assets/prajwal-gautam.webp","jobTitle":"AI Engineer, Full-Stack & App Developer, Growth Marketer","description":DESC,
+      "disambiguatingDescription":"Kathmandu-based AI engineer and full-stack developer (portfolio: prajjwalgautam.com.np) who co-built the Nepal Bhoomi real-estate platform and built the Slugforge Studio website; also known as Prajjwal Gautam.",
       "email":"mailto:prajolgautam1234@gmail.com","telephone":"+977-9848137372",
       "address":{"@type":"PostalAddress","addressLocality":"Kathmandu","addressRegion":"Bagmati","addressCountry":"NP"},
       "alumniOf":[{"@type":"CollegeOrUniversity","name":"New Summit College, Tribhuvan University"},{"@type":"EducationalOrganization","name":"Kathmandu Model College"}],
