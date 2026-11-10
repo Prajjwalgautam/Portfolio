@@ -85,3 +85,28 @@ Pattern: review counts in title; directories again.
 - Freshness: "(Nov 2026)", "in November 2026" in titles of 4 marketplace winners.
 - Weak SERPs (opportunity): "AI engineer Nepal", "Google/Meta ads expert Nepal", "web developer Kathmandu portfolio".
 - Reference-site SEO: jesperlandberg.com keeps a crawlable descriptive text layer behind a WebGL-only UI; olhalazarieva.com has a single generic meta description and mostly decorative headings (weak SEO, great design).
+
+# Guide research, 10 Nov 2026 (top Google results per guide topic)
+
+## G1 "what is AEO and GEO"
+Top: Similarweb (AEO vs GEO, ~3,500w, 12 FAQs), Adobe (AEO vs GEO, ~2,400w, E-E-A-T section), Multiview (~1,100w), Core dna, Trakkr.
+Title pattern: "AEO vs GEO" + "difference" + year. Key terms: citations/cited, featured snippets, brand visibility, schema, authority, E-E-A-T, AI Overviews.
+FAQs borrowed: where do answer engines get information; separate strategies for ChatGPT/Perplexity/Gemini; can I block AI crawlers; how to measure.
+
+## G2 "how to get my business on Google Nepal"
+Top: websnp.com (local SEO Kathmandu, ~650w), arjankc.com.np (Google My Business Nepal, ~6,500w, 8 FAQs), seosherpa (GMB definitive guide).
+Pattern: searchers mean Google Maps / Google My Business, not Search Console. Key terms: Google My Business, GMB, Google Maps, local 3-pack, reviews, NAP consistency, categories, verification.
+FAQs borrowed: is GMB free; WhatsApp number on profile; keywords in business name.
+
+## G3 "hire AI engineer Nepal"
+Top: Twine (find/ai-engineers/np, ~3,000w, 9 FAQs), Upwork hire pages, F1Soft job post. No individual engineer ranks.
+Key terms: hire, project brief, MVP, AI feature integration, mobile app, freelance vs agency, cost, portfolio, vetting.
+
+## G4 "real estate marketing Nepal"
+Top: arjankc.com.np (2026 guide, ~5,500w), the-trivon, Thulo, websnp (real estate website design Nepal).
+Key terms: leads, listings, WhatsApp Business (broadcast lists, Status), Facebook & Instagram ads, Google Ads, local SEO, KPIs, Kathmandu.
+FAQs borrowed: most effective platform; how local SEO helps agents.
+
+## G5 "Next.js vs Laravel"
+Top: DZone (~1,000w), dev.to 2026 (~850w, "The Short Answer" first), Laravel Cloud blog, StackShare.
+Key terms: SSR, SSG, API, front end/back end, React Native, serverless, Vercel, scalability, combining both.
