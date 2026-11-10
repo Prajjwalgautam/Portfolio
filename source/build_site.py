@@ -13,12 +13,14 @@ What it writes into the repo root:
 It also writes a preview copy into source/preview/ (ignored by git).
 """
 import json, html, os, re, shutil
-from service_pages import SERVICES, BY_SLUG, PROCESS
+from service_pages import SERVICES, BY_SLUG, PROCESS, MONTH
 
 ROOT = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.dirname(ROOT)
 SITE = "https://prajjwalgautam.com.np/"
 E = html.escape
-TODAY = "2026-11-09"
+INDEXNOW_KEY = "44e6f923569aa13fd2c6b6e2b24eafb5"
+import datetime
+TODAY = datetime.date.today().isoformat()
 
 CATS = [
  dict(name='AI Engineering', word='AI', c='#FF8A3D', slug='ai-engineer-nepal', h='AI Engineering &amp; Automation',
@@ -179,7 +181,8 @@ def lg(o):
     return f'<div class="lg" style="--c1:{o.get("c1","#4D7BFF")};--c2:{o.get("c2","#0b1024")}"><span>{o["ini"]}</span></div>'
 
 def page_main(svc_link):
-    mega = ''.join(f'<span class="mc">{ch}</span>' for ch in 'PRAJWALGAUTAM')
+    # letters are drawn from data-c via CSS, so search engines read the H1 once ("Prajwal Gautam – AI Engineer, ...") and not a second spelled-out copy
+    mega = ''.join(f'<span class="mc" data-c="{ch}"></span>' for ch in 'PRAJWALGAUTAM')
     mega_html = f'<span class="sr">Prajwal Gautam – </span><span class="mega" id="mega" aria-hidden="true">{mega}</span>'
     slash = ''.join(f'<li><a href="{svc_link(slug)}">{t}</a></li>' for t, slug in SLASH)
     legend = ''.join(f'<a href="{svc_link(c["slug"])}" style="--c:{c["c"]}"><i></i>{E(c["name"])}</a>' for c in CATS)
@@ -202,7 +205,7 @@ def page_main(svc_link):
     inds = ''.join(f'''<a class="ind" href="{svc_link(d['slug'])}"><span class="ind-tag">({i+1:02d}) {E(d['tag'])}</span><h3>{d['n']}</h3><p>{E(d['line'])}</p><span class="chips">{''.join(f'<span>{E(c)}</span>' for c in d['chips'])}</span><span class="ind-go">{E(BY_SLUG[d['slug']]['kw'])} ↗</span></a>''' for i, d in enumerate(INDUSTRIES))
     cnt = {k: sum(1 for w in WORK if w['k'] == k) for k in ('web','app','vid')}
     t = open(os.path.join(ROOT, 'templates', 'page.html')).read()
-    rep = {'{{MEGA}}': mega_html, '{{MEGA_FOOT}}': ''.join(f'<span>{c}</span>' for c in 'PRAJWALGAUTAM'),
+    rep = {'{{MEGA}}': mega_html, '{{MEGA_FOOT}}': ''.join(f'<span data-c="{c}"></span>' for c in 'PRAJWALGAUTAM'),
            '{{SLASH}}': slash, '{{LEGEND}}': legend, '{{JOBS}}': jobs, '{{PANELS}}': ''.join(panels),
            '{{ROWS}}': rows, '{{INDUSTRIES}}': inds, '{{FAQ}}': faq, '{{FOOT_A}}': foot_a, '{{FOOT_B}}': foot_b,
            '{{N_ALL}}': str(len(WORK)), '{{N_WEB}}': str(cnt['web']), '{{N_APP}}': str(cnt['app']), '{{N_VID}}': str(cnt['vid']),
@@ -215,8 +218,8 @@ def page_main(svc_link):
     return t
 
 # ------------------------------------------------------------------ SEO head
-DESC = "Prajwal Gautam is an AI engineer, full-stack and app developer, AI video and motion designer, and SEO, AEO, ads and growth marketer in Kathmandu, Nepal, working with real estate, jewellery, SaaS and e-commerce brands worldwide."
-TITLE = "Prajwal Gautam – AI Engineer, Full-Stack & App Developer, Growth Marketer in Nepal"
+DESC = "AI engineer, full-stack and app developer in Kathmandu, Nepal. I build AI-powered websites and apps, then grow them with AI video, SEO, AEO and Google and Meta ads."
+TITLE = "Prajwal Gautam – AI Engineer & Full-Stack Developer, Nepal"
 KNOWS = sorted({s for c in CATS for s in c['skills']} | {"Artificial intelligence engineering","Answer Engine Optimization (AEO)","Generative Engine Optimization (GEO)","Motion design","SaaS product animation","Real estate marketing","Jewellery marketing","Graphic design","Next.js","TypeScript","PostgreSQL","Remotion","Blender","Full-stack web development","Mobile app development","AI video production","Search engine optimization","Google Ads","Meta Ads","Growth marketing","E-commerce marketing","Branding","Laravel","PHP","Node.js","React","Django","Python","JavaScript","SQL","Three.js","WebGL"})
 
 def person():
@@ -370,13 +373,13 @@ def page_service(s, home, svc_link, assets):
   <h1>{E(s['kw'])}</h1>
   <p class="lede">{E(s['lede'])}</p>
   <div class="btns"><a class="btn hot" href="mailto:prajolgautam1234@gmail.com?subject={E(s['kw'])}%20project">Start a project</a><a class="btn" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp me</a><a class="btn" href="{home}#work">See my work</a></div>
-  <p class="by">By Prajwal Gautam · AI Engineer, Full-Stack &amp; App Developer, Growth Marketer · Kathmandu, Nepal · Updated November 2026</p>
+  <p class="by">By Prajwal Gautam · AI Engineer, Full-Stack &amp; App Developer, Growth Marketer · Kathmandu, Nepal · Updated {MONTH}</p>
 </header>
 <main>
 <section class="cols"><p class="paren">(Overview)</p><div class="prose">{''.join(f'<p>{E(p)}</p>' for p in s['intro'])}</div></section>
 <section class="cols"><h2>{E(s['what_h'])}</h2><div class="prose">{''.join(f'<p>{E(p)}</p>' for p in s['what'])}</div></section>
 <section><h2 style="margin-bottom:26px">{E(s['short'])} services</h2><div class="offers">{offers}</div></section>
-<section class="cols"><h2>Proof from real work</h2><div><ul class="proof">{proof}</ul><div class="btns"><a class="btn" href="https://www.nepalbhoomi.com" target="_blank" rel="noopener">nepalbhoomi.com ↗</a><a class="btn" href="https://slugforge.vercel.app" target="_blank" rel="noopener">Slugforge Studio ↗</a></div></div></section>
+<section class="cols"><h2>Proof from real work</h2><div><ul class="proof">{proof}</ul><div class="btns"><a class="btn hot" href="{home}work/nepal-bhoomi/">Read the Nepal Bhoomi case study</a><a class="btn" href="https://www.nepalbhoomi.com" target="_blank" rel="noopener">nepalbhoomi.com ↗</a><a class="btn" href="https://slugforge.vercel.app" target="_blank" rel="noopener">Slugforge Studio ↗</a></div></div></section>
 <section><h2 style="margin-bottom:26px">How we work together</h2><ol class="steps">{steps}</ol></section>
 <section class="cols"><h2>Tools &amp; languages</h2><div class="chips">{tools}</div></section>
 <section class="cols"><h2>How much does it cost?</h2><div class="prose">{''.join(f'<p>{E(p)}</p>' for p in s['cost'])}</div></section>
@@ -384,6 +387,109 @@ def page_service(s, home, svc_link, assets):
 <div class="cta"><p class="paren" style="color:#8d919b">(Contact)</p><h2>Let’s talk about your <span>{E(s['short'].lower())}</span> project.</h2>
 <div class="lines"><span>prajolgautam1234@gmail.com</span><span>WhatsApp +977 984-8137372</span><span>Kathmandu, Nepal · UTC+5:45 · replies within one working day</span></div>
 <div class="btns"><a class="btn hot" href="mailto:prajolgautam1234@gmail.com">Email me</a><a class="btn" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp ↗</a><a class="btn" href="https://www.linkedin.com/in/prajjwal-gautam/" target="_blank" rel="noopener">LinkedIn ↗</a></div></div>
+<section><p class="paren">(Related services)</p><div class="rel">{rel}</div></section>
+</main>
+<footer><span>© 2026 Prajwal Gautam · Kathmandu, Nepal</span><span><a href="{home}">Home</a> · {' · '.join(f'<a href="{svc_link(x["slug"], True)}">{E(x["short"])}</a>' for x in SERVICES)}</span></footer>
+</div>
+</body>
+</html>
+"""
+
+
+# ------------------------------------------------------------------ case study
+CASE = dict(
+  slug='nepal-bhoomi',
+  title='Nepal Bhoomi Case Study – Real-Estate Platform, Video & SEO | Prajwal Gautam',
+  desc='How Prajwal Gautam co-built the Nepal Bhoomi real-estate platform in Next.js and PostgreSQL, built a code-driven video pipeline, and runs its SEO and growth reporting.',
+  h1='Nepal Bhoomi case study',
+  summary='Nepal Bhoomi is a real-estate company in Lazimpat, Kathmandu that sells and rents houses, land, apartments and commercial property across Kathmandu, Lalitpur and Bhaktapur. I co-built its web platform, built the system that produces its property videos, and run its SEO, audience research and monthly growth reports.',
+  facts=[('Client','Nepal Bhoomi'),('Industry','Real estate'),('Location','Lazimpat, Kathmandu, Nepal'),('My role','Platform developer and digital lead'),
+         ('Stack','Next.js, Prisma, PostgreSQL (Supabase), React, Tailwind, Remotion, Python'),('Live site','nepalbhoomi.com')],
+  needs=['A property brand lives or dies on three things: a fast, trustworthy place to show listings, a steady flow of video that makes people stop scrolling, and being found when someone searches for land or a house in the Valley.',
+         'Nepal Bhoomi needed all three from a small team, so the work had to be built once and reused every day rather than redone by hand.'],
+  blocks=[
+    ('The platform', 'co-built with the Nepal Bhoomi team', [
+      'A Next.js API with Prisma and PostgreSQL on Supabase, and a React and Tailwind front end and admin panel, across more than 20 data models for properties, enquiries, users and content.',
+      'Security built for real customer data: two-factor sign-in, Google sign-in, email verification, refresh-token rotation that detects stolen tokens, account lockout, rate limiting, an audit log and row-level security in the database.',
+      'An admin where the team adds and updates listings and handles enquiries without touching code.']),
+    ('The video system', 'built and run by me', [
+      'Property videos are assembled in code with Remotion, so a new reel reuses the brand’s titles, captions, colours and sound instead of starting from a blank timeline.',
+      'Python AI tools handle the slow parts: Whisper for captions, upscaling, background removal and motion tracking, with renders that resume if a long job stops.',
+      'A 4–6 second sonic logo on madal, sarangi and bansuri opens and closes every video, so the brand is recognisable by ear.']),
+    ('Search and growth', 'run by me', [
+      'Video titles, captions and descriptions written for search, so each upload also works as a landing page on YouTube, Facebook and Google.',
+      'Audience and market research to decide which areas, property types and price points to film and promote next.',
+      'Ad and content tracking rolled into a monthly growth report the owner can read in five minutes.']),
+  ],
+  learn=['Build the system before the content. Once the platform and the video pipeline existed, every new property cost minutes, not days.',
+         'Security is a feature in real estate. Buyers and sellers share phone numbers and documents, so the platform was secured like a finance app from day one.',
+         'One person owning code, video and search removes the hand-offs where most small-brand marketing stalls.'],
+  faq=[('What did Prajwal Gautam build for Nepal Bhoomi?','He co-built the Nepal Bhoomi web platform (Next.js, Prisma, PostgreSQL on Supabase, React admin), built its code-driven video pipeline with Remotion and Python AI tools, and runs its SEO, audience research and monthly growth reports.'),
+       ('Can you build the same for my real-estate business?','Yes. The same approach works for any agency or developer: a listing platform with an admin and lead capture, a video system for property reels, and search and ads tracked monthly. Start with a free 20-minute call.'),
+       ('Is Nepal Bhoomi a live website?','Yes. Nepal Bhoomi is live at nepalbhoomi.com and lists houses, land, apartments and commercial property across Kathmandu, Lalitpur and Bhaktapur.')],
+  related=['real-estate-marketing-nepal','full-stack-developer-nepal','ai-video-production','seo-expert-nepal'],
+)
+
+def page_case(c, home, svc_link, assets):
+    url = f"{SITE}work/{c['slug']}/"
+    crumbs = [{"@type":"ListItem","position":1,"name":"Home","item":SITE},{"@type":"ListItem","position":2,"name":"Work","item":SITE+"#work"},{"@type":"ListItem","position":3,"name":"Nepal Bhoomi case study","item":url}]
+    graph = [
+      {"@type":"Article","@id":url+"#article","headline":c['h1'],"description":c['desc'],"url":url,"inLanguage":"en","datePublished":"2026-11-10","dateModified":TODAY,
+       "author":{"@id":SITE+"#person"},"publisher":{"@id":SITE+"#person"},"image":SITE+"assets/og-image.jpg","mainEntityOfPage":url,
+       "about":{"@type":"Organization","name":"Nepal Bhoomi","url":"https://www.nepalbhoomi.com","address":{"@type":"PostalAddress","addressLocality":"Kathmandu","addressCountry":"NP"}}},
+      {"@type":"BreadcrumbList","@id":url+"#crumbs","itemListElement":crumbs},
+      {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in c['faq']]},
+      {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","url":SITE,"jobTitle":"AI Engineer & Full-Stack Developer",
+       "worksFor":{"@type":"Organization","name":"Nepal Bhoomi","url":"https://www.nepalbhoomi.com"},
+       "sameAs":["https://www.linkedin.com/in/prajjwal-gautam/","https://github.com/Prajjwalgautam"]},
+    ]
+    ld = json.dumps({"@context":"https://schema.org","@graph":graph}, ensure_ascii=False)
+    facts = ''.join(f'<div><h3>{E(k)}</h3><p>{E(v)}</p></div>' for k, v in c['facts'])
+    blocks = ''.join(f'<section class="cols"><div><h2>{E(h)}</h2><p class="paren" style="margin-top:10px">{E(sub)}</p></div><ul class="proof">{"".join(f"<li>{E(p)}</li>" for p in pts)}</ul></section>' for h, sub, pts in c['blocks'])
+    faq = ''.join(f'<details><summary><h3>{E(q)}</h3><span aria-hidden="true">+</span></summary><p>{E(a)}</p></details>' for q, a in c['faq'])
+    rel = ''.join(f'<a href="{svc_link(r, True)}"><h3>{E(BY_SLUG[r]["kw"])}</h3><span aria-hidden="true">↗</span></a>' for r in c['related'])
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{E(c['title'])}</title>
+<meta name="description" content="{E(c['desc'])}">
+<meta name="author" content="Prajwal Gautam">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Prajwal Gautam">
+<meta property="og:title" content="{E(c['title'])}"><meta property="og:description" content="{E(c['desc'])}">
+<meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="geo.region" content="NP-BA"><meta name="geo.placename" content="Kathmandu">
+<link rel="icon" href="{assets}slugforge-logo.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@900&family=Sofia+Sans+Condensed:wght@700;800&family=Sofia+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400&display=swap">
+<script type="application/ld+json">{ld}</script>
+<style>{SVC_CSS}</style>
+<script>if(!location.hash){{try{{history.scrollRestoration="manual"}}catch(e){{}}scrollTo(0,0);addEventListener("load",()=>scrollTo(0,0));addEventListener("pageshow",()=>scrollTo(0,0))}}</script>
+</head>
+<body>
+<div class="wrap">
+<nav class="nav" aria-label="Main"><a href="{home}">[ PG ] Prajwal Gautam</a><span class="brk"><a href="{home}#services">Services</a><a href="{home}#work">Work</a><a href="{home}#about">About</a></span><a href="{home}#contact" style="text-decoration:underline">Contact ↗</a></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="{home}">Home</a> / <a href="{home}#work">Work</a> / <span aria-current="page">Nepal Bhoomi</span></nav>
+<header style="padding-block:30px 60px">
+  <p class="paren">(Case study) · Real estate</p>
+  <h1>{E(c['h1'])}</h1>
+  <p class="lede">{E(c['summary'])}</p>
+  <div class="btns"><a class="btn hot" href="https://www.nepalbhoomi.com" target="_blank" rel="noopener">Visit nepalbhoomi.com ↗</a><a class="btn" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp me</a><a class="btn" href="{home}#work">More work</a></div>
+  <p class="by">By Prajwal Gautam · Kathmandu, Nepal · Updated {MONTH}</p>
+</header>
+<main>
+<section><h2 style="margin-bottom:26px">At a glance</h2><div class="offers">{facts}</div></section>
+<section class="cols"><h2>What the brand needed</h2><div class="prose">{''.join(f'<p>{E(p)}</p>' for p in c['needs'])}</div></section>
+{blocks}
+<section class="cols"><h2>What it shows</h2><ul class="proof">{''.join(f'<li>{E(p)}</li>' for p in c['learn'])}</ul></section>
+<section class="cols"><h2>Frequently asked questions</h2><div>{faq}</div></section>
+<div class="cta"><p class="paren" style="color:#8d919b">(Contact)</p><h2>Want this for your <span>business</span>?</h2>
+<div class="lines"><span>prajolgautam1234@gmail.com</span><span>WhatsApp +977 984-8137372</span><span>Kathmandu, Nepal · UTC+5:45 · replies within one working day</span></div>
+<div class="btns"><a class="btn hot" href="mailto:prajolgautam1234@gmail.com?subject=Project%20like%20Nepal%20Bhoomi">Email me</a><a class="btn" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp ↗</a></div></div>
 <section><p class="paren">(Related services)</p><div class="rel">{rel}</div></section>
 </main>
 <footer><span>© 2026 Prajwal Gautam · Kathmandu, Nepal</span><span><a href="{home}">Home</a> · {' · '.join(f'<a href="{svc_link(x["slug"], True)}">{E(x["short"])}</a>' for x in SERVICES)}</span></footer>
@@ -406,9 +512,14 @@ def build():
     for s in SERVICES:
         d = os.path.join(REPO, 'services', s['slug']); os.makedirs(d, exist_ok=True)
         open(os.path.join(d, 'index.html'), 'w').write(page_service(s, '../../', site_link, '../../assets/'))
-    urls = [SITE] + [f"{SITE}services/{s['slug']}/" for s in SERVICES]
+    d = os.path.join(REPO, 'work', CASE['slug']); os.makedirs(d, exist_ok=True)
+    case_link = lambda slug, from_svc=False: f"../../services/{slug}/"
+    open(os.path.join(d, 'index.html'), 'w').write(page_case(CASE, '../../', case_link, '../../assets/'))
+    urls = [SITE] + [f"{SITE}services/{s['slug']}/" for s in SERVICES] + [f"{SITE}work/{CASE['slug']}/"]
     open(os.path.join(REPO, 'sitemap.xml'), 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         ''.join(f'  <url><loc>{u}</loc><lastmod>{TODAY}</lastmod><changefreq>monthly</changefreq><priority>{"1.0" if u==SITE else "0.8"}</priority></url>\n' for u in urls) + '</urlset>\n')
+    # IndexNow: lets Bing, Yandex, Seznam and Naver know about new or changed pages. The key file must sit at the site root.
+    open(os.path.join(REPO, INDEXNOW_KEY + '.txt'), 'w').write(INDEXNOW_KEY)
     open(os.path.join(REPO, 'robots.txt'), 'w').write(f"""User-agent: *
 Allow: /
 
@@ -437,7 +548,7 @@ Sitemap: {SITE}sitemap.xml
             "- SEO and AEO/GEO Specialist (AI search optimization) and Marketing Researcher", "- Motion Designer (SaaS product animation, 3D)", "- Industries: real estate, jewellery, SaaS and tech, e-commerce, education, food and travel", "- Google Ads and Meta Ads Campaign Strategist", "- Growth, E-commerce and Brand Marketer", "",
             "## Service pages"] + [f"- [{s['kw']}]({SITE}services/{s['slug']}/): {s['desc']}" for s in SERVICES] + ["",
             "## Experience"] + [f"- {j['co']} ({j['where']}): {html.unescape(j['title'])}. " + ' '.join(re.sub('<[^>]+>', '', p) for p in j['pts']) for j in JOBS] + ["",
-            "## Live projects", "- [Nepal Bhoomi](https://www.nepalbhoomi.com): real-estate platform; video, SEO and growth.", "- [Slugforge Studio](https://slugforge.vercel.app): creative studio website and video services.", "",
+            "## Live projects", f"- [Nepal Bhoomi](https://www.nepalbhoomi.com): real-estate platform; video, SEO and growth. Case study: {SITE}work/nepal-bhoomi/", "- [Slugforge Studio](https://slugforge.vercel.app): creative studio website and video services.", "",
             "## Languages", "- Code: PHP, JavaScript, Python, SQL, HTML/CSS", "- Frameworks: Laravel, Node.js, React, Django, Three.js", "- Spoken: English, Nepali, Hindi", "",
             "## Education", "- BSc CSIT, New Summit College, Tribhuvan University", "- +2 Science, Kathmandu Model College", "",
             "## Contact", "- Email: prajolgautam1234@gmail.com", "- Phone & WhatsApp: +977 984-8137372 (https://wa.me/9779848137372)", "- LinkedIn: https://www.linkedin.com/in/prajjwal-gautam/",

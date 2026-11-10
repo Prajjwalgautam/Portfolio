@@ -119,6 +119,7 @@ section{max-width:1440px;margin:0 auto;position:relative}
 .hero-meta{display:flex;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:11px;letter-spacing:.06em}
 .mega{width:100%;margin:0;font-family:var(--disp);font-weight:900;text-transform:uppercase;line-height:.8;letter-spacing:-.01em;font-size:clamp(64px,15.4vw,236px);white-space:nowrap;display:flex;justify-content:space-between}
 .mega .mc{display:inline-block;will-change:transform}
+.mega .mc::before,.foot-mark span::before{content:attr(data-c)}
 .js .mega .mc{visibility:hidden}
 .mega-sub{display:flex;justify-content:space-between;gap:16px;margin-top:10px;font-family:var(--mono);font-size:clamp(10px,.95vw,13px);letter-spacing:.42em;text-transform:uppercase}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,1fr);gap:24px;align-items:end;padding-top:clamp(40px,28vh,320px)}
@@ -417,10 +418,10 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
 
 <main id="top">
   <section class="hero" data-state="face" data-theme="paper" data-label="(00) Intro">
-    <div class="hero-meta mono"><span><span class="odo" id="heroOdo" data-to="9,105">0,000</span> skill cards</span><span class="rv">Based in Nepal · working worldwide</span></div>
+    <div class="hero-meta mono"><span><span class="odo" id="heroOdo" data-to="9,105">9,105</span> skill cards</span><span class="rv">Based in Nepal · working worldwide</span></div>
     <h1>
       <span class="mega" id="mega" aria-label="Prajwal Gautam">{{MEGA}}</span>
-      <span class="mega-sub rv"><span>AI Engineer</span><span>Full-Stack &amp; App Developer</span><span>Growth Marketer</span></span>
+      <span class="mega-sub rv"><span>AI Engineer</span><span class="sr">, </span><span>Full-Stack &amp; App Developer</span><span class="sr">, </span><span>Growth Marketer</span></span>
     </h1>
     <div class="hero-grid">
       <ul class="slash rv">
@@ -476,7 +477,7 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
       <h2 class="night-h">Nepal<br>Bhoomi</h2>
       <p>The real-estate brand behind houses, land and apartments for sale and rent across Kathmandu, Lalitpur and Bhaktapur. I produce its property films, graphics, SEO content and social campaigns, and report what sells.</p>
       <dl><div><dt>Video</dt><dd>property films &amp; reels</dd></div><div><dt>Monthly</dt><dd>growth reports</dd></div><div><dt>Live</dt><dd>website &amp; journal</dd></div></dl>
-      <div class="btns"><a class="btn fill" href="https://www.nepalbhoomi.com" target="_blank" rel="noopener">Visit nepalbhoomi.com ↗</a></div>
+      <div class="btns"><a class="btn fill" href="https://www.nepalbhoomi.com" target="_blank" rel="noopener">Visit nepalbhoomi.com ↗</a><a class="btn" href="work/nepal-bhoomi/">Read the case study</a></div>
     </div>
   </section>
 
@@ -514,10 +515,10 @@ footer{position:relative;z-index:2;overflow-x:clip;max-width:1440px;margin:0 aut
       <h2 class="kin">Code on one screen.<br>A timeline<br>on the other.</h2>
       <p class="big rv">I studied Computer Science, shipped Laravel and Node systems for two software companies, then took over video, SEO and growth for a real-estate brand. Today I combine AI engineering, full-stack and app development with AI video, research, ads and branding. I can <em>build your product</em>, <em>film it</em> and <em>grow it</em>, with no hand-offs between agencies.</p>
       <div class="facts">
-        <div><b class="odo" data-to="15+">00+</b><span>web &amp; app projects</span></div>
-        <div><b class="odo" data-to="2">0</b><span>live brands</span></div>
-        <div><b class="odo" data-to="36">00</b><span>skills</span></div>
-        <div><b class="odo" data-to="3">0</b><span>languages spoken</span></div>
+        <div><b class="odo" data-to="15+">15+</b><span>web &amp; app projects</span></div>
+        <div><b class="odo" data-to="2">2</b><span>live brands</span></div>
+        <div><b class="odo" data-to="36">36</b><span>skills</span></div>
+        <div><b class="odo" data-to="3">3</b><span>languages spoken</span></div>
       </div>
       <div class="edu rv"><small>Education</small><span>BSc CSIT, New Summit College · Tribhuvan University</span><span>+2 Science, Kathmandu Model College</span></div>
     </div>

@@ -1,5 +1,7 @@
 # Text for the 14 service pages (services/<slug>/index.html).
 # Edit the wording here, then run build_site.py. Every claim comes from real CVs and live projects.
+import datetime
+MONTH = datetime.date.today().strftime('%B %Y')  # keeps freshness titles current on every rebuild
 PROCESS = [
     ("Free 20-minute call", "We agree the goal, the audience, the budget and a deadline that both of us can keep."),
     ("Plan and quote", "You get a written plan and a fixed-price quote before any work starts. No surprises later."),
@@ -36,7 +38,7 @@ SERVICES = [
   related=['hire-ai-developer','full-stack-developer-nepal','ai-video-production']),
 
  dict(slug='full-stack-developer-nepal', kw='Full-Stack Developer in Nepal', short='Full-Stack Development',
-  title='Full-Stack Developer in Nepal – Prajwal Gautam | Laravel, Node.js, React',
+  title='Full-Stack Developer in Nepal – Prajwal Gautam | Next.js, Laravel',
   desc='Freelance full-stack developer in Kathmandu, Nepal. Laravel, PHP, Node.js, React, Django, MySQL and MongoDB websites, dashboards and web apps built to run your business.',
   lede='Websites and web platforms built end to end, from the database to the last pixel, by one developer who answers for all of it.',
   intro=['I have built HR systems, e-learning platforms, e-commerce backends and quiz games for software companies in Kathmandu and Lalitpur. I now take on full-stack projects directly for businesses in Nepal and abroad.',
@@ -225,7 +227,7 @@ SERVICES = [
   related=['full-stack-developer-nepal','seo-expert-nepal','app-developer-nepal']),
 
  dict(slug='hire-ai-developer', kw='Hire a Freelance AI Developer', short='Hire an AI Developer',
-  title='Hire a Freelance AI Developer (November 2026) – Prajwal Gautam',
+  title=f'Hire a Freelance AI Developer ({MONTH}) – Prajwal Gautam',
   desc='Hire a freelance AI developer who can also build the full product and market it: LLM apps, AI automation and AI content, remote from Nepal for clients worldwide.',
   lede='Most AI developers stop at the model. I build the product around it and help you put it in front of customers.',
   intro=['Hiring a freelance AI developer through a large marketplace means fees and a profile you cannot see past. Working with me directly, you get one person who covers AI, full-stack development and growth marketing.',
@@ -283,7 +285,7 @@ BY_SLUG = {s['slug']: s for s in SERVICES}
 
 SERVICES += [
  dict(slug='aeo-geo-expert', kw='AEO & GEO Expert', short='AEO & AI Search',
-  title='AEO Expert – Answer Engine Optimization for ChatGPT & AI Search | Prajwal Gautam',
+  title='AEO & GEO Expert – Get Cited by ChatGPT & AI Search | Prajwal Gautam',
   desc='AEO and GEO expert in Nepal: get your business cited in ChatGPT, Perplexity, Gemini, Claude and Google AI Overviews with structured data, answer-first content and entity SEO.',
   lede='Search is turning into answers. I make sure that when people ask ChatGPT, Perplexity or Google AI who to hire, your business is the answer.',
   intro=['Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) are the next layer of SEO. Instead of ten blue links, AI assistants read the web and write one answer. If your business is not clear, consistent and quotable, it is left out.',
@@ -310,7 +312,7 @@ SERVICES += [
   related=['seo-expert-nepal','growth-marketing-consultant','branding-digital-marketing-nepal']),
 
  dict(slug='real-estate-marketing-nepal', kw='Real Estate Marketing in Nepal', short='Real Estate Marketing',
-  title='Real Estate Marketing in Nepal – Property Videos, Websites & Ads | Prajwal Gautam',
+  title='Real Estate Marketing in Nepal: Videos, Web & Ads – Prajwal Gautam',
   desc='Real estate marketing in Kathmandu, Nepal: property reels and drone videos, listing websites, SEO, AEO and Meta and Google ads that sell land, houses and apartments.',
   lede='I market property every day. Reels, listing platforms, SEO and ads, built and tested on my own real-estate brand before they reach yours.',
   intro=['Nepal Bhoomi, a real-estate company in Kathmandu, is where I do this work every day: a full-stack listing platform, property films, a sonic logo and monthly growth reports.',
@@ -337,7 +339,7 @@ SERVICES += [
   related=['ai-video-production','google-meta-ads-expert-nepal','web-developer-kathmandu']),
 
  dict(slug='jewellery-marketing-nepal', kw='Jewellery Marketing & Product Video', short='Jewellery Marketing',
-  title='Jewellery Marketing in Nepal – Product Videos, 3D Renders & Ads | Prajwal Gautam',
+  title='Jewellery Marketing in Nepal: Videos, 3D & Ads – Prajwal Gautam',
   desc='Jewellery marketing for jewellers in Nepal and abroad: macro product videos, 3D renders, graphics, catalogue websites, festive and wedding-season ads.',
   lede='Jewellery sells on detail and trust. I make every piece shine on screen, then put it in front of buyers at the moments they shop.',
   intro=['Jewellers compete on how a piece looks in a three-second scroll. Light, colour, motion and sound decide whether a necklace feels precious or ordinary.',
@@ -364,7 +366,7 @@ SERVICES += [
   related=['saas-motion-design','branding-digital-marketing-nepal','google-meta-ads-expert-nepal']),
 
  dict(slug='saas-motion-design', kw='Motion Design & Animation for SaaS', short='SaaS Motion Design',
-  title='Motion Design for SaaS – Product Explainers, UI Animation & Launch Videos | Prajwal Gautam',
+  title='Motion Design for SaaS: Explainers & UI Animation – Prajwal Gautam',
   desc='Motion design and animation for SaaS and tech: product explainer videos, UI animations, launch videos and 3D, made in code with Remotion so they update with your product.',
   lede='Product videos that explain in seconds and stay up to date, because they are built from code, not just keyframes.',
   intro=['SaaS products change every sprint, so traditional explainer videos go out of date fast. I build product motion in Remotion, a code-based video framework, so changing a feature, a price or a screen means re-rendering, not re-animating.',
