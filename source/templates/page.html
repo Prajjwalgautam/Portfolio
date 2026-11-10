@@ -52,7 +52,10 @@ nav.menu a{text-decoration:none;color:var(--dim)} nav.menu a:hover{color:var(--f
 
 /* hero: text left, the card face forms on the right */
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center;min-height:min(88vh,860px);padding-block:40px 60px}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--dim)}
+.me{display:flex;align-items:center;gap:12px}
+.me img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 18%;filter:grayscale(1);border:2px solid var(--bg);box-shadow:0 0 0 1px var(--line)}
+.me b{display:block;font-size:16px;line-height:1.2}
+.me span{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--dim)}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 4px color-mix(in srgb,var(--wa) 22%,transparent)}
 .hero h1{font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(56px,8vw,120px);line-height:.84;letter-spacing:-.01em;margin-top:18px}
 .lede{font-size:clamp(19px,1.7vw,22px);line-height:1.45;max-width:34ch;margin-top:22px;font-weight:500}
@@ -69,7 +72,7 @@ nav.menu a{text-decoration:none;color:var(--dim)} nav.menu a:hover{color:var(--f
 .logos{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px;font-weight:700;font-size:16px}
 .logos>*{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
 .logos img{width:30px;height:30px;border-radius:7px;object-fit:cover;background:#fff}
-.logos i{font-style:normal;width:30px;height:30px;border-radius:7px;display:grid;place-items:center;background:var(--fg);color:var(--bg);font-size:12px;font-family:var(--mono)}
+.logos .txt{color:var(--dim);font-weight:700;letter-spacing:.01em}
 
 section.s{padding-block:clamp(70px,10vw,120px)}
 .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:32px;align-items:end;margin-bottom:44px}
@@ -91,7 +94,7 @@ section.s{padding-block:clamp(70px,10vw,120px)}
 .svc a:hover .arr{transform:translate(3px,-3px);color:var(--accent)}
 
 /* skills: galaxy on the right, every skill listed on the left */
-.skills .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;min-height:100vh;align-items:center}
+.skills .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;min-height:86vh;align-items:center;padding-block:90px}
 .skills .intro p{color:var(--dim);font-size:18px;margin-top:18px;max-width:44ch}
 .groups{display:grid;gap:12px;margin-top:30px}
 .group{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
@@ -103,7 +106,7 @@ section.s{padding-block:clamp(70px,10vw,120px)}
 .hint{font-family:var(--mono);font-size:12.5px;color:var(--dim);margin-top:16px}
 
 /* featured case: logo of cards on the right */
-.feature .wrap{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:40px;min-height:100vh;align-items:center}
+.feature .wrap{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:40px;min-height:76vh;align-items:center;padding-block:70px}
 .casecard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:30px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .casecard .who{display:flex;align-items:center;gap:14px;margin:14px 0 20px}
 .casecard .who img{width:54px;height:54px;border-radius:12px;background:#fff;object-fit:cover}
@@ -141,6 +144,7 @@ a.work:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--fg)
 .work .chips span{background:transparent}
 .work .chips span.m{border-color:color-mix(in srgb,var(--accent) 50%,transparent);color:var(--accent)}
 .go{font-weight:700;font-size:15px}
+.gcard .num{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
 
 /* process */
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;counter-reset:s}
@@ -178,6 +182,7 @@ summary::-webkit-details-marker{display:none}
 summary::after{content:"+";font-size:26px;font-weight:400;transition:transform .2s;flex:none}
 details[open] summary::after{transform:rotate(45deg);color:var(--accent)}
 details p{padding:0 0 20px;color:var(--dim);max-width:62ch}
+.fsub{font-family:var(--mono);font-size:13px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin:40px 0 4px}
 
 /* contact: face of cards on the left, details on the right */
 .contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;min-height:100vh;align-items:center}
@@ -203,7 +208,6 @@ footer a{text-decoration:none;color:var(--fg)}
   nav.menu{display:none}
   .hero .wrap,.head,.pillars,.skills .wrap,.feature .wrap,.about .wrap,.faq .wrap,.contact .wrap,.quotes{grid-template-columns:minmax(0,1fr)}
   .hero .wrap{min-height:0;padding-block:0 40px;gap:0;display:flex;flex-direction:column}
-  .facespace{display:block;height:46vh;order:-1}
   .facecap{display:none}
   .skills .wrap,.feature .wrap,.contact .wrap{min-height:0;gap:0}
   .skills .wrap::before,.feature .wrap::before,.contact .wrap::before{content:"";display:block;height:52vh}
@@ -245,26 +249,25 @@ footer a{text-decoration:none;color:var(--fg)}
   <section class="hero" data-state="face" data-theme="paper">
     <div class="wrap">
       <div>
-        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Taking new projects · Kathmandu, Nepal · Remote worldwide</p>
+        <div class="me"><img src="{{IMG_PHOTO}}" alt="" width="44" height="44"><div><b>Prajwal Gautam</b><span><span class="dot" aria-hidden="true"></span>Taking new projects · Kathmandu, Nepal</span></div></div>
         <h1><span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Prajwal Gautam, AI engineer and digital marketing expert in Nepal: </span>More customers.<br>Smarter <em>business.</em></h1>
         <p class="lede">I run the marketing that brings you customers: lead generation, social media and Google and Meta ads. And I build the AI-powered websites and apps they land on.</p>
         <div class="ctas">
           <a class="btn wa" href="https://wa.me/9779848137372?text=Hi%20Prajwal%2C%20I%27d%20like%20to%20talk%20about%20my%20business." target="_blank" rel="noopener">{{WA_ICON}}WhatsApp me</a>
           <a class="btn" href="#work">See my work</a>
         </div>
-        <div class="assure"><span>Free 20-minute call</span><span>Fixed quote before work starts</span><span>Reply within one working day</span></div>
+        <div class="assure"><span>Agency-level work without agency overhead</span><span>Free 20-minute call</span><span>Reply within one working day</span></div>
       </div>
-      <div class="facespace" aria-hidden="true"></div>
     </div>
   </section>
 
   <div class="band">
     <div class="wrap">
-      <span class="label">Work live at</span>
+      <span class="label">Trusted with real work</span>
       <div class="logos">
         <a href="https://www.nepalbhoomi.com" target="_blank" rel="noopener"><img src="{{IMG_NB}}" alt="" width="30" height="30">Nepal Bhoomi</a>
         <a href="https://slugforge.vercel.app" target="_blank" rel="noopener"><img src="{{IMG_SF}}" alt="" width="30" height="30">Slugforge Studio</a>
-        <span><i>SP</i>Sayapatri</span><span><i>FF</i>Fitfutures</span><span><i>UT</i>Uno Technology</span>
+        <span class="txt">Sayapatri</span><span class="txt">Fitfutures</span><span class="txt">Uno Technology</span><span class="txt">Ek Ra Sunya</span>
       </div>
     </div>
   </div>
@@ -305,8 +308,8 @@ footer a{text-decoration:none;color:var(--fg)}
     <div class="wrap">
       <div class="intro">
         <p class="label">Skills</p>
-        <h2 style="margin-top:14px">9,105 cards.<br><em>36 real skills.</em></h2>
-        <p>Every card in the galaxy carries one skill I use on client work. Each arm is a service. Hover a card to read its skill.</p>
+        <h2 style="margin-top:14px">What I’m<br><em>good at</em></h2>
+        <p>Marketing first, backed by the technical skills to build whatever a campaign needs. Each arm of the galaxy is one of these groups; hover a card to read its skill.</p>
         <div class="groups">{{SKILLGROUPS}}</div>
       </div>
     </div>
@@ -320,7 +323,8 @@ footer a{text-decoration:none;color:var(--fg)}
         <div class="steps3">
           <div><span class="label">Problem</span><p>A Kathmandu property brand that needed steady video, enquiries and search traffic from a small team.</p></div>
           <div><span class="label">What I did</span><p>Run its social media, property videos, SEO and ad tracking with monthly reports. Built the video system and co-built the platform with two-factor security.</p></div>
-{{CASE_RESULT}}        </div>
+          <div><span class="label">Result</span><p>New property videos take minutes to produce instead of days, so the brand posts steadily on Facebook, Instagram and YouTube, and every enquiry is tracked into a monthly report.</p></div>
+        </div>
         <div class="ctas"><a class="btn" href="{{CASE}}">Read the case study</a><a class="btn" href="https://www.nepalbhoomi.com" target="_blank" rel="noopener">nepalbhoomi.com ↗</a></div>
       </div>
     </div>
@@ -336,7 +340,19 @@ footer a{text-decoration:none;color:var(--fg)}
   </section>
   <!--/RESULTS-->
 
-  <section class="s" id="work" data-state="dust" data-theme="paper">
+  <section class="s" id="why" data-state="dust" data-theme="paper">
+    <div class="wrap">
+      <div class="head"><div><p class="label">Why clients choose me</p><h2>Better value,<br>fewer <em>hand-offs</em></h2></div><p>You get the strategy, the content, the ads and the website from one person, so you pay for the work and not for account managers.</p></div>
+      <div class="stats">
+        <div class="stat"><div class="num">1</div><p>Person for marketing and tech</p><small>Instead of an agency, a designer and a developer</small></div>
+        <div class="stat"><div class="num">1 day</div><p>Reply time</p><small>Every message answered within one working day</small></div>
+        <div class="stat"><div class="num">3</div><p>Content languages</p><small>Nepali, English and Hindi</small></div>
+        <div class="stat"><div class="num">0</div><p>Lock-in</p><small>You own your accounts, code and content</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="work" data-state="dust" data-theme="paper" style="padding-top:0">
     <div class="wrap">
       <div class="head"><div><p class="label">Selected work</p><h2>Six projects<br>you can open</h2></div><p>Live sites and real code. Red tags are marketing work; grey tags are development.</p></div>
       <div class="grid3">
@@ -391,10 +407,17 @@ footer a{text-decoration:none;color:var(--fg)}
     </div>
   </section>
 
+  <section class="s" id="guides" data-state="dust" data-theme="paper" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><div><p class="label">Free guides</p><h2>Learn before<br>you hire</h2></div><p>Plain answers to questions business owners in Nepal ask me every week.</p></div>
+      <div class="grid3">{{GUIDE_CARDS}}</div>
+    </div>
+  </section>
+
   <section class="s faq" id="faq" data-state="dust" data-theme="paper" style="padding-top:0">
     <div class="wrap">
       <div><p class="label">Questions</p><h2 style="margin-top:14px">Before you<br>message me</h2></div>
-      <div>{{FAQ}}</div>
+      <div>{{FAQ}}<h3 class="fsub">About Prajwal</h3>{{FAQ_ABOUT}}</div>
     </div>
   </section>
 
@@ -422,7 +445,6 @@ footer a{text-decoration:none;color:var(--fg)}
 <div class="mbar" role="region" aria-label="Quick contact"><a class="btn wa" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp me</a><a class="btn" href="#contact">Get a quote</a></div>
 <div class="bar" aria-hidden="true"><i id="bar"></i></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (function(){
@@ -454,7 +476,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   const id=a.getAttribute('href'); const t=id==='#top'?document.body:document.querySelector(id); if(!t) return;
   e.preventDefault(); lenis?lenis.scrollTo(t,{offset:-68,duration:1.4}):t.scrollIntoView({behavior:reduce?'auto':'smooth'}); }));
 
+function startEngine(){ window.__eng=1; window.__introT0=performance.now();
 {{ENGINE}}
+}
+(function pre(t){ if(window.__eng) return; if(lenis) lenis.raf(t); requestAnimationFrame(pre); })(0);
+const boot=()=>{ const sc=document.createElement('script'); sc.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'; sc.onload=startEngine; document.head.appendChild(sc); };
+if(document.readyState==='complete') setTimeout(boot,60); else addEventListener('load',()=>setTimeout(boot,60));
 })();
 </script>
 </body>

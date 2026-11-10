@@ -123,8 +123,8 @@ FAQ_BIZ = [
 FAQ_HOME = FAQ_BIZ + [qa for qa in FAQ if qa[0] in ("What does Prajwal Gautam do?", "Where is Prajwal Gautam based?", "What has Prajwal Gautam built?",
                                                     "What is AEO and do you offer it?", "Which industries do you work with?", "Which programming languages and frameworks do you use?")]
 # Real figures only. Leave empty and the Results section stays hidden.
-# stats: (value, label, note) e.g. ('120', 'Enquiries per month', 'From Meta lead ads'); quotes: (quote, 'Name · Business, City')
-RESULTS = dict(stats=[], quotes=[], case_result='')
+# stats: (value, label, note); quotes: (quote, 'Name · Business, City'). Real client figures and words only.
+RESULTS = dict(stats=[], quotes=[])
 HOME_WORK = ['Nepal Bhoomi', 'Slugforge Studio', 'Remotion Video Engine', 'Sayapatri E-commerce', 'Zylux Commerce Admin', 'Laravel HRMS']
 
 # ------------------------------------------------------------------ engine
@@ -625,7 +625,7 @@ def engine_v2():
         nonlocal e
         assert e.count(a) == 1, a[:60]; e = e.replace(a, b)
     R("if(name==='face') return m?{o:[0,halfH*.02,0],s:.78}:{o:[halfW*.04,-1.7,0],s:.9};",
-      "if(name==='face') return m?{o:[0,halfH*.44,0],s:.64}:{o:[halfW*.5,-1.6,0],s:.86};")
+      "if(name==='face') return m?{o:[0,-halfH*2.4,0],s:.64}:{o:[halfW*.5,-1.6,0],s:.86};")
     R("if(name==='galaxy') return m?{o:[0,3,0],s:.62}:{o:[halfW*.3,0,0],s:1};",
       "if(name==='galaxy') return m?{o:[0,halfH*.48,0],s:.6}:{o:[halfW*.58,0,0],s:.8};")
     R("if(name==='nb'||name==='sf') return m?{o:[0,halfH*.42,0],s:.75}:{o:[halfW*.4,0,0],s:1};",
@@ -634,9 +634,12 @@ def engine_v2():
 
 def page_v2(link, case_url, guides_url, img):
     groups = ''.join(f'<div class="group" style="--c:{c["c"]}"><div class="gh"><i></i>{E(c["name"])}<small>{len(c["skills"])} skills</small></div><div class="chips">'
-                     + ''.join(f'<span>{E(x)}</span>' for x in c['skills']) + '</div></div>' for c in CATS_V2)
+                     + ''.join(f'<span>{E(x)}</span>' for x in c['skills']) + '</div></div>'
+                     for c in sorted(CATS_V2, key=lambda c: ['GROWTH','SEO','AI','CODE','APPS','VIDEO'].index(c['word'])))
     t = open(os.path.join(ROOT, 'templates', 'page.html')).read()
-    faq = ''.join(f'<details{" open" if i == 0 else ""}><summary>{E(q)}</summary><p>{E(a)}</p></details>' for i, (q, a) in enumerate(FAQ_HOME))
+    det = lambda items, first=False: ''.join(f'<details{" open" if first and i == 0 else ""}><summary>{E(q)}</summary><p>{E(a)}</p></details>' for i, (q, a) in enumerate(items))
+    faq, faq_about = det(FAQ_BIZ, True), det(FAQ_HOME[len(FAQ_BIZ):])
+    gcards = ''.join(f'<a class="work gcard" href="{guides_url}{g["slug"]}/"><span class="num">Guide {i+1:02d}</span><h3>{E(g["h1"])}</h3><p>{E(g["answer"][:150].rsplit(" ",1)[0])}…</p><span class="go">Read the guide →</span></a>' for i, g in enumerate(GUIDES[:3]))
     col = lambda h, items: f'<div><h4>{h}</h4>' + ''.join(f'<a href="{u}">{E(n)}</a>' for n, u in items) + '</div>'
     mk = ['digital-marketing-expert-nepal','lead-generation-nepal','social-media-marketing-nepal','google-meta-ads-expert-nepal','seo-expert-nepal','aeo-geo-expert','branding-digital-marketing-nepal','growth-marketing-consultant']
     dv = ['ai-engineer-nepal','hire-ai-developer','full-stack-developer-nepal','web-developer-kathmandu','app-developer-nepal','ai-video-production']
@@ -650,9 +653,8 @@ def page_v2(link, case_url, guides_url, img):
         t = t.replace('{{STATS}}', stats).replace('{{QUOTES}}', quotes)
     else:
         t = re.sub(r'<!--RESULTS-->.*?<!--/RESULTS-->', '', t, flags=re.S)
-    cres = (f'          <div><span class="label">Result</span><p>{E(RESULTS["case_result"])}</p></div>\n' if RESULTS['case_result'] else '')
     t = re.sub(r'\{\{L:([a-z0-9-]+)\}\}', lambda m: (BY_SLUG[m.group(1)] and link(m.group(1))), t)
-    rep = {'{{SKILLGROUPS}}': groups, '{{WA_ICON}}': WA_ICON, '{{FAQ}}': faq, '{{FOOT_COLS}}': foot, '{{CASE_RESULT}}': cres, '{{CASE}}': case_url, '{{GUIDES}}': guides_url,
+    rep = {'{{SKILLGROUPS}}': groups, '{{WA_ICON}}': WA_ICON, '{{FAQ}}': faq, '{{FAQ_ABOUT}}': faq_about, '{{GUIDE_CARDS}}': gcards, '{{FOOT_COLS}}': foot, '{{CASE}}': case_url, '{{GUIDES}}': guides_url,
            '{{IMG_NB}}': img['nb'], '{{IMG_SF}}': img['sf'], '{{IMG_PHOTO}}': img['photo'],
            '{{CATS_JSON}}': json.dumps([dict(name=c['name'], word=c['word'], c=c['c'], skills=c['skills']) for c in CATS_V2]),
            '{{ENGINE}}': engine_v2()}

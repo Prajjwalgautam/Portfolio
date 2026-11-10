@@ -73,7 +73,10 @@ nav.menu a{text-decoration:none;color:var(--dim)} nav.menu a:hover{color:var(--f
 
 /* hero: text left, the card face forms on the right */
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center;min-height:min(88vh,860px);padding-block:40px 60px}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--dim)}
+.me{display:flex;align-items:center;gap:12px}
+.me img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 18%;filter:grayscale(1);border:2px solid var(--bg);box-shadow:0 0 0 1px var(--line)}
+.me b{display:block;font-size:16px;line-height:1.2}
+.me span{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--dim)}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 4px color-mix(in srgb,var(--wa) 22%,transparent)}
 .hero h1{font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(56px,8vw,120px);line-height:.84;letter-spacing:-.01em;margin-top:18px}
 .lede{font-size:clamp(19px,1.7vw,22px);line-height:1.45;max-width:34ch;margin-top:22px;font-weight:500}
@@ -90,7 +93,7 @@ nav.menu a{text-decoration:none;color:var(--dim)} nav.menu a:hover{color:var(--f
 .logos{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px;font-weight:700;font-size:16px}
 .logos>*{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
 .logos img{width:30px;height:30px;border-radius:7px;object-fit:cover;background:#fff}
-.logos i{font-style:normal;width:30px;height:30px;border-radius:7px;display:grid;place-items:center;background:var(--fg);color:var(--bg);font-size:12px;font-family:var(--mono)}
+.logos .txt{color:var(--dim);font-weight:700;letter-spacing:.01em}
 
 section.s{padding-block:clamp(70px,10vw,120px)}
 .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:32px;align-items:end;margin-bottom:44px}
@@ -112,7 +115,7 @@ section.s{padding-block:clamp(70px,10vw,120px)}
 .svc a:hover .arr{transform:translate(3px,-3px);color:var(--accent)}
 
 /* skills: galaxy on the right, every skill listed on the left */
-.skills .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;min-height:100vh;align-items:center}
+.skills .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;min-height:86vh;align-items:center;padding-block:90px}
 .skills .intro p{color:var(--dim);font-size:18px;margin-top:18px;max-width:44ch}
 .groups{display:grid;gap:12px;margin-top:30px}
 .group{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
@@ -124,7 +127,7 @@ section.s{padding-block:clamp(70px,10vw,120px)}
 .hint{font-family:var(--mono);font-size:12.5px;color:var(--dim);margin-top:16px}
 
 /* featured case: logo of cards on the right */
-.feature .wrap{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:40px;min-height:100vh;align-items:center}
+.feature .wrap{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:40px;min-height:76vh;align-items:center;padding-block:70px}
 .casecard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:30px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .casecard .who{display:flex;align-items:center;gap:14px;margin:14px 0 20px}
 .casecard .who img{width:54px;height:54px;border-radius:12px;background:#fff;object-fit:cover}
@@ -162,6 +165,7 @@ a.work:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--fg)
 .work .chips span{background:transparent}
 .work .chips span.m{border-color:color-mix(in srgb,var(--accent) 50%,transparent);color:var(--accent)}
 .go{font-weight:700;font-size:15px}
+.gcard .num{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
 
 /* process */
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;counter-reset:s}
@@ -199,6 +203,7 @@ summary::-webkit-details-marker{display:none}
 summary::after{content:"+";font-size:26px;font-weight:400;transition:transform .2s;flex:none}
 details[open] summary::after{transform:rotate(45deg);color:var(--accent)}
 details p{padding:0 0 20px;color:var(--dim);max-width:62ch}
+.fsub{font-family:var(--mono);font-size:13px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin:40px 0 4px}
 
 /* contact: face of cards on the left, details on the right */
 .contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;min-height:100vh;align-items:center}
@@ -224,7 +229,6 @@ footer a{text-decoration:none;color:var(--fg)}
   nav.menu{display:none}
   .hero .wrap,.head,.pillars,.skills .wrap,.feature .wrap,.about .wrap,.faq .wrap,.contact .wrap,.quotes{grid-template-columns:minmax(0,1fr)}
   .hero .wrap{min-height:0;padding-block:0 40px;gap:0;display:flex;flex-direction:column}
-  .facespace{display:block;height:46vh;order:-1}
   .facecap{display:none}
   .skills .wrap,.feature .wrap,.contact .wrap{min-height:0;gap:0}
   .skills .wrap::before,.feature .wrap::before,.contact .wrap::before{content:"";display:block;height:52vh}
@@ -266,26 +270,25 @@ footer a{text-decoration:none;color:var(--fg)}
   <section class="hero" data-state="face" data-theme="paper">
     <div class="wrap">
       <div>
-        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Taking new projects · Kathmandu, Nepal · Remote worldwide</p>
+        <div class="me"><img src="assets/prajwal-gautam.webp" alt="" width="44" height="44"><div><b>Prajwal Gautam</b><span><span class="dot" aria-hidden="true"></span>Taking new projects · Kathmandu, Nepal</span></div></div>
         <h1><span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Prajwal Gautam, AI engineer and digital marketing expert in Nepal: </span>More customers.<br>Smarter <em>business.</em></h1>
         <p class="lede">I run the marketing that brings you customers: lead generation, social media and Google and Meta ads. And I build the AI-powered websites and apps they land on.</p>
         <div class="ctas">
           <a class="btn wa" href="https://wa.me/9779848137372?text=Hi%20Prajwal%2C%20I%27d%20like%20to%20talk%20about%20my%20business." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3.1.2.1.7-.1 1.2z"/></svg>WhatsApp me</a>
           <a class="btn" href="#work">See my work</a>
         </div>
-        <div class="assure"><span>Free 20-minute call</span><span>Fixed quote before work starts</span><span>Reply within one working day</span></div>
+        <div class="assure"><span>Agency-level work without agency overhead</span><span>Free 20-minute call</span><span>Reply within one working day</span></div>
       </div>
-      <div class="facespace" aria-hidden="true"></div>
     </div>
   </section>
 
   <div class="band">
     <div class="wrap">
-      <span class="label">Work live at</span>
+      <span class="label">Trusted with real work</span>
       <div class="logos">
         <a href="https://www.nepalbhoomi.com" target="_blank" rel="noopener"><img src="assets/nepal-bhoomi-logo.webp" alt="" width="30" height="30">Nepal Bhoomi</a>
         <a href="https://slugforge.vercel.app" target="_blank" rel="noopener"><img src="assets/slugforge-logo.webp" alt="" width="30" height="30">Slugforge Studio</a>
-        <span><i>SP</i>Sayapatri</span><span><i>FF</i>Fitfutures</span><span><i>UT</i>Uno Technology</span>
+        <span class="txt">Sayapatri</span><span class="txt">Fitfutures</span><span class="txt">Uno Technology</span><span class="txt">Ek Ra Sunya</span>
       </div>
     </div>
   </div>
@@ -326,9 +329,9 @@ footer a{text-decoration:none;color:var(--fg)}
     <div class="wrap">
       <div class="intro">
         <p class="label">Skills</p>
-        <h2 style="margin-top:14px">9,105 cards.<br><em>36 real skills.</em></h2>
-        <p>Every card in the galaxy carries one skill I use on client work. Each arm is a service. Hover a card to read its skill.</p>
-        <div class="groups"><div class="group" style="--c:#FF8A3D"><div class="gh"><i></i>AI Engineering<small>6 skills</small></div><div class="chips"><span>LLM Integrations</span><span>Prompt Engineering</span><span>AI Automation</span><span>AI Research</span><span>AI Image Gen</span><span>AI Scriptwriting</span></div></div><div class="group" style="--c:#4D7BFF"><div class="gh"><i></i>Full-Stack<small>6 skills</small></div><div class="chips"><span>TypeScript</span><span>Next.js &amp; React</span><span>Node.js</span><span>PHP &amp; Laravel</span><span>PostgreSQL &amp; MySQL</span><span>Tailwind CSS</span></div></div><div class="group" style="--c:#9B7BFF"><div class="gh"><i></i>Apps &amp; APIs<small>6 skills</small></div><div class="chips"><span>Android Apps</span><span>Web Apps</span><span>REST APIs</span><span>Khalti Payments</span><span>Auth, 2FA &amp; OAuth</span><span>Prisma &amp; Drizzle</span></div></div><div class="group" style="--c:#F2334B"><div class="gh"><i></i>AI Video &amp; Motion<small>6 skills</small></div><div class="chips"><span>AI Video</span><span>Motion Graphics</span><span>SaaS Animation</span><span>Blender 3D</span><span>Color Grading</span><span>Remotion</span></div></div><div class="group" style="--c:#2BC6E8"><div class="gh"><i></i>SEO &amp; AEO<small>6 skills</small></div><div class="chips"><span>Technical SEO</span><span>AEO &amp; GEO</span><span>Keyword Research</span><span>SEO Content</span><span>Market Research</span><span>Audience Analytics</span></div></div><div class="group" style="--c:#2EE6A6"><div class="gh"><i></i>Marketing &amp; Leads<small>6 skills</small></div><div class="chips"><span>Lead Generation</span><span>Social Media</span><span>Meta Ads</span><span>Google Ads</span><span>Branding</span><span>Growth Marketing</span></div></div></div>
+        <h2 style="margin-top:14px">What I’m<br><em>good at</em></h2>
+        <p>Marketing first, backed by the technical skills to build whatever a campaign needs. Each arm of the galaxy is one of these groups; hover a card to read its skill.</p>
+        <div class="groups"><div class="group" style="--c:#2EE6A6"><div class="gh"><i></i>Marketing &amp; Leads<small>6 skills</small></div><div class="chips"><span>Lead Generation</span><span>Social Media</span><span>Meta Ads</span><span>Google Ads</span><span>Branding</span><span>Growth Marketing</span></div></div><div class="group" style="--c:#2BC6E8"><div class="gh"><i></i>SEO &amp; AEO<small>6 skills</small></div><div class="chips"><span>Technical SEO</span><span>AEO &amp; GEO</span><span>Keyword Research</span><span>SEO Content</span><span>Market Research</span><span>Audience Analytics</span></div></div><div class="group" style="--c:#FF8A3D"><div class="gh"><i></i>AI Engineering<small>6 skills</small></div><div class="chips"><span>LLM Integrations</span><span>Prompt Engineering</span><span>AI Automation</span><span>AI Research</span><span>AI Image Gen</span><span>AI Scriptwriting</span></div></div><div class="group" style="--c:#4D7BFF"><div class="gh"><i></i>Full-Stack<small>6 skills</small></div><div class="chips"><span>TypeScript</span><span>Next.js &amp; React</span><span>Node.js</span><span>PHP &amp; Laravel</span><span>PostgreSQL &amp; MySQL</span><span>Tailwind CSS</span></div></div><div class="group" style="--c:#9B7BFF"><div class="gh"><i></i>Apps &amp; APIs<small>6 skills</small></div><div class="chips"><span>Android Apps</span><span>Web Apps</span><span>REST APIs</span><span>Khalti Payments</span><span>Auth, 2FA &amp; OAuth</span><span>Prisma &amp; Drizzle</span></div></div><div class="group" style="--c:#F2334B"><div class="gh"><i></i>AI Video &amp; Motion<small>6 skills</small></div><div class="chips"><span>AI Video</span><span>Motion Graphics</span><span>SaaS Animation</span><span>Blender 3D</span><span>Color Grading</span><span>Remotion</span></div></div></div>
       </div>
     </div>
   </section>
@@ -341,6 +344,7 @@ footer a{text-decoration:none;color:var(--fg)}
         <div class="steps3">
           <div><span class="label">Problem</span><p>A Kathmandu property brand that needed steady video, enquiries and search traffic from a small team.</p></div>
           <div><span class="label">What I did</span><p>Run its social media, property videos, SEO and ad tracking with monthly reports. Built the video system and co-built the platform with two-factor security.</p></div>
+          <div><span class="label">Result</span><p>New property videos take minutes to produce instead of days, so the brand posts steadily on Facebook, Instagram and YouTube, and every enquiry is tracked into a monthly report.</p></div>
         </div>
         <div class="ctas"><a class="btn" href="work/nepal-bhoomi/">Read the case study</a><a class="btn" href="https://www.nepalbhoomi.com" target="_blank" rel="noopener">nepalbhoomi.com ↗</a></div>
       </div>
@@ -349,7 +353,19 @@ footer a{text-decoration:none;color:var(--fg)}
 
   
 
-  <section class="s" id="work" data-state="dust" data-theme="paper">
+  <section class="s" id="why" data-state="dust" data-theme="paper">
+    <div class="wrap">
+      <div class="head"><div><p class="label">Why clients choose me</p><h2>Better value,<br>fewer <em>hand-offs</em></h2></div><p>You get the strategy, the content, the ads and the website from one person, so you pay for the work and not for account managers.</p></div>
+      <div class="stats">
+        <div class="stat"><div class="num">1</div><p>Person for marketing and tech</p><small>Instead of an agency, a designer and a developer</small></div>
+        <div class="stat"><div class="num">1 day</div><p>Reply time</p><small>Every message answered within one working day</small></div>
+        <div class="stat"><div class="num">3</div><p>Content languages</p><small>Nepali, English and Hindi</small></div>
+        <div class="stat"><div class="num">0</div><p>Lock-in</p><small>You own your accounts, code and content</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="work" data-state="dust" data-theme="paper" style="padding-top:0">
     <div class="wrap">
       <div class="head"><div><p class="label">Selected work</p><h2>Six projects<br>you can open</h2></div><p>Live sites and real code. Red tags are marketing work; grey tags are development.</p></div>
       <div class="grid3">
@@ -404,10 +420,17 @@ footer a{text-decoration:none;color:var(--fg)}
     </div>
   </section>
 
+  <section class="s" id="guides" data-state="dust" data-theme="paper" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><div><p class="label">Free guides</p><h2>Learn before<br>you hire</h2></div><p>Plain answers to questions business owners in Nepal ask me every week.</p></div>
+      <div class="grid3"><a class="work gcard" href="guides/what-is-aeo-geo/"><span class="num">Guide 01</span><h3>What are AEO and GEO?</h3><p>AEO (Answer Engine Optimization) makes your content the answer that AI tools, featured snippets and voice assistants quote. GEO (Generative Engine…</p><span class="go">Read the guide →</span></a><a class="work gcard" href="guides/get-business-on-google-nepal/"><span class="num">Guide 02</span><h3>How to get your business on Google in Nepal</h3><p>Create and verify a free Google Business Profile so you appear on Google Maps, then verify your website in Google Search Console and submit your…</p><span class="go">Read the guide →</span></a><a class="work gcard" href="guides/hire-ai-engineer-nepal/"><span class="num">Guide 03</span><h3>How to hire an AI engineer in Nepal</h3><p>Hire an AI engineer in Nepal who can show live, working projects, not only demos. Write a short project brief, ask how they will connect AI to your…</p><span class="go">Read the guide →</span></a></div>
+    </div>
+  </section>
+
   <section class="s faq" id="faq" data-state="dust" data-theme="paper" style="padding-top:0">
     <div class="wrap">
       <div><p class="label">Questions</p><h2 style="margin-top:14px">Before you<br>message me</h2></div>
-      <div><details open><summary>Are you an agency or one person?</summary><p>One person covering what an agency covers: strategy, content, social media, ads, SEO and reporting, plus the website or app. You always talk to the person doing the work.</p></details><details><summary>How much does it cost?</summary><p>Marketing is a monthly retainer; websites and apps are a fixed price per project. You get a written quote after a free 20-minute call, before anything starts. Ad spend is paid directly to Meta or Google.</p></details><details><summary>How soon will I see results?</summary><p>Ads can bring enquiries within days. Social media growth and SEO build over two to six months. The first month is mostly setup and testing.</p></details><details><summary>Do you guarantee leads or sales?</summary><p>No honest marketer can. I guarantee a clear plan, steady work and an honest monthly report, and I move budget to what is working.</p></details><details><summary>Do you work with businesses outside Nepal?</summary><p>Yes. I work remotely with clients worldwide, with good time overlap for Asia, the Middle East, Europe and Australia.</p></details><details><summary>What does Prajwal Gautam do?</summary><p>Prajwal Gautam is an AI engineer and digital marketing expert based in Kathmandu, Nepal. He builds AI-powered websites and apps, and runs the marketing that brings customers in: lead generation, social media marketing, Facebook, Instagram and Google ads, branding, video and SEO, for businesses in Nepal and worldwide.</p></details><details><summary>What is AEO and do you offer it?</summary><p>AEO, Answer Engine Optimization, makes your business the answer that ChatGPT, Perplexity, Gemini and Google AI Overviews give. Yes: I add structured data, llms.txt, answer-first content and consistent citations, and track AI mentions monthly.</p></details><details><summary>Which industries do you work with?</summary><p>Real estate (I co-built the Nepal Bhoomi platform), education and study-abroad consultancies, e-commerce and retail, restaurants and travel, and I offer dedicated packages for jewellers and SaaS companies.</p></details><details><summary>Which programming languages and frameworks do you use?</summary><p>TypeScript and JavaScript with Next.js, React and Node.js; PHP with Laravel; Python for AI and automation; SQL with PostgreSQL and MySQL; and GLSL for WebGL. If your project needs a stack I don&#x27;t use, I&#x27;ll tell you before we start.</p></details><details><summary>Where is Prajwal Gautam based?</summary><p>Prajwal Gautam is based in Kathmandu, Nepal (UTC+5:45) and works with clients in Nepal and worldwide, remotely or on-site in the Kathmandu Valley.</p></details><details><summary>What has Prajwal Gautam built?</summary><p>He co-built the Nepal Bhoomi real-estate platform (Next.js, PostgreSQL, two-factor security), built the Slugforge Studio website, shipped Khalti payments and live currency pricing for the Sayapatri e-commerce platform, and built a Laravel HR system and the Fitfutures e-learning platform.</p></details></div>
+      <div><details open><summary>Are you an agency or one person?</summary><p>One person covering what an agency covers: strategy, content, social media, ads, SEO and reporting, plus the website or app. You always talk to the person doing the work.</p></details><details><summary>How much does it cost?</summary><p>Marketing is a monthly retainer; websites and apps are a fixed price per project. You get a written quote after a free 20-minute call, before anything starts. Ad spend is paid directly to Meta or Google.</p></details><details><summary>How soon will I see results?</summary><p>Ads can bring enquiries within days. Social media growth and SEO build over two to six months. The first month is mostly setup and testing.</p></details><details><summary>Do you guarantee leads or sales?</summary><p>No honest marketer can. I guarantee a clear plan, steady work and an honest monthly report, and I move budget to what is working.</p></details><details><summary>Do you work with businesses outside Nepal?</summary><p>Yes. I work remotely with clients worldwide, with good time overlap for Asia, the Middle East, Europe and Australia.</p></details><h3 class="fsub">About Prajwal</h3><details><summary>What does Prajwal Gautam do?</summary><p>Prajwal Gautam is an AI engineer and digital marketing expert based in Kathmandu, Nepal. He builds AI-powered websites and apps, and runs the marketing that brings customers in: lead generation, social media marketing, Facebook, Instagram and Google ads, branding, video and SEO, for businesses in Nepal and worldwide.</p></details><details><summary>What is AEO and do you offer it?</summary><p>AEO, Answer Engine Optimization, makes your business the answer that ChatGPT, Perplexity, Gemini and Google AI Overviews give. Yes: I add structured data, llms.txt, answer-first content and consistent citations, and track AI mentions monthly.</p></details><details><summary>Which industries do you work with?</summary><p>Real estate (I co-built the Nepal Bhoomi platform), education and study-abroad consultancies, e-commerce and retail, restaurants and travel, and I offer dedicated packages for jewellers and SaaS companies.</p></details><details><summary>Which programming languages and frameworks do you use?</summary><p>TypeScript and JavaScript with Next.js, React and Node.js; PHP with Laravel; Python for AI and automation; SQL with PostgreSQL and MySQL; and GLSL for WebGL. If your project needs a stack I don&#x27;t use, I&#x27;ll tell you before we start.</p></details><details><summary>Where is Prajwal Gautam based?</summary><p>Prajwal Gautam is based in Kathmandu, Nepal (UTC+5:45) and works with clients in Nepal and worldwide, remotely or on-site in the Kathmandu Valley.</p></details><details><summary>What has Prajwal Gautam built?</summary><p>He co-built the Nepal Bhoomi real-estate platform (Next.js, PostgreSQL, two-factor security), built the Slugforge Studio website, shipped Khalti payments and live currency pricing for the Sayapatri e-commerce platform, and built a Laravel HR system and the Fitfutures e-learning platform.</p></details></div>
     </div>
   </section>
 
@@ -435,7 +458,6 @@ footer a{text-decoration:none;color:var(--fg)}
 <div class="mbar" role="region" aria-label="Quick contact"><a class="btn wa" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp me</a><a class="btn" href="#contact">Get a quote</a></div>
 <div class="bar" aria-hidden="true"><i id="bar"></i></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (function(){
@@ -467,6 +489,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   const id=a.getAttribute('href'); const t=id==='#top'?document.body:document.querySelector(id); if(!t) return;
   e.preventDefault(); lenis?lenis.scrollTo(t,{offset:-68,duration:1.4}):t.scrollIntoView({behavior:reduce?'auto':'smooth'}); }));
 
+function startEngine(){ window.__eng=1; window.__introT0=performance.now();
 /* ================= WebGL ================= */
 const canvas=$('stage'); let renderer=null;
 try{ renderer=new THREE.WebGLRenderer({canvas, antialias:false, alpha:true, powerPreference:'high-performance'}); }catch(e){}
@@ -558,7 +581,7 @@ const getState=n=> STATES[n] || STATES.galaxy;
 let halfW=1, halfH=1;
 function layoutOf(name){
   const m=isMobile(), fx=Math.min(halfW-6.6,6.8);
-  if(name==='face') return m?{o:[0,halfH*.44,0],s:.64}:{o:[halfW*.5,-1.6,0],s:.86};
+  if(name==='face') return m?{o:[0,-halfH*2.4,0],s:.64}:{o:[halfW*.5,-1.6,0],s:.86};
   if(name==='face2') return m?{o:[0,halfH-8.4,0],s:.8}:{o:[-fx,-.4,0],s:1};
   if(name==='code') return m?{o:[0,halfH*.55,0],s:.5}:{o:[halfW*.48,halfH*.3,0],s:.72};
   if(name==='galaxy') return m?{o:[0,halfH*.48,0],s:.6}:{o:[halfW*.58,0,0],s:.8};
@@ -750,6 +773,10 @@ function frame(time){
 requestAnimationFrame(frame);
 addEventListener('load',()=>{ computeAnchors(); readScroll(); });
 
+}
+(function pre(t){ if(window.__eng) return; if(lenis) lenis.raf(t); requestAnimationFrame(pre); })(0);
+const boot=()=>{ const sc=document.createElement('script'); sc.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'; sc.onload=startEngine; document.head.appendChild(sc); };
+if(document.readyState==='complete') setTimeout(boot,60); else addEventListener('load',()=>setTimeout(boot,60));
 })();
 </script>
 </body>
