@@ -112,6 +112,21 @@ INDUSTRIES = [
  dict(n='Food &amp; Travel', tag='Proven · EBhojanalaya, The 195 Project', line='Ordering systems, food and travel reels, and local SEO and AEO for Maps and AI search.', chips=['Ordering apps','Travel films','Local SEO','AEO'], slug='seo-expert-nepal'),
 ]
 
+# Home page FAQ: the questions business owners ask first, then the ones search engines and AI assistants ask about me.
+FAQ_BIZ = [
+ ("Are you an agency or one person?", "One person covering what an agency covers: strategy, content, social media, ads, SEO and reporting, plus the website or app. You always talk to the person doing the work."),
+ ("How much does it cost?", "Marketing is a monthly retainer; websites and apps are a fixed price per project. You get a written quote after a free 20-minute call, before anything starts. Ad spend is paid directly to Meta or Google."),
+ ("How soon will I see results?", "Ads can bring enquiries within days. Social media growth and SEO build over two to six months. The first month is mostly setup and testing."),
+ ("Do you guarantee leads or sales?", "No honest marketer can. I guarantee a clear plan, steady work and an honest monthly report, and I move budget to what is working."),
+ ("Do you work with businesses outside Nepal?", "Yes. I work remotely with clients worldwide, with good time overlap for Asia, the Middle East, Europe and Australia."),
+]
+FAQ_HOME = FAQ_BIZ + [qa for qa in FAQ if qa[0] in ("What does Prajwal Gautam do?", "Where is Prajwal Gautam based?", "What has Prajwal Gautam built?",
+                                                    "What is AEO and do you offer it?", "Which industries do you work with?", "Which programming languages and frameworks do you use?")]
+# Real figures only. Leave empty and the Results section stays hidden.
+# stats: (value, label, note) e.g. ('120', 'Enquiries per month', 'From Meta lead ads'); quotes: (quote, 'Name · Business, City')
+RESULTS = dict(stats=[], quotes=[], case_result='')
+HOME_WORK = ['Nepal Bhoomi', 'Slugforge Studio', 'Remotion Video Engine', 'Sayapatri E-commerce', 'Zylux Commerce Admin', 'Laravel HRMS']
+
 # ------------------------------------------------------------------ engine
 def engine():
     s = open(os.path.join(ROOT, 'templates', 'card-engine.html')).read()
@@ -184,43 +199,6 @@ def lg(o):
         return f'<div class="lg {cls}"><img src="{{{{IMG_{o["logo"]}}}}}" alt="{alt}" width="112" height="112" loading="lazy"></div>'
     return f'<div class="lg" style="--c1:{o.get("c1","#4D7BFF")};--c2:{o.get("c2","#0b1024")}"><span>{o["ini"]}</span></div>'
 
-def page_main(svc_link):
-    # letters are drawn from data-c via CSS, so search engines read the H1 once ("Prajwal Gautam – AI Engineer, ...") and not a second spelled-out copy
-    mega = ''.join(f'<span class="mc" data-c="{ch}"></span>' for ch in 'PRAJWALGAUTAM')
-    mega_html = f'<span class="sr">Prajwal Gautam – </span><span class="mega" id="mega" aria-hidden="true">{mega}</span>'
-    slash = ''.join(f'<li><a href="{svc_link(slug)}">{t}</a></li>' for t, slug in SLASH)
-    legend = ''.join(f'<a href="{svc_link(c["slug"])}" style="--c:{c["c"]}"><i></i>{E(c["name"])}</a>' for c in CATS)
-    cats = ''.join(f'''<section class="cat" data-state="w{i}" data-theme="night" data-label="(02) Services · {E(c['name'])}" style="--c:{c['c']}" aria-labelledby="cat{i}"><div class="cat-card glass">
- <div class="cat-top"><span><b>{i+1:02d}</b> / 06 · Service</span><span>{len(c['skills'])} skills</span></div>
- <h2 class="cat-h" id="cat{i}">{c['h']}</h2><p>{c['blurb']}</p><div class="chips">{''.join(f'<span>{E(s)}</span>' for s in c['skills'])}</div>
- <p class="proof">Proof: <em>{c['proof']}</em></p><a class="more" href="{svc_link(c['slug'])}">{E(BY_SLUG[c['slug']]['kw'])} →</a></div></section>''' for i, c in enumerate(CATS))
-    jobs = ''.join(f'''<article class="job glass" style="--c:{j['c']}"><div class="job-top">{lg(j)}<div><h3>{E(j['co'])}{'<span class="now">NOW</span>' if j.get('now') else ''}</h3><div class="t">{j['title']}</div><div class="w">{j['where']}</div></div></div><ul>{''.join(f'<li>{p}</li>' for p in j['pts'])}</ul></article>''' for j in JOBS)
-    panels = []
-    for i, w in enumerate(WORK):
-        st = '<span class="live-dot">● Live</span>' if w.get('live') else f'<span>{E(w.get("st","Android app" if w.get("priv") else "Code on GitHub"))}</span>'
-        link = (f'<a href="{w["live"]}" target="_blank" rel="noopener">Open live ↗</a>' if w.get('live') else
-                f'<a href="{w["repo"]}" target="_blank" rel="noopener">GitHub ↗</a>' if w.get('repo') else
-                f'<a href="{w["priv"]}" target="_blank" rel="noopener">Privacy policy ↗</a>' if w.get('priv') else '<a href="#contact">Ask me ↗</a>')
-        panels.append(f'''<article class="panel" data-k="{w['k']}" style="--c1:{w.get('c1','#4D7BFF')}" aria-label="{E(w['name'])}"><div class="p-top">{st}<span>{i+1:02d}</span></div><div class="p-mid">{lg(w)}<h3>{E(w['name'])}</h3><span class="p-type">{E(w['type'])}</span><p class="p-desc">{E(w['desc'])}</p></div><div class="p-foot"><span class="stk">{E(w['stack'])}</span>{link}</div></article>''')
-    rows = ''.join(f'''<a class="rowl" href="{svc_link(s['slug'])}"><span class="n">{i+1:02d}</span><h3>{E(s['kw'])}</h3><span class="d">{E(' · '.join(n for n, _ in s['offers'][:3]))}</span><span class="ar" aria-hidden="true">↗</span></a>''' for i, s in enumerate(SERVICES))
-    faq = ''.join(f'<details class="qa"><summary><h3>{E(q)}</h3><span aria-hidden="true">+</span></summary><p>{E(a)}</p></details>' for q, a in FAQ)
-    foot_a = ''.join(f'<a href="{svc_link(s["slug"])}">{E(s["kw"])}</a>' for s in SERVICES[:7])
-    foot_b = ''.join(f'<a href="{svc_link(s["slug"])}">{E(s["kw"])}</a>' for s in SERVICES[7:])
-    inds = ''.join(f'''<a class="ind" href="{svc_link(d['slug'])}"><span class="ind-tag">({i+1:02d}) {E(d['tag'])}</span><h3>{d['n']}</h3><p>{E(d['line'])}</p><span class="chips">{''.join(f'<span>{E(c)}</span>' for c in d['chips'])}</span><span class="ind-go">{E(BY_SLUG[d['slug']]['kw'])} ↗</span></a>''' for i, d in enumerate(INDUSTRIES))
-    cnt = {k: sum(1 for w in WORK if w['k'] == k) for k in ('web','app','vid')}
-    t = open(os.path.join(ROOT, 'templates', 'page.html')).read()
-    rep = {'{{MEGA}}': mega_html, '{{MEGA_FOOT}}': ''.join(f'<span data-c="{c}"></span>' for c in 'PRAJWALGAUTAM'),
-           '{{SLASH}}': slash, '{{LEGEND}}': legend, '{{JOBS}}': jobs, '{{PANELS}}': ''.join(panels),
-           '{{ROWS}}': rows, '{{INDUSTRIES}}': inds, '{{FAQ}}': faq, '{{FOOT_A}}': foot_a, '{{FOOT_B}}': foot_b,
-           '{{N_ALL}}': str(len(WORK)), '{{N_WEB}}': str(cnt['web']), '{{N_APP}}': str(cnt['app']), '{{N_VID}}': str(cnt['vid']),
-           '{{CATS_JSON}}': json.dumps([dict(name=c['name'], word=c['word'], c=c['c'], skills=c['skills']) for c in CATS]),
-           '{{ROLES_JSON}}': json.dumps(ROLES), '{{ENGINE}}': engine()}
-    # the MEGA token sits inside an h1 that already has a mega span in the template; replace that whole span
-    t = t.replace('<span class="mega" id="mega" aria-label="Prajwal Gautam">{{MEGA}}</span>', '{{MEGA}}')
-    for k, v in rep.items():
-        assert k in t, k; t = t.replace(k, v)
-    return t
-
 # ------------------------------------------------------------------ SEO head
 DESC = "AI engineer and digital marketing expert in Kathmandu, Nepal. AI-powered websites and apps, plus lead generation, social media, Google and Meta ads and SEO."
 TITLE = "Prajwal Gautam – AI Engineer & Digital Marketing Expert, Nepal"
@@ -240,13 +218,13 @@ def head_main():
     graph = [
       {"@type":"ProfilePage","@id":SITE+"#profile","url":SITE,"name":TITLE,"dateModified":TODAY,"mainEntity":{"@id":SITE+"#person"},"inLanguage":"en"},
       person(),
-      {"@type":"ProfessionalService","@id":SITE+"#service","name":"Prajwal Gautam – AI, Development & Growth Services","url":SITE,"image":SITE+"assets/og-image.jpg",
+      {"@type":"ProfessionalService","@id":SITE+"#service","name":"Prajwal Gautam – Digital Marketing, AI & Development Services","url":SITE,"image":SITE+"assets/og-image.jpg",
        "description":DESC,"founder":{"@id":SITE+"#person"},"telephone":"+977-9848137372","email":"prajolgautam1234@gmail.com",
        "address":{"@type":"PostalAddress","addressLocality":"Kathmandu","addressCountry":"NP"},"areaServed":["Nepal","Worldwide"],
        "hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":s['kw'],"url":f"{SITE}services/{s['slug']}/","description":s['desc']}} for s in SERVICES]}},
       {"@type":"WebSite","@id":SITE+"#website","url":SITE,"name":"Prajwal Gautam","inLanguage":"en","publisher":{"@id":SITE+"#person"}},
-      {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in FAQ]},
-      {"@type":"ItemList","name":"Projects by Prajwal Gautam","itemListElement":[{"@type":"ListItem","position":i+1,"item":{"@type":"CreativeWork","name":w["name"],"description":w["desc"],"creator":{"@id":SITE+"#person"},**({"url":w.get("live") or w.get("repo")} if (w.get("live") or w.get("repo")) else {})}} for i, w in enumerate(WORK)]},
+      {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in FAQ_HOME]},
+      {"@type":"ItemList","name":"Projects by Prajwal Gautam","itemListElement":[{"@type":"ListItem","position":i+1,"item":{"@type":"CreativeWork","name":w["name"],"description":w["desc"],"creator":{"@id":SITE+"#person"},**({"url":w.get("live") or w.get("repo")} if (w.get("live") or w.get("repo")) else {})}} for i, w in enumerate([w for w in WORK if w["name"] in HOME_WORK])]},
     ]
     ld = json.dumps({"@context":"https://schema.org","@graph":graph}, ensure_ascii=False)
     return f"""<!doctype html>
@@ -636,15 +614,74 @@ def page_guides_index():
 </html>
 """
 
+# ------------------------------------------------------------------ home page (business-first layout on the WebGL card engine)
+WA_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3.1.2.1.7-.1 1.2z"/></svg>'
+# the marketing arm of the galaxy carries the marketing skills clients ask for
+CATS_V2 = [dict(c, skills=['Lead Generation','Social Media','Meta Ads','Google Ads','Branding','Growth Marketing'], name='Marketing & Leads') if c['word']=='GROWTH' else c for c in CATS]
+
+def engine_v2():
+    e = engine()
+    def R(a, b):
+        nonlocal e
+        assert e.count(a) == 1, a[:60]; e = e.replace(a, b)
+    R("if(name==='face') return m?{o:[0,halfH*.02,0],s:.78}:{o:[halfW*.04,-1.7,0],s:.9};",
+      "if(name==='face') return m?{o:[0,halfH*.44,0],s:.64}:{o:[halfW*.5,-1.6,0],s:.86};")
+    R("if(name==='galaxy') return m?{o:[0,3,0],s:.62}:{o:[halfW*.3,0,0],s:1};",
+      "if(name==='galaxy') return m?{o:[0,halfH*.48,0],s:.6}:{o:[halfW*.58,0,0],s:.8};")
+    R("if(name==='nb'||name==='sf') return m?{o:[0,halfH*.42,0],s:.75}:{o:[halfW*.4,0,0],s:1};",
+      "if(name==='nb'||name==='sf') return m?{o:[0,halfH*.5,0],s:.6}:{o:[halfW*.48,0,0],s:.95};")
+    return e
+
+def page_v2(link, case_url, guides_url, img):
+    groups = ''.join(f'<div class="group" style="--c:{c["c"]}"><div class="gh"><i></i>{E(c["name"])}<small>{len(c["skills"])} skills</small></div><div class="chips">'
+                     + ''.join(f'<span>{E(x)}</span>' for x in c['skills']) + '</div></div>' for c in CATS_V2)
+    t = open(os.path.join(ROOT, 'templates', 'page.html')).read()
+    faq = ''.join(f'<details{" open" if i == 0 else ""}><summary>{E(q)}</summary><p>{E(a)}</p></details>' for i, (q, a) in enumerate(FAQ_HOME))
+    col = lambda h, items: f'<div><h4>{h}</h4>' + ''.join(f'<a href="{u}">{E(n)}</a>' for n, u in items) + '</div>'
+    mk = ['digital-marketing-expert-nepal','lead-generation-nepal','social-media-marketing-nepal','google-meta-ads-expert-nepal','seo-expert-nepal','aeo-geo-expert','branding-digital-marketing-nepal','growth-marketing-consultant']
+    dv = ['ai-engineer-nepal','hire-ai-developer','full-stack-developer-nepal','web-developer-kathmandu','app-developer-nepal','ai-video-production']
+    ind = ['real-estate-marketing-nepal','jewellery-marketing-nepal','saas-motion-design']
+    foot = (col('Marketing', [(BY_SLUG[x]['kw'], link(x)) for x in mk]) + col('Development &amp; AI', [(BY_SLUG[x]['kw'], link(x)) for x in dv])
+            + col('Industries', [(BY_SLUG[x]['kw'], link(x)) for x in ind] + [('Nepal Bhoomi case study', case_url)])
+            + col('Guides', [(g['h1'], f'{guides_url}{g["slug"]}/') for g in GUIDES] + [('All guides', guides_url)]))
+    if RESULTS['stats']:
+        stats = ''.join(f'<div class="stat"><div class="num">{E(v)}</div><p>{E(l)}</p><small>{E(n)}</small></div>' for v, l, n in RESULTS['stats'])
+        quotes = ''.join(f'<figure class="quote"><blockquote>{E(q)}</blockquote><figcaption class="by">{E(who)}</figcaption></figure>' for q, who in RESULTS['quotes'])
+        t = t.replace('{{STATS}}', stats).replace('{{QUOTES}}', quotes)
+    else:
+        t = re.sub(r'<!--RESULTS-->.*?<!--/RESULTS-->', '', t, flags=re.S)
+    cres = (f'          <div><span class="label">Result</span><p>{E(RESULTS["case_result"])}</p></div>\n' if RESULTS['case_result'] else '')
+    t = re.sub(r'\{\{L:([a-z0-9-]+)\}\}', lambda m: (BY_SLUG[m.group(1)] and link(m.group(1))), t)
+    rep = {'{{SKILLGROUPS}}': groups, '{{WA_ICON}}': WA_ICON, '{{FAQ}}': faq, '{{FOOT_COLS}}': foot, '{{CASE_RESULT}}': cres, '{{CASE}}': case_url, '{{GUIDES}}': guides_url,
+           '{{IMG_NB}}': img['nb'], '{{IMG_SF}}': img['sf'], '{{IMG_PHOTO}}': img['photo'],
+           '{{CATS_JSON}}': json.dumps([dict(name=c['name'], word=c['word'], c=c['c'], skills=c['skills']) for c in CATS_V2]),
+           '{{ENGINE}}': engine_v2()}
+    for k, v in rep.items():
+        assert k in t, k; t = t.replace(k, v)
+    return t
+
+def build_preview(face):
+    out = os.path.join(ROOT, 'preview'); shutil.rmtree(out, ignore_errors=True); os.makedirs(os.path.join(out, 'assets'))
+    for f in ['nepal-bhoomi-logo.webp', 'slugforge-logo.webp', 'prajwal-gautam.webp']:
+        shutil.copy(os.path.join(REPO, 'assets', f), os.path.join(out, 'assets', f))
+    a = page_v2(lambda slug: f'{SITE}services/{slug}/', f'{SITE}work/nepal-bhoomi/', f'{SITE}guides/',
+                dict(nb='assets/nepal-bhoomi-logo.webp', sf='assets/slugforge-logo.webp', photo='assets/prajwal-gautam.webp'))
+    a = a.replace('{{HEAD}}', '<title>Prajwal Gautam Portfolio</title>').replace('{{FACE}}', face)
+    a = a.replace('</head>\n<body data-theme="paper">', '<script>document.body.dataset.theme="paper"</script>')
+    a = a.replace('</body>\n</html>\n', '')
+    assert '<body' not in a and '</head>' not in a and '{{' not in a, re.findall(r'\{\{[A-Z_:a-z-]+\}\}', a)[:5]
+    a = a.replace('target="_blank" rel="noopener"', 'target="_blank" rel="noopener"')
+    open(os.path.join(out, 'index.html'), 'w').write(a)
+    return out
+
 # ------------------------------------------------------------------ build
 def build():
     face = open(os.path.join(ROOT, 'data', 'face-cards.b64')).read()
     # ---- site
     site_link = lambda slug, from_svc=False: (f"../{slug}/" if from_svc else f"services/{slug}/")
-    main = page_main(site_link)
+    main = page_v2(lambda slug: f"services/{slug}/", "work/nepal-bhoomi/", "guides/",
+                   dict(nb='assets/nepal-bhoomi-logo.webp', sf='assets/slugforge-logo.webp', photo='assets/prajwal-gautam.webp'))
     main = main.replace('{{HEAD}}', head_main()).replace('{{FACE}}', face)
-    main = (main.replace('{{IMG_NB}}', 'assets/nepal-bhoomi-logo.webp').replace('{{IMG_SF}}', 'assets/slugforge-logo.webp')
-                .replace('{{IMG_PHOTO}}', 'assets/prajwal-gautam.webp'))
     assert '{{' not in main, re.findall(r'\{\{[A-Z_]+\}\}', main)[:5]
     open(os.path.join(REPO, 'index.html'), 'w').write(main)
     for s in SERVICES:
@@ -700,24 +737,9 @@ Sitemap: {SITE}sitemap.xml
             "- GitHub: https://github.com/Prajjwalgautam", "- Location: Kathmandu, Nepal (UTC+5:45); works with clients worldwide", ""]
     open(os.path.join(REPO, 'llms.txt'), 'w').write('\n'.join(llms))
 
-    # ---- artifact (multi-file)
-    art = os.path.join(ROOT, 'preview'); shutil.rmtree(art, ignore_errors=True); os.makedirs(os.path.join(art, 'assets'))
-    for f in ['nepal-bhoomi-logo.webp', 'slugforge-logo.webp', 'prajwal-gautam.webp']:
-        shutil.copy(os.path.join(REPO, 'assets', f), os.path.join(art, 'assets', f))
-    art_link = lambda slug, from_svc=False: (f"../{slug}/index.html" if from_svc else f"services/{slug}/index.html")
-    a = page_main(art_link)
-    a = a.replace('{{HEAD}}', '<title>Prajwal Gautam Portfolio</title>').replace('{{FACE}}', face)
-    a = (a.replace('{{IMG_NB}}', 'assets/nepal-bhoomi-logo.webp').replace('{{IMG_SF}}', 'assets/slugforge-logo.webp').replace('{{IMG_PHOTO}}', 'assets/prajwal-gautam.webp'))
-    a = a.replace('</head>\n<body data-theme="paper">\n<script>document.documentElement.classList.add(\'js\')</script>',
-                  '<script>document.documentElement.classList.add(\'js\');document.body.dataset.theme=\'paper\'</script>')
-    a = a.replace('</body>\n</html>\n', '')
-    assert '<body' not in a and '</head>' not in a
-    open(os.path.join(art, 'index.html'), 'w').write(a)
-    for s in SERVICES:
-        d = os.path.join(art, 'services', s['slug']); os.makedirs(d, exist_ok=True)
-        open(os.path.join(d, 'index.html'), 'w').write(page_service(s, '../../', art_link, '../../assets/'))
     wc = {s['slug']: len(re.sub(r'<[^>]+>', ' ', re.sub(r'<(script|style)[^>]*>.*?</\1>', ' ', page_service(s, '/', site_link, '/'), flags=re.S)).split()) for s in SERVICES}
     print('built. service page word counts:', wc)
+    print('preview:', build_preview(face))
 
 if __name__ == '__main__':
     build()

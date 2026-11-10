@@ -7,13 +7,13 @@ This repo holds my personal portfolio website.
 
 ## What the site does
 
-- **A face made of 9,105 skill cards.** Each card carries one real skill. They follow your cursor, and as you scroll they
-  reshape into a code symbol, a spinning galaxy of my six services, a career helix, the logos of my live projects and a wave.
-- **A loader that "dispatches" my name.** The letters spin on a 3D ring, then fly into place as the page headline.
-- **My work, sorted.** Websites, apps and video sit in one curved carousel you can drag, scroll or filter.
-- **An "Ask me" button.** Clients write a message once and send it by email or WhatsApp.
-- **17 service pages**, one for each thing people search for (AI engineer in Nepal, digital marketing expert, lead generation, social media marketing, SEO expert, app developer,
-  AI video, Google & Meta ads, AEO, real estate and jewellery marketing, SaaS motion design and more).
+- **A business-first home page.** The first screen says what I do for clients (more customers, plus the websites and apps
+  they land on) with a WhatsApp button, and the rest of the page follows a client's questions: services, skills, work, how we work, about, FAQ, contact.
+- **9,105 skill cards in WebGL.** Each card carries one real skill. As you scroll they form my face, a galaxy of skills,
+  the Nepal Bhoomi logo, and my face again at the contact section. Text always sits beside the cards, never under them.
+- **17 service pages**, one for each thing people search for (AI engineer in Nepal, digital marketing expert, lead generation,
+  social media marketing, SEO expert, app developer, Google and Meta ads, AEO, real estate and jewellery marketing and more).
+- **Guides** that answer common questions directly, and a **Nepal Bhoomi case study**.
 
 ## Built with
 
@@ -54,9 +54,9 @@ docs/
 ## Making changes
 
 1. Edit the text or layout:
-   - Home page wording and data (services, experience, projects, FAQ) live at the top of `source/build_site.py`.
+   - Home page data (FAQ, skills, results) lives in `source/build_site.py`; the home page layout and wording live in `source/templates/page.html`.
+   - Real results: add figures to `RESULTS` in `source/build_site.py` and the Results section appears.
    - Service page wording lives in `source/service_pages.py`; guides live in `source/guides.py`.
-   - Layout, colours and animations live in `source/templates/page.html`.
 2. Rebuild the site:
    ```bash
    python3 source/build_site.py
