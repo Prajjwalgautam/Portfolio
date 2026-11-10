@@ -14,6 +14,7 @@ It also writes a preview copy into source/preview/ (ignored by git).
 """
 import json, html, os, re, shutil
 from service_pages import SERVICES, BY_SLUG, PROCESS, MONTH
+from service_extra import EXTRA
 
 ROOT = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.dirname(ROOT)
 SITE = "https://prajjwalgautam.com.np/"
@@ -324,6 +325,8 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
 """
 
 def page_service(s, home, svc_link, assets):
+    x = EXTRA.get(s['slug'], {})
+    s = dict(s, faq=list(s['faq']) + list(x.get('faq', [])))
     url = f"{SITE}services/{s['slug']}/"
     crumbs = [{"@type":"ListItem","position":1,"name":"Home","item":SITE},{"@type":"ListItem","position":2,"name":"Services","item":SITE+"#find"},{"@type":"ListItem","position":3,"name":s['kw'],"item":url}]
     graph = [
@@ -344,6 +347,12 @@ def page_service(s, home, svc_link, assets):
     tools = ''.join(f'<span>{E(t)}</span>' for t in s['tools'])
     faq = ''.join(f'<details><summary><h3>{E(q)}</h3><span aria-hidden="true">+</span></summary><p>{E(a)}</p></details>' for q, a in s['faq'])
     rel = ''.join(f'<a href="{svc_link(r, True)}"><h3>{E(BY_SLUG[r]["kw"])}</h3><span aria-hidden="true">↗</span></a>' for r in s['related'])
+    who = (f'<section><h2 style="margin-bottom:26px">Who this is for</h2><div class="offers">'
+           + ''.join(f'<div><h3>{E(a)}</h3><p>{E(b)}</p></div>' for a, b in x['who']) + '</div></section>') if x.get('who') else ''
+    why = (f'<section class="cols"><h2>Why work with me</h2><ul class="proof">' + ''.join(f'<li>{E(w)}</li>' for w in x['why']) + '</ul></section>') if x.get('why') else ''
+    tl = (f'<section class="cols"><h2>How long does it take?</h2><div><div class="offers" style="grid-template-columns:minmax(0,1fr)">'
+          + ''.join(f'<div style="display:flex;justify-content:space-between;gap:16px"><h3 style="margin:0">{E(a)}</h3><p style="white-space:nowrap">{E(b)}</p></div>' for a, b in x['timeline'])
+          + '</div><p style="color:var(--dim);font-size:15px;margin-top:14px">Typical ranges. Your quote gives exact dates.</p></div></section>') if x.get('timeline') else ''
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -381,8 +390,11 @@ def page_service(s, home, svc_link, assets):
 <section class="cols"><p class="paren">(Overview)</p><div class="prose">{''.join(f'<p>{E(p)}</p>' for p in s['intro'])}</div></section>
 <section class="cols"><h2>{E(s['what_h'])}</h2><div class="prose">{''.join(f'<p>{E(p)}</p>' for p in s['what'])}</div></section>
 <section><h2 style="margin-bottom:26px">{E(s['short'])} services</h2><div class="offers">{offers}</div></section>
+{who}
 <section class="cols"><h2>Proof from real work</h2><div><ul class="proof">{proof}</ul><div class="btns"><a class="btn hot" href="{home}work/nepal-bhoomi/">Read the Nepal Bhoomi case study</a><a class="btn" href="https://www.nepalbhoomi.com" target="_blank" rel="noopener">nepalbhoomi.com ↗</a><a class="btn" href="https://slugforge.vercel.app" target="_blank" rel="noopener">Slugforge Studio ↗</a></div></div></section>
+{why}
 <section><h2 style="margin-bottom:26px">How we work together</h2><ol class="steps">{steps}</ol></section>
+{tl}
 <section class="cols"><h2>Tools &amp; languages</h2><div class="chips">{tools}</div></section>
 <section class="cols"><h2>How much does it cost?</h2><div class="prose">{''.join(f'<p>{E(p)}</p>' for p in s['cost'])}</div></section>
 <section class="cols"><h2>Frequently asked questions</h2><div>{faq}</div></section>
