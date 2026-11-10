@@ -125,7 +125,7 @@ FAQ_HOME = FAQ_BIZ + [qa for qa in FAQ if qa[0] in ("What does Prajwal Gautam do
 # Real figures only. Leave empty and the Results section stays hidden.
 # stats: (value, label, note); quotes: (quote, 'Name · Business, City'). Real client figures and words only.
 RESULTS = dict(stats=[], quotes=[])
-HOME_WORK = ['Nepal Bhoomi', 'Slugforge Studio', 'Remotion Video Engine', 'Sayapatri E-commerce', 'Zylux Commerce Admin', 'Laravel HRMS']
+HOME_WORK = ['Nepal Bhoomi', 'Nepal Bhoomi Platform', 'Slugforge Studio', 'This Portfolio', 'Zylux Commerce Admin', 'Laravel HRMS']
 
 # ------------------------------------------------------------------ engine
 def engine():
@@ -654,6 +654,7 @@ def page_v2(link, case_url, guides_url, img):
     else:
         t = re.sub(r'<!--RESULTS-->.*?<!--/RESULTS-->', '', t, flags=re.S)
     t = re.sub(r'\{\{L:([a-z0-9-]+)\}\}', lambda m: (BY_SLUG[m.group(1)] and link(m.group(1))), t)
+    t = re.sub(r'\{\{W:([a-z0-9-]+)\}\}', lambda m: img['work'] + m.group(1) + '.webp', t)
     rep = {'{{SKILLGROUPS}}': groups, '{{WA_ICON}}': WA_ICON, '{{FAQ}}': faq, '{{FAQ_ABOUT}}': faq_about, '{{GUIDE_CARDS}}': gcards, '{{FOOT_COLS}}': foot, '{{CASE}}': case_url, '{{GUIDES}}': guides_url,
            '{{IMG_NB}}': img['nb'], '{{IMG_SF}}': img['sf'], '{{IMG_PHOTO}}': img['photo'],
            '{{CATS_JSON}}': json.dumps([dict(name=c['name'], word=c['word'], c=c['c'], skills=c['skills']) for c in CATS_V2]),
@@ -667,7 +668,7 @@ def build_preview(face):
     for f in ['nepal-bhoomi-logo.webp', 'slugforge-logo.webp', 'prajwal-gautam.webp']:
         shutil.copy(os.path.join(REPO, 'assets', f), os.path.join(out, 'assets', f))
     a = page_v2(lambda slug: f'{SITE}services/{slug}/', f'{SITE}work/nepal-bhoomi/', f'{SITE}guides/',
-                dict(nb='assets/nepal-bhoomi-logo.webp', sf='assets/slugforge-logo.webp', photo='assets/prajwal-gautam.webp'))
+                dict(nb='assets/nepal-bhoomi-logo.webp', sf='assets/slugforge-logo.webp', photo='assets/prajwal-gautam.webp', work=f'{SITE}assets/work/'))
     a = a.replace('{{HEAD}}', '<title>Prajwal Gautam Portfolio</title>').replace('{{FACE}}', face)
     a = a.replace('</head>\n<body data-theme="paper">', '<script>document.body.dataset.theme="paper"</script>')
     a = a.replace('</body>\n</html>\n', '')
@@ -682,7 +683,7 @@ def build():
     # ---- site
     site_link = lambda slug, from_svc=False: (f"../{slug}/" if from_svc else f"services/{slug}/")
     main = page_v2(lambda slug: f"services/{slug}/", "work/nepal-bhoomi/", "guides/",
-                   dict(nb='assets/nepal-bhoomi-logo.webp', sf='assets/slugforge-logo.webp', photo='assets/prajwal-gautam.webp'))
+                   dict(nb='assets/nepal-bhoomi-logo.webp', sf='assets/slugforge-logo.webp', photo='assets/prajwal-gautam.webp', work='assets/work/'))
     main = main.replace('{{HEAD}}', head_main()).replace('{{FACE}}', face)
     assert '{{' not in main, re.findall(r'\{\{[A-Z_]+\}\}', main)[:5]
     open(os.path.join(REPO, 'index.html'), 'w').write(main)
