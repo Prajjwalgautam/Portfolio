@@ -91,10 +91,12 @@ WORK = [
 FAQ = [
  ("What does Prajwal Gautam do?", "Prajwal Gautam is an AI engineer, full-stack and app developer, AI video producer and motion designer, and SEO, AEO and growth marketer based in Kathmandu, Nepal. He builds AI-powered websites and apps, produces video, and runs SEO, ads and branding for businesses worldwide."),
  ("What is AEO and do you offer it?", "AEO, Answer Engine Optimization, makes your business the answer that ChatGPT, Perplexity, Gemini and Google AI Overviews give. Yes: I add structured data, llms.txt, answer-first content and consistent citations, and track AI mentions monthly."),
- ("Which industries do you work with?", "Real estate (daily, at Nepal Bhoomi), education and study-abroad consultancies, e-commerce and retail, restaurants and travel, and I offer dedicated packages for jewellers and SaaS companies."),
+ ("Which industries do you work with?", "Real estate (I co-built the Nepal Bhoomi platform), education and study-abroad consultancies, e-commerce and retail, restaurants and travel, and I offer dedicated packages for jewellers and SaaS companies."),
  ("Do you make motion design and animation for SaaS?", "Yes. I build product explainers, UI animations and launch videos, often in Remotion so they can be re-rendered when your product changes, plus Blender 3D and WebGL."),
  ("Can you build an AI-powered website or app for my business?", "Yes. I build with Next.js, React, Node.js, Laravel and PostgreSQL, add AI features such as language-model integrations, assistants and automations, and secure them with proper sign-in, 2FA and audit logs."),
  ("Which programming languages and frameworks do you use?", "TypeScript and JavaScript with Next.js, React and Node.js; PHP with Laravel; Python for AI and automation; SQL with PostgreSQL and MySQL; and GLSL for WebGL. If your project needs a stack I don't use, I'll tell you before we start."),
+ ("Where is Prajwal Gautam based?", "Prajwal Gautam is based in Kathmandu, Nepal (UTC+5:45) and works with clients in Nepal and worldwide, remotely or on-site in the Kathmandu Valley."),
+ ("What has Prajwal Gautam built?", "He co-built the Nepal Bhoomi real-estate platform (Next.js, PostgreSQL, two-factor security), built the Slugforge Studio website, shipped Khalti payments and live currency pricing for the Sayapatri e-commerce platform, and built a Laravel HR system and the Fitfutures e-learning platform."),
  ("How much does a project cost?", "Every project gets a fixed-price quote after a free 20-minute call. SEO, AEO, ads and content are usually monthly retainers. You always see the price before work starts."),
  ("How do I start a project with you?", "Email prajolgautam1234@gmail.com or message me on WhatsApp at +977 984-8137372 with a short description of your goal. I reply within one working day, Nepal time (UTC+5:45)."),
 ]
@@ -228,7 +230,6 @@ def person():
       "email":"mailto:prajolgautam1234@gmail.com","telephone":"+977-9848137372",
       "address":{"@type":"PostalAddress","addressLocality":"Kathmandu","addressRegion":"Bagmati","addressCountry":"NP"},
       "alumniOf":[{"@type":"CollegeOrUniversity","name":"New Summit College, Tribhuvan University"},{"@type":"EducationalOrganization","name":"Kathmandu Model College"}],
-      "worksFor":{"@type":"Organization","name":"Nepal Bhoomi","url":"https://www.nepalbhoomi.com"},
       "knowsAbout":KNOWS,"knowsLanguage":["English","Nepali","Hindi"],
       "sameAs":["https://www.linkedin.com/in/prajjwal-gautam/","https://github.com/Prajjwalgautam"]}
 
@@ -440,7 +441,6 @@ def page_case(c, home, svc_link, assets):
       {"@type":"BreadcrumbList","@id":url+"#crumbs","itemListElement":crumbs},
       {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in c['faq']]},
       {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","url":SITE,"jobTitle":"AI Engineer & Full-Stack Developer",
-       "worksFor":{"@type":"Organization","name":"Nepal Bhoomi","url":"https://www.nepalbhoomi.com"},
        "sameAs":["https://www.linkedin.com/in/prajjwal-gautam/","https://github.com/Prajjwalgautam"]},
     ]
     ld = json.dumps({"@context":"https://schema.org","@graph":graph}, ensure_ascii=False)
