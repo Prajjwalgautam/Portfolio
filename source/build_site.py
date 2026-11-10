@@ -50,7 +50,7 @@ CATS = [
       proof='Ad tracking and monthly growth reports at Nepal Bhoomi; Nepal Bhoomi sonic branding',
       skills=['Google Ads','Meta Ads','Growth Marketing','E-commerce Marketing','Branding','Graphic Design']),
 ]
-ROLES = ["AI engineer","full-stack developer","app developer","AI video producer","motion designer","SEO & AEO specialist","ad campaign strategist","growth marketer","brand strategist","marketing researcher"]
+ROLES = ["AI engineer","digital marketing expert","lead generation specialist","social media marketer","full-stack developer","Meta & Google ads expert","app developer","SEO & AEO specialist","AI video producer","brand strategist"]
 JOBS = [
  dict(co='Nepal Bhoomi', logo='NB', c='#F2334B', where='Lazimpat, Kathmandu', title='Video, Design, Growth &amp; Platform',
       pts=['Built a <b>code-driven video pipeline</b> (Remotion + Python AI: Whisper captions, upscaling, background removal, tracking) for branded <b>property reels</b>.',
@@ -91,7 +91,7 @@ WORK = [
  dict(k='vid', name='Study-Abroad Content', ini='SA', c1='#9B7BFF', c2='#1e1050', type='Freelance · education', desc='Explainers on IELTS, GRE, SAT and study-abroad applications, plus podcasts cut into shorts.', stack='Short-form · Motion', st='Freelance'),
 ]
 FAQ = [
- ("What does Prajwal Gautam do?", "Prajwal Gautam is an AI engineer, full-stack and app developer, AI video producer and motion designer, and SEO, AEO and growth marketer based in Kathmandu, Nepal. He builds AI-powered websites and apps, produces video, and runs SEO, ads and branding for businesses worldwide."),
+ ("What does Prajwal Gautam do?", "Prajwal Gautam is an AI engineer and digital marketing expert based in Kathmandu, Nepal. He builds AI-powered websites and apps, and runs the marketing that brings customers in: lead generation, social media marketing, Facebook, Instagram and Google ads, branding, video and SEO, for businesses in Nepal and worldwide."),
  ("What is AEO and do you offer it?", "AEO, Answer Engine Optimization, makes your business the answer that ChatGPT, Perplexity, Gemini and Google AI Overviews give. Yes: I add structured data, llms.txt, answer-first content and consistent citations, and track AI mentions monthly."),
  ("Which industries do you work with?", "Real estate (I co-built the Nepal Bhoomi platform), education and study-abroad consultancies, e-commerce and retail, restaurants and travel, and I offer dedicated packages for jewellers and SaaS companies."),
  ("Do you make motion design and animation for SaaS?", "Yes. I build product explainers, UI animations and launch videos, often in Remotion so they can be re-rendered when your product changes, plus Blender 3D and WebGL."),
@@ -102,7 +102,7 @@ FAQ = [
  ("How much does a project cost?", "Every project gets a fixed-price quote after a free 20-minute call. SEO, AEO, ads and content are usually monthly retainers. You always see the price before work starts."),
  ("How do I start a project with you?", "Email prajolgautam1234@gmail.com or message me on WhatsApp at +977 984-8137372 with a short description of your goal. I reply within one working day, Nepal time (UTC+5:45)."),
 ]
-SLASH = [('AI Engineering','ai-engineer-nepal'),('Full-Stack &amp; Apps','full-stack-developer-nepal'),('AI Video &amp; Motion','saas-motion-design'),('SEO, AEO &amp; Ads','aeo-geo-expert'),('Growth &amp; Branding','growth-marketing-consultant')]
+SLASH = [('AI Engineering','ai-engineer-nepal'),('Digital Marketing &amp; Leads','digital-marketing-expert-nepal'),('Social Media &amp; Ads','social-media-marketing-nepal'),('Full-Stack &amp; Apps','full-stack-developer-nepal'),('SEO, AEO &amp; AI Video','aeo-geo-expert')]
 INDUSTRIES = [
  dict(n='Real Estate', tag='Proven · Nepal Bhoomi', line='Property reels, listing platforms and lead ads that sell land and homes.', chips=['Property reels','Listing sites','Lead ads','Sonic branding'], slug='real-estate-marketing-nepal'),
  dict(n='Jewellers', tag='Package for jewellers', line='Macro product films, 3D renders, graphics and wedding-season campaigns that make every piece shine.', chips=['Macro video','3D renders','Catalogues','Festive ads'], slug='jewellery-marketing-nepal'),
@@ -222,14 +222,14 @@ def page_main(svc_link):
     return t
 
 # ------------------------------------------------------------------ SEO head
-DESC = "AI engineer, full-stack and app developer in Kathmandu, Nepal. I build AI-powered websites and apps, then grow them with AI video, SEO, AEO and Google and Meta ads."
-TITLE = "Prajwal Gautam – AI Engineer & Full-Stack Developer, Nepal"
+DESC = "AI engineer and digital marketing expert in Kathmandu, Nepal. AI-powered websites and apps, plus lead generation, social media, Google and Meta ads and SEO."
+TITLE = "Prajwal Gautam – AI Engineer & Digital Marketing Expert, Nepal"
 KNOWS = sorted({s for c in CATS for s in c['skills']} | {"Artificial intelligence engineering","Answer Engine Optimization (AEO)","Generative Engine Optimization (GEO)","Motion design","SaaS product animation","Real estate marketing","Jewellery marketing","Graphic design","Next.js","TypeScript","PostgreSQL","Remotion","Blender","Full-stack web development","Mobile app development","AI video production","Search engine optimization","Google Ads","Meta Ads","Growth marketing","E-commerce marketing","Branding","Laravel","PHP","Node.js","React","Django","Python","JavaScript","SQL","Three.js","WebGL"})
 
 def person():
     return {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","alternateName":["Prajjwal Gautam"],"url":SITE,
-      "image":SITE+"assets/prajwal-gautam.webp","jobTitle":"AI Engineer, Full-Stack & App Developer, Growth Marketer","description":DESC,
-      "disambiguatingDescription":"Kathmandu-based AI engineer and full-stack developer (portfolio: prajjwalgautam.com.np) who co-built the Nepal Bhoomi real-estate platform and built the Slugforge Studio website; also known as Prajjwal Gautam.",
+      "image":SITE+"assets/prajwal-gautam.webp","jobTitle":"AI Engineer & Digital Marketing Expert","description":DESC,
+      "disambiguatingDescription":"Kathmandu-based AI engineer, full-stack developer and digital marketing expert (portfolio: prajjwalgautam.com.np) who co-built the Nepal Bhoomi real-estate platform and built the Slugforge Studio website; also known as Prajjwal Gautam.",
       "email":"mailto:prajolgautam1234@gmail.com","telephone":"+977-9848137372",
       "address":{"@type":"PostalAddress","addressLocality":"Kathmandu","addressRegion":"Bagmati","addressCountry":"NP"},
       "alumniOf":[{"@type":"CollegeOrUniversity","name":"New Summit College, Tribhuvan University"},{"@type":"EducationalOrganization","name":"Kathmandu Model College"}],
@@ -338,7 +338,7 @@ def page_service(s, home, svc_link, assets):
        "hasOfferCatalog":{"@type":"OfferCatalog","name":s['short'],"itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":n,"description":d}} for n, d in s['offers']]}},
       {"@type":"BreadcrumbList","@id":url+"#crumbs","itemListElement":crumbs},
       {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in s['faq']]},
-      {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","url":SITE,"jobTitle":"AI Engineer, Full-Stack & App Developer, Growth Marketer",
+      {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","url":SITE,"jobTitle":"AI Engineer & Digital Marketing Expert",
        "sameAs":["https://www.linkedin.com/in/prajjwal-gautam/","https://github.com/Prajjwalgautam"]},
     ]
     ld = json.dumps({"@context":"https://schema.org","@graph":graph}, ensure_ascii=False)
@@ -387,7 +387,7 @@ def page_service(s, home, svc_link, assets):
   <h1>{E(s['kw'])}</h1>
   <p class="lede">{E(s['lede'])}</p>
   <div class="btns"><a class="btn hot" href="mailto:prajolgautam1234@gmail.com?subject={E(s['kw'])}%20project">Start a project</a><a class="btn" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp me</a><a class="btn" href="{home}#work">See my work</a></div>
-  <p class="by">By Prajwal Gautam · AI Engineer, Full-Stack &amp; App Developer, Growth Marketer · Kathmandu, Nepal · Updated {MONTH}</p>
+  <p class="by">By Prajwal Gautam · AI Engineer &amp; Digital Marketing Expert · Kathmandu, Nepal · Updated {MONTH}</p>
 </header>
 <main>
 <section class="cols"><p class="paren">(Overview)</p><div class="prose">{''.join(f'<p>{E(p)}</p>' for p in s['intro'])}</div></section>
@@ -457,7 +457,7 @@ def page_case(c, home, svc_link, assets):
        "about":{"@type":"Organization","name":"Nepal Bhoomi","url":"https://www.nepalbhoomi.com","address":{"@type":"PostalAddress","addressLocality":"Kathmandu","addressCountry":"NP"}}},
       {"@type":"BreadcrumbList","@id":url+"#crumbs","itemListElement":crumbs},
       {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in c['faq']]},
-      {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","url":SITE,"jobTitle":"AI Engineer & Full-Stack Developer",
+      {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","url":SITE,"jobTitle":"AI Engineer & Digital Marketing Expert",
        "sameAs":["https://www.linkedin.com/in/prajjwal-gautam/","https://github.com/Prajjwalgautam"]},
     ]
     ld = json.dumps({"@context":"https://schema.org","@graph":graph}, ensure_ascii=False)
@@ -574,7 +574,7 @@ def page_guide(g):
        "speakable":{"@type":"SpeakableSpecification","cssSelector":[".answer"]}},
       {"@type":"BreadcrumbList","@id":url+"#crumbs","itemListElement":crumbs},
       {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in [(g['h1'], g['answer'])] + g['faq']]},
-      {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","url":SITE,"jobTitle":"AI Engineer & Full-Stack Developer",
+      {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","url":SITE,"jobTitle":"AI Engineer & Digital Marketing Expert",
        "address":{"@type":"PostalAddress","addressLocality":"Kathmandu","addressCountry":"NP"},
        "sameAs":["https://www.linkedin.com/in/prajjwal-gautam/","https://github.com/Prajjwalgautam"]},
     ]
@@ -594,7 +594,7 @@ def page_guide(g):
   <p class="paren">(Guide)</p>
   <h1 class="g">{E(g['h1'])}</h1>
   <p class="answer"><b>Short answer</b>{E(g['answer'])}</p>
-  <p class="by">By Prajwal Gautam · AI engineer and full-stack developer, Kathmandu · Updated {MONTH}</p>
+  <p class="by">By Prajwal Gautam · AI engineer and digital marketing expert, Kathmandu · Updated {MONTH}</p>
 </header>
 <main>
 {body}
@@ -688,7 +688,7 @@ Allow: /
 Sitemap: {SITE}sitemap.xml
 """)
     llms = ["# Prajwal Gautam", "", f"> {DESC}", "", "Website: " + SITE, "",
-            "## Roles", "- AI Engineer", "- Full-Stack Web Developer", "- App Developer (mobile and web)", "- AI Video Producer",
+            "## Roles", "- AI Engineer", "- Digital Marketing Expert: lead generation, social media marketing and management, Facebook, Instagram and Google ads", "- Full-Stack Web Developer", "- App Developer (mobile and web)", "- AI Video Producer",
             "- SEO and AEO/GEO Specialist (AI search optimization) and Marketing Researcher", "- Motion Designer (SaaS product animation, 3D)", "- Industries: real estate, jewellery, SaaS and tech, e-commerce, education, food and travel", "- Google Ads and Meta Ads Campaign Strategist", "- Growth, E-commerce and Brand Marketer", "",
             "## Service pages"] + [f"- [{s['kw']}]({SITE}services/{s['slug']}/): {s['desc']}" for s in SERVICES] + ["",
             "## Experience"] + [f"- {j['co']} ({j['where']}): {html.unescape(j['title'])}. " + ' '.join(re.sub('<[^>]+>', '', p) for p in j['pts']) for j in JOBS] + ["",

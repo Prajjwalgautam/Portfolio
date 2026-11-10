@@ -2,7 +2,7 @@
 
 **Live site: [prajjwalgautam.com.np](https://prajjwalgautam.com.np)**
 
-I'm Prajwal Gautam, an AI engineer, full-stack and app developer, and growth marketer based in Kathmandu, Nepal.
+I'm Prajwal Gautam, an AI engineer and digital marketing expert based in Kathmandu, Nepal.
 This repo holds my personal portfolio website.
 
 ## What the site does
@@ -12,7 +12,7 @@ This repo holds my personal portfolio website.
 - **A loader that "dispatches" my name.** The letters spin on a 3D ring, then fly into place as the page headline.
 - **My work, sorted.** Websites, apps and video sit in one curved carousel you can drag, scroll or filter.
 - **An "Ask me" button.** Clients write a message once and send it by email or WhatsApp.
-- **14 service pages**, one for each thing people search for (AI engineer in Nepal, SEO expert, app developer,
+- **17 service pages**, one for each thing people search for (AI engineer in Nepal, digital marketing expert, lead generation, social media marketing, SEO expert, app developer,
   AI video, Google & Meta ads, AEO, real estate and jewellery marketing, SaaS motion design and more).
 
 ## Built with
@@ -38,7 +38,7 @@ CNAME               Points GitHub Pages at prajjwalgautam.com.np
 
 source/             Everything used to build the site
   build_site.py     Run this to rebuild all pages
-  service_pages.py  The words on the 14 service pages
+  service_pages.py  The words on the 17 service pages
   service_extra.py  Extra sections and FAQs for the service pages
   guides.py         The words in the guides
   templates/

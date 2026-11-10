@@ -1,4 +1,4 @@
-# Extra depth for the 14 service pages: who it is for, why hire locally, typical timelines and more answers.
+# Extra depth for the 17 service pages: who it is for, why hire locally, typical timelines and more answers.
 # Pages that rank for these keywords run 1,000-3,000 words; this file brings ours into that range.
 # Timelines are typical ranges, not promises. Every claim about past work matches the CVs and repos.
 
@@ -240,4 +240,55 @@ EXTRA = {
   faq=[('Why make motion design in code?', 'Because SaaS products change often. A Remotion video can be re-rendered with new screens, prices or text in minutes instead of being re-edited by hand.'),
        ('Can you animate our real UI?', 'Yes. I recreate or capture your interface and animate it, so the video shows the real product.'),
        ('Do you write the script?', 'Yes, or I work from yours. Scripts are written to explain the value in the first five seconds.')]),
+
+ 'digital-marketing-expert-nepal': dict(
+  who=[('Local businesses in Nepal', 'such as real estate, clinics, education consultancies, restaurants and shops that want steady enquiries.'),
+       ('Businesses without a marketing team', 'that need one person to plan, create, run and report, instead of hiring three.'),
+       ('Brands already spending on boosts', 'that want the money to bring enquiries and sales, not only likes.'),
+       ('Companies abroad', 'that want marketing run from Nepal by someone who also builds the website and tracking.')],
+  why=['Marketing and technology from one person: the campaign, the landing page and the tracking are planned together.',
+       'Real, ongoing marketing work for a Kathmandu brand, not only theory.',
+       'Content made in-house, in Nepali, English and Hindi, so posting never stops waiting for a designer.',
+       'Honest monthly reports in plain language, with what worked, what did not and what happens next.'],
+  timeline=[('Audit and 90-day marketing plan', '1–2 weeks'),
+            ('Social media and content set up', '1–2 weeks'),
+            ('First ad campaigns live and tracked', '1–2 weeks'),
+            ('Clear picture of what works', '2–3 months')],
+  faq=[('How much does a digital marketing expert cost in Nepal?', 'It depends on the channels and the amount of content. I quote a fixed monthly fee after a free call, and ad spend is paid directly to Meta or Google.'),
+       ('How long does digital marketing take to work?', 'Ads can bring enquiries within days. Social media growth and SEO build over two to six months. The first month is mostly setup and testing.'),
+       ('Freelance digital marketer or agency: which is better?', 'An agency suits big budgets that need many specialists at once. A freelance expert is usually more affordable, faster and closer to your business, and you always know who is doing the work.')]),
+
+ 'social-media-marketing-nepal': dict(
+  who=[('Shops, restaurants and cafés', 'that want people to see new products, menus and offers every week.'),
+       ('Real estate and property businesses', 'that sell through video tours and quick WhatsApp replies.'),
+       ('Education and service businesses', 'that need trust, reviews and a steady flow of enquiries.'),
+       ('Personal brands and founders', 'who want a consistent presence without spending hours on it.')],
+  why=['Videos, graphics and captions made in-house, so content is consistent and on time.',
+       'Posting tied to goals: every month has a clear aim, from reach to enquiries.',
+       'Fast community management, with serious buyers passed to you on WhatsApp.',
+       'Monthly reports that show reach, engagement and enquiries in plain words.'],
+  timeline=[('Page audit and platform plan', '1 week'),
+            ('Brand templates and first month of content', '1–2 weeks'),
+            ('Steady posting with stories and reels', 'Ongoing, monthly'),
+            ('Noticeable growth in reach and enquiries', '2–3 months')],
+  faq=[('How much does social media marketing cost in Nepal?', 'It depends on the number of platforms, posts and videos, and whether ads are included. I give a fixed monthly quote after a free call.'),
+       ('Do I need to boost every post?', 'No. A few planned ad campaigns with clear goals usually beat boosting every post.'),
+       ('Will you make videos and reels?', 'Yes. Short vertical video is the core of the service, with captions and a consistent brand style.')]),
+
+ 'lead-generation-nepal': dict(
+  who=[('Real estate agents and developers', 'who need buyers and renters to call or message about listings.'),
+       ('Education consultancies and training centres', 'that need student enquiries every intake.'),
+       ('Clinics, travel and service businesses', 'that sell through calls, bookings and WhatsApp.'),
+       ('B2B companies', 'that need qualified enquiries rather than more website traffic.')],
+  why=['The whole path in one place: ad, landing page, follow-up and tracking.',
+       'Landing pages and form integrations built by me, without waiting on a developer.',
+       'Focus on cost per sale, not cheap leads that never buy.',
+       'Clear monthly numbers: leads, cost per lead and which ads brought the buyers.'],
+  timeline=[('Offer, audience and tracking set up', '1 week'),
+            ('Landing page or instant form built', '3–7 days'),
+            ('Campaigns live and first leads', '1–2 weeks'),
+            ('Optimised cost per lead', '1–2 months')],
+  faq=[('How many leads can I expect?', 'It depends on your budget, offer and market, so I do not promise a number. After the first two to four weeks we have real figures and a clear plan to improve them.'),
+       ('Do you call or qualify the leads?', 'I set up the follow-up system, templates and alerts; your team makes the calls, because they know the product best.'),
+       ('Is lead generation good for real estate in Nepal?', 'Yes. Property is a high-value, considered purchase, so a steady flow of serious enquiries matters more than reach. It is the core of the marketing I do for Nepal Bhoomi.')]),
 }
