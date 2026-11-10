@@ -28,6 +28,8 @@ This repo holds my personal portfolio website.
 ```
 index.html          Home page (generated: don't edit by hand)
 services/           One folder per service page (generated)
+guides/             Answer-first articles, e.g. "What are AEO and GEO?" (generated)
+work/               Nepal Bhoomi case study (generated)
 assets/             Photo, project logos and the social-share image
 sitemap.xml         Page list for Google (generated)
 robots.txt          Lets search engines and AI crawlers read the site (generated)
@@ -37,6 +39,8 @@ CNAME               Points GitHub Pages at prajjwalgautam.com.np
 source/             Everything used to build the site
   build_site.py     Run this to rebuild all pages
   service_pages.py  The words on the 14 service pages
+  service_extra.py  Extra sections and FAQs for the service pages
+  guides.py         The words in the guides
   templates/
     page.html       Home page layout, styles and interactions
     card-engine.html  The 3D card animation (WebGL)
@@ -51,7 +55,7 @@ docs/
 
 1. Edit the text or layout:
    - Home page wording and data (services, experience, projects, FAQ) live at the top of `source/build_site.py`.
-   - Service page wording lives in `source/service_pages.py`.
+   - Service page wording lives in `source/service_pages.py`; guides live in `source/guides.py`.
    - Layout, colours and animations live in `source/templates/page.html`.
 2. Rebuild the site:
    ```bash

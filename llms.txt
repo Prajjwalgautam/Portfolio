@@ -41,6 +41,13 @@ Website: https://prajjwalgautam.com.np/
 - [Nepal Bhoomi](https://www.nepalbhoomi.com): real-estate platform; video, SEO and growth. Case study: https://prajjwalgautam.com.np/work/nepal-bhoomi/
 - [Slugforge Studio](https://slugforge.vercel.app): creative studio website and video services.
 
+## Guides
+- [What are AEO and GEO?](https://prajjwalgautam.com.np/guides/what-is-aeo-geo/): AEO (Answer Engine Optimization) makes your content the answer that AI tools and voice assistants quote. GEO (Generative Engine Optimization) makes AI tools such as ChatGPT, Gemini and Perplexity recognise and recommend your business by name. Both build on SEO, which gets your website ranked in Google and Bing.
+- [How to get your business on Google in Nepal](https://prajjwalgautam.com.np/guides/get-business-on-google-nepal/): Verify your website in Google Search Console, submit your sitemap, request indexing for your main pages, and create a Google Business Profile. Then import the site into Bing Webmaster Tools. All of this is free and takes about an hour; your pages usually start appearing within days.
+- [How to hire an AI engineer in Nepal](https://prajjwalgautam.com.np/guides/hire-ai-engineer-nepal/): Hire an AI engineer who can show working software, not only demos: ask for a live project, check they can connect AI to your own data and systems, agree a small first project with a fixed price, and make sure you will own the code, prompts and data at the end.
+- [Real estate marketing in Nepal: what works online](https://prajjwalgautam.com.np/guides/real-estate-marketing-nepal-guide/): In Nepal, property sells online through short videos on Facebook, Instagram and TikTok, fast listing pages with a clear price and location, quick replies on WhatsApp, local SEO for areas such as Kathmandu, Lalitpur and Bhaktapur, and lead ads that send enquiries straight to your team.
+- [Next.js vs Laravel: which should you choose?](https://prajjwalgautam.com.np/guides/nextjs-vs-laravel-nepal/): Choose Next.js for fast, SEO-friendly websites and modern web apps with rich interfaces. Choose Laravel when your team already works in PHP, you need cheap shared hosting, or the project is mostly forms, records and admin work. Both are solid; the team that maintains it matters more than the framework.
+
 ## Languages
 - Code: PHP, JavaScript, Python, SQL, HTML/CSS
 - Frameworks: Laravel, Node.js, React, Django, Three.js

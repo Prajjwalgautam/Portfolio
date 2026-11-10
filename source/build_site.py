@@ -15,6 +15,7 @@ It also writes a preview copy into source/preview/ (ignored by git).
 import json, html, os, re, shutil
 from service_pages import SERVICES, BY_SLUG, PROCESS, MONTH
 from service_extra import EXTRA
+from guides import GUIDES
 
 ROOT = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.dirname(ROOT)
 SITE = "https://prajjwalgautam.com.np/"
@@ -353,6 +354,8 @@ def page_service(s, home, svc_link, assets):
     tl = (f'<section class="cols"><h2>How long does it take?</h2><div><div class="offers" style="grid-template-columns:minmax(0,1fr)">'
           + ''.join(f'<div style="display:flex;justify-content:space-between;gap:16px"><h3 style="margin:0">{E(a)}</h3><p style="white-space:nowrap">{E(b)}</p></div>' for a, b in x['timeline'])
           + '</div><p style="color:var(--dim);font-size:15px;margin-top:14px">Typical ranges. Your quote gives exact dates.</p></div></section>') if x.get('timeline') else ''
+    gs = [g for g in GUIDES if s['slug'] in g['related']]
+    gl = ('<section><p class="paren">(Guides)</p><div class="rel">' + ''.join(f'<a href="{home}guides/{g["slug"]}/"><h3>{E(g["h1"])}</h3><span aria-hidden="true">↗</span></a>' for g in gs) + '</div></section>') if gs else ''
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -402,6 +405,7 @@ def page_service(s, home, svc_link, assets):
 <div class="lines"><span>prajolgautam1234@gmail.com</span><span>WhatsApp +977 984-8137372</span><span>Kathmandu, Nepal · UTC+5:45 · replies within one working day</span></div>
 <div class="btns"><a class="btn hot" href="mailto:prajolgautam1234@gmail.com">Email me</a><a class="btn" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp ↗</a><a class="btn" href="https://www.linkedin.com/in/prajjwal-gautam/" target="_blank" rel="noopener">LinkedIn ↗</a></div></div>
 <section><p class="paren">(Related services)</p><div class="rel">{rel}</div></section>
+{gl}
 </main>
 <footer><span>© 2026 Prajwal Gautam · Kathmandu, Nepal</span><span><a href="{home}">Home</a> · {' · '.join(f'<a href="{svc_link(x["slug"], True)}">{E(x["short"])}</a>' for x in SERVICES)}</span></footer>
 </div>
@@ -511,6 +515,127 @@ def page_case(c, home, svc_link, assets):
 </html>
 """
 
+# ------------------------------------------------------------------ guides
+def _head(title, desc, url, assets, ld, kind='article'):
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{E(title)}</title>
+<meta name="description" content="{E(desc)}">
+<meta name="author" content="Prajwal Gautam">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="{kind}"><meta property="og:site_name" content="Prajwal Gautam">
+<meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}">
+<meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="geo.region" content="NP-BA"><meta name="geo.placename" content="Kathmandu">
+<link rel="icon" href="{assets}slugforge-logo.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@900&family=Sofia+Sans+Condensed:wght@700;800&family=Sofia+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400&display=swap">
+<script type="application/ld+json">{ld}</script>
+<style>{SVC_CSS}{GUIDE_CSS}</style>
+<script>if(!location.hash){{try{{history.scrollRestoration="manual"}}catch(e){{}}scrollTo(0,0);addEventListener("load",()=>scrollTo(0,0));addEventListener("pageshow",()=>scrollTo(0,0))}}</script>
+</head>
+<body>
+<div class="wrap">
+<nav class="nav" aria-label="Main"><a href="../../">[ PG ] Prajwal Gautam</a><span class="brk"><a href="../../#services">Services</a><a href="../../#work">Work</a><a href="../../guides/">Guides</a></span><a href="../../#contact" style="text-decoration:underline">Contact ↗</a></nav>
+"""
+
+GUIDE_CSS = """
+.answer{border-left:4px solid var(--accent);background:#fff;padding:20px 24px;border-radius:0 14px 14px 0;font-size:clamp(19px,1.6vw,23px);line-height:1.45;max-width:62ch;margin:26px 0 0;font-weight:500}
+.answer b{display:block;font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+h1.g{font-size:clamp(46px,7vw,112px)}
+table.cmp{border-collapse:collapse;width:100%;font-size:16px;margin-top:6px}
+table.cmp th,table.cmp td{text-align:left;padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+table.cmp th{font-family:var(--mono);font-size:12px;font-weight:400;text-transform:uppercase;color:var(--dim)}
+ol.check{margin:0;padding:0 0 0 24px;display:grid;gap:10px;max-width:64ch}ol.check li::marker{color:var(--accent);font-family:var(--mono)}
+.glist a{display:grid;grid-template-columns:minmax(0,1fr) 30px;gap:12px;align-items:center;padding:22px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+.glist a:first-child{border-top:1px solid var(--line)}.glist h2{font-size:clamp(30px,3.6vw,56px)}.glist p{margin:8px 0 0;color:#34363c;max-width:70ch}
+.glist a:hover h2{color:var(--accent)}
+"""
+
+def _faq_html(faq):
+    return ''.join(f'<details><summary><h3>{E(q)}</h3><span aria-hidden="true">+</span></summary><p>{E(a)}</p></details>' for q, a in faq)
+
+def _cmp(rows, head=('Term','Stands for','Goal')):
+    return ('<table class="cmp"><thead><tr>' + ''.join(f'<th>{E(x)}</th>' for x in head) + '</tr></thead><tbody>'
+            + ''.join(f'<tr><td><b>{E(a)}</b></td><td>{E(b)}</td><td>{E(c)}</td></tr>' for a, b, c in rows) + '</tbody></table>')
+
+def page_guide(g):
+    url = f"{SITE}guides/{g['slug']}/"
+    crumbs = [{"@type":"ListItem","position":1,"name":"Home","item":SITE},{"@type":"ListItem","position":2,"name":"Guides","item":SITE+"guides/"},{"@type":"ListItem","position":3,"name":g['h1'],"item":url}]
+    graph = [
+      {"@type":"Article","@id":url+"#article","headline":g['h1'],"description":g['desc'],"abstract":g['answer'],"url":url,"inLanguage":"en",
+       "datePublished":"2026-11-10","dateModified":TODAY,"author":{"@id":SITE+"#person"},"publisher":{"@id":SITE+"#person"},
+       "image":SITE+"assets/og-image.jpg","mainEntityOfPage":url,"isPartOf":{"@id":SITE+"#website"},
+       "speakable":{"@type":"SpeakableSpecification","cssSelector":[".answer"]}},
+      {"@type":"BreadcrumbList","@id":url+"#crumbs","itemListElement":crumbs},
+      {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in [(g['h1'], g['answer'])] + g['faq']]},
+      {"@type":"Person","@id":SITE+"#person","name":"Prajwal Gautam","url":SITE,"jobTitle":"AI Engineer & Full-Stack Developer",
+       "address":{"@type":"PostalAddress","addressLocality":"Kathmandu","addressCountry":"NP"},
+       "sameAs":["https://www.linkedin.com/in/prajjwal-gautam/","https://github.com/Prajjwalgautam"]},
+    ]
+    ld = json.dumps({"@context":"https://schema.org","@graph":graph}, ensure_ascii=False)
+    body = ''
+    secs = list(g['sections']) + list(g.get('extra', []))
+    for i, (h, paras, table) in enumerate(secs):
+        inner = ''.join(f'<p>{E(p)}</p>' for p in paras)
+        if table: inner += _cmp(table, g.get('thead', ('Term','Stands for','Goal')))
+        if not paras and not table:   # checklist section
+            inner = '<ol class="check">' + ''.join(f'<li>{E(c)}</li>' for c in g['checklist']) + '</ol>'
+        body += f'<section class="cols"><h2>{E(h)}</h2><div class="prose">{inner}</div></section>'
+    rel = ''.join(f'<a href="../../services/{r}/"><h3>{E(BY_SLUG[r]["kw"])}</h3><span aria-hidden="true">↗</span></a>' for r in g['related'])
+    more = ''.join(f'<a href="../{o["slug"]}/"><h3>{E(o["h1"])}</h3><span aria-hidden="true">↗</span></a>' for o in GUIDES if o is not g)
+    return _head(g['title'], g['desc'], url, '../../assets/', ld) + f"""<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> / <a href="../">Guides</a> / <span aria-current="page">{E(g['h1'])}</span></nav>
+<header style="padding-block:30px 50px">
+  <p class="paren">(Guide)</p>
+  <h1 class="g">{E(g['h1'])}</h1>
+  <p class="answer"><b>Short answer</b>{E(g['answer'])}</p>
+  <p class="by">By Prajwal Gautam · AI engineer and full-stack developer, Kathmandu · Updated {MONTH}</p>
+</header>
+<main>
+{body}
+<section class="cols"><h2>Frequently asked questions</h2><div>{_faq_html(g['faq'])}</div></section>
+<div class="cta"><p class="paren" style="color:#8d919b">(Need a hand?)</p><h2>Want this done <span>for you</span>?</h2>
+<div class="lines"><span>prajolgautam1234@gmail.com</span><span>WhatsApp +977 984-8137372</span><span>Kathmandu, Nepal · UTC+5:45 · replies within one working day</span></div>
+<div class="btns"><a class="btn hot" href="mailto:prajolgautam1234@gmail.com">Email me</a><a class="btn" href="https://wa.me/9779848137372" target="_blank" rel="noopener">WhatsApp ↗</a></div></div>
+<section><p class="paren">(Related services)</p><div class="rel">{rel}</div></section>
+<section><p class="paren">(More guides)</p><div class="rel">{more}</div></section>
+</main>
+<footer><span>© 2026 Prajwal Gautam · Kathmandu, Nepal</span><span><a href="../../">Home</a> · <a href="../">Guides</a> · <a href="../../work/nepal-bhoomi/">Nepal Bhoomi case study</a></span></footer>
+</div>
+</body>
+</html>
+"""
+
+def page_guides_index():
+    url = f"{SITE}guides/"
+    graph = [
+      {"@type":"CollectionPage","@id":url+"#page","url":url,"name":"Guides by Prajwal Gautam","inLanguage":"en","dateModified":TODAY,"author":{"@id":SITE+"#person"},
+       "hasPart":[{"@type":"Article","headline":g['h1'],"url":f"{url}{g['slug']}/"} for g in GUIDES]},
+      {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE},{"@type":"ListItem","position":2,"name":"Guides","item":url}]},
+    ]
+    ld = json.dumps({"@context":"https://schema.org","@graph":graph}, ensure_ascii=False)
+    items = ''.join(f'<a href="{g["slug"]}/"><div><h2>{E(g["h1"])}</h2><p>{E(g["answer"])}</p></div><span aria-hidden="true">↗</span></a>' for g in GUIDES)
+    desc = 'Plain-English guides on SEO, AEO, GEO, AI engineering, web development and real-estate marketing in Nepal, written from real projects in Kathmandu.'
+    h = _head('Guides: SEO, AEO, AI & Web Development in Nepal | Prajwal Gautam', desc, url, '../assets/', ld, 'website')
+    h = h.replace('href="../../', 'href="../').replace('href="../guides/"', 'href="./"')
+    return h + f"""<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> / <span aria-current="page">Guides</span></nav>
+<header style="padding-block:30px 50px">
+  <p class="paren">(Guides)</p>
+  <h1 class="g">Guides</h1>
+  <p class="lede">Straight answers to questions businesses in Nepal ask about search, AI and websites, written from real projects.</p>
+</header>
+<main><section><div class="glist">{items}</div></section></main>
+<footer><span>© 2026 Prajwal Gautam · Kathmandu, Nepal</span><span><a href="../">Home</a> · <a href="../work/nepal-bhoomi/">Nepal Bhoomi case study</a></span></footer>
+</div>
+</body>
+</html>
+"""
+
 # ------------------------------------------------------------------ build
 def build():
     face = open(os.path.join(ROOT, 'data', 'face-cards.b64')).read()
@@ -528,7 +653,13 @@ def build():
     d = os.path.join(REPO, 'work', CASE['slug']); os.makedirs(d, exist_ok=True)
     case_link = lambda slug, from_svc=False: f"../../services/{slug}/"
     open(os.path.join(d, 'index.html'), 'w').write(page_case(CASE, '../../', case_link, '../../assets/'))
-    urls = [SITE] + [f"{SITE}services/{s['slug']}/" for s in SERVICES] + [f"{SITE}work/{CASE['slug']}/"]
+    os.makedirs(os.path.join(REPO, 'guides'), exist_ok=True)
+    open(os.path.join(REPO, 'guides', 'index.html'), 'w').write(page_guides_index())
+    for g in GUIDES:
+        d = os.path.join(REPO, 'guides', g['slug']); os.makedirs(d, exist_ok=True)
+        open(os.path.join(d, 'index.html'), 'w').write(page_guide(g))
+    urls = ([SITE] + [f"{SITE}services/{s['slug']}/" for s in SERVICES] + [f"{SITE}work/{CASE['slug']}/", f"{SITE}guides/"]
+            + [f"{SITE}guides/{g['slug']}/" for g in GUIDES])
     open(os.path.join(REPO, 'sitemap.xml'), 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         ''.join(f'  <url><loc>{u}</loc><lastmod>{TODAY}</lastmod><changefreq>monthly</changefreq><priority>{"1.0" if u==SITE else "0.8"}</priority></url>\n' for u in urls) + '</urlset>\n')
     # IndexNow: lets Bing, Yandex, Seznam and Naver know about new or changed pages. The key file must sit at the site root.
@@ -562,6 +693,7 @@ Sitemap: {SITE}sitemap.xml
             "## Service pages"] + [f"- [{s['kw']}]({SITE}services/{s['slug']}/): {s['desc']}" for s in SERVICES] + ["",
             "## Experience"] + [f"- {j['co']} ({j['where']}): {html.unescape(j['title'])}. " + ' '.join(re.sub('<[^>]+>', '', p) for p in j['pts']) for j in JOBS] + ["",
             "## Live projects", f"- [Nepal Bhoomi](https://www.nepalbhoomi.com): real-estate platform; video, SEO and growth. Case study: {SITE}work/nepal-bhoomi/", "- [Slugforge Studio](https://slugforge.vercel.app): creative studio website and video services.", "",
+            "## Guides"] + [f"- [{g['h1']}]({SITE}guides/{g['slug']}/): {g['answer']}" for g in GUIDES] + ["",
             "## Languages", "- Code: PHP, JavaScript, Python, SQL, HTML/CSS", "- Frameworks: Laravel, Node.js, React, Django, Three.js", "- Spoken: English, Nepali, Hindi", "",
             "## Education", "- BSc CSIT, New Summit College, Tribhuvan University", "- +2 Science, Kathmandu Model College", "",
             "## Contact", "- Email: prajolgautam1234@gmail.com", "- Phone & WhatsApp: +977 984-8137372 (https://wa.me/9779848137372)", "- LinkedIn: https://www.linkedin.com/in/prajjwal-gautam/",
