@@ -642,6 +642,9 @@ def engine_v2():
       "if(name==='galaxy') return m?{o:[0,halfH*.48,0],s:.6}:{o:[halfW*.58,0,0],s:.8};")
     R("if(name==='nb'||name==='sf') return m?{o:[0,halfH*.42,0],s:.75}:{o:[halfW*.4,0,0],s:1};",
       "if(name==='nb'||name==='sf') return m?{o:[0,halfH*.5,0],s:.6}:{o:[halfW*.48,0,0],s:.95};")
+    # after the last section's anchor, move the camera with the page so the last shape scrolls away with its section
+    R("function frame(time){\n  if(lenis) lenis.raf(time);",
+      "function frame(time){\n  if(lenis) lenis.raf(time);\n  { const last=anchors[anchors.length-1]; const over=last?Math.max(0,scrollY-last.y):0; const cy=-over*(2*halfH)/innerHeight;\n    if(camera.position.y!==cy){ camera.position.y=cy; camera.lookAt(0,cy,0); } }")
     return e
 
 def page_v2(link, case_url, guides_url, img):

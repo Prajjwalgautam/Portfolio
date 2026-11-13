@@ -765,6 +765,8 @@ function perfCheck(dt,t){ if(t<4||document.hidden) return; pSum+=dt; pN++; if(pN
   if(avg>1/40 && prLvl<PR.length-1){ prLvl++; if(PR[prLvl]<PR[0]){ renderer.setPixelRatio(PR[prLvl]); layout(); } document.documentElement.classList.add('lite'); } }
 function frame(time){
   if(lenis) lenis.raf(time);
+  { const last=anchors[anchors.length-1]; const over=last?Math.max(0,scrollY-last.y):0; const cy=-over*(2*halfH)/innerHeight;
+    if(camera.position.y!==cy){ camera.position.y=cy; camera.lookAt(0,cy,0); } }
   const t=clock.getElapsedTime(); const dt=Math.min(.1,t-lastT); lastT=t; const k60=x=>1-Math.pow(1-x,dt*60); U.uTime.value=t;
   U.uIntro.value = reduce?1:(window.__introT0? Math.min(1,(performance.now()-window.__introT0)/2600) : 0);
   sSmooth+=(sTarget-sSmooth)*(reduce?1:k60(.075));
