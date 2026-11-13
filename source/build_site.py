@@ -218,7 +218,7 @@ def head_main():
     graph = [
       {"@type":"ProfilePage","@id":SITE+"#profile","url":SITE,"name":TITLE,"dateModified":TODAY,"mainEntity":{"@id":SITE+"#person"},"inLanguage":"en"},
       person(),
-      {"@type":"ProfessionalService","@id":SITE+"#service","name":"Prajwal Gautam – Digital Marketing, AI & Development Services","url":SITE,"image":SITE+"assets/og-image.jpg",
+      {"@type":"ProfessionalService","@id":SITE+"#service","name":"Prajwal Gautam – Digital Marketing, AI & Development Services","logo":SITE+"assets/brand/icon-512.png","url":SITE,"image":SITE+"assets/og-image.jpg",
        "description":DESC,"founder":{"@id":SITE+"#person"},"telephone":"+977-9848137372","email":"prajolgautam1234@gmail.com",
        "address":{"@type":"PostalAddress","addressLocality":"Kathmandu","addressCountry":"NP"},"areaServed":["Nepal","Worldwide"],
        "hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":s['kw'],"url":f"{SITE}services/{s['slug']}/","description":s['desc']}} for s in SERVICES]}},
@@ -246,7 +246,10 @@ def head_main():
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(TITLE)}">
 <meta name="twitter:description" content="{E(DESC)}"><meta name="twitter:image" content="{SITE}assets/og-image.jpg">
 <meta name="geo.region" content="NP-BA"><meta name="geo.placename" content="Kathmandu"><meta name="geo.position" content="27.7172;85.3240"><meta name="ICBM" content="27.7172, 85.3240">
-<link rel="icon" href="assets/slugforge-logo.webp" type="image/webp">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="alternate" type="text/plain" href="{SITE}llms.txt" title="LLM summary">
 <script type="application/ld+json">{ld}</script>"""
 
@@ -349,7 +352,10 @@ def page_service(s, home, svc_link, assets):
 <meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="geo.region" content="NP-BA"><meta name="geo.placename" content="Kathmandu">
-<link rel="icon" href="{assets}slugforge-logo.webp" type="image/webp">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="{assets}brand/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{assets}brand/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@900&family=Sofia+Sans+Condensed:wght@700;800&family=Sofia+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400&display=swap">
 <script type="application/ld+json">{ld}</script>
@@ -358,7 +364,7 @@ def page_service(s, home, svc_link, assets):
 </head>
 <body>
 <div class="wrap">
-<nav class="nav" aria-label="Main"><a href="{home}">[ PG ] Prajwal Gautam</a><span class="brk"><a href="{home}#services">Services</a><a href="{home}#work">Work</a><a href="{home}#about">About</a></span><a href="{home}#contact" style="text-decoration:underline">Contact ↗</a></nav>
+<nav class="nav" aria-label="Main"><a href="{home}" style="text-decoration:none"><span style="display:inline-flex;align-items:center;gap:10px"><img src="{assets}brand/logo.svg" alt="" width="28" height="28" style="border-radius:7px">Prajwal Gautam</span></a><span class="brk"><a href="{home}#services">Services</a><a href="{home}#work">Work</a><a href="{home}#about">About</a></span><a href="{home}#contact" style="text-decoration:underline">Contact ↗</a></nav>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="{home}">Home</a> / <a href="{home}#find">Services</a> / <span aria-current="page">{E(s['kw'])}</span></nav>
 <header style="padding-block:30px 60px">
   <p class="paren">(Service) · {E(s['short'])}</p>
@@ -458,7 +464,10 @@ def page_case(c, home, svc_link, assets):
 <meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="geo.region" content="NP-BA"><meta name="geo.placename" content="Kathmandu">
-<link rel="icon" href="{assets}slugforge-logo.webp" type="image/webp">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="{assets}brand/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{assets}brand/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@900&family=Sofia+Sans+Condensed:wght@700;800&family=Sofia+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400&display=swap">
 <script type="application/ld+json">{ld}</script>
@@ -467,7 +476,7 @@ def page_case(c, home, svc_link, assets):
 </head>
 <body>
 <div class="wrap">
-<nav class="nav" aria-label="Main"><a href="{home}">[ PG ] Prajwal Gautam</a><span class="brk"><a href="{home}#services">Services</a><a href="{home}#work">Work</a><a href="{home}#about">About</a></span><a href="{home}#contact" style="text-decoration:underline">Contact ↗</a></nav>
+<nav class="nav" aria-label="Main"><a href="{home}" style="text-decoration:none"><span style="display:inline-flex;align-items:center;gap:10px"><img src="{assets}brand/logo.svg" alt="" width="28" height="28" style="border-radius:7px">Prajwal Gautam</span></a><span class="brk"><a href="{home}#services">Services</a><a href="{home}#work">Work</a><a href="{home}#about">About</a></span><a href="{home}#contact" style="text-decoration:underline">Contact ↗</a></nav>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="{home}">Home</a> / <a href="{home}#work">Work</a> / <span aria-current="page">Nepal Bhoomi</span></nav>
 <header style="padding-block:30px 60px">
   <p class="paren">(Case study) · Real estate</p>
@@ -510,7 +519,10 @@ def _head(title, desc, url, assets, ld, kind='article'):
 <meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="geo.region" content="NP-BA"><meta name="geo.placename" content="Kathmandu">
-<link rel="icon" href="{assets}slugforge-logo.webp" type="image/webp">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="{assets}brand/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{assets}brand/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@900&family=Sofia+Sans+Condensed:wght@700;800&family=Sofia+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400&display=swap">
 <script type="application/ld+json">{ld}</script>
@@ -519,7 +531,7 @@ def _head(title, desc, url, assets, ld, kind='article'):
 </head>
 <body>
 <div class="wrap">
-<nav class="nav" aria-label="Main"><a href="../../">[ PG ] Prajwal Gautam</a><span class="brk"><a href="../../#services">Services</a><a href="../../#work">Work</a><a href="../../guides/">Guides</a></span><a href="../../#contact" style="text-decoration:underline">Contact ↗</a></nav>
+<nav class="nav" aria-label="Main"><a href="../../" style="text-decoration:none"><span style="display:inline-flex;align-items:center;gap:10px"><img src="{assets}brand/logo.svg" alt="" width="28" height="28" style="border-radius:7px">Prajwal Gautam</span></a><span class="brk"><a href="../../#services">Services</a><a href="../../#work">Work</a><a href="../../guides/">Guides</a></span><a href="../../#contact" style="text-decoration:underline">Contact ↗</a></nav>
 """
 
 GUIDE_CSS = """
@@ -656,7 +668,7 @@ def page_v2(link, case_url, guides_url, img):
     t = re.sub(r'\{\{L:([a-z0-9-]+)\}\}', lambda m: (BY_SLUG[m.group(1)] and link(m.group(1))), t)
     t = re.sub(r'\{\{W:([a-z0-9-]+)\}\}', lambda m: img['work'] + m.group(1) + '.webp', t)
     rep = {'{{SKILLGROUPS}}': groups, '{{WA_ICON}}': WA_ICON, '{{FAQ}}': faq, '{{FAQ_ABOUT}}': faq_about, '{{GUIDE_CARDS}}': gcards, '{{FOOT_COLS}}': foot, '{{CASE}}': case_url, '{{GUIDES}}': guides_url,
-           '{{IMG_NB}}': img['nb'], '{{IMG_SF}}': img['sf'], '{{IMG_PHOTO}}': img['photo'],
+           '{{IMG_NB}}': img['nb'], '{{IMG_LOGO}}': img.get('logo', 'assets/brand/logo.svg'), '{{IMG_SF}}': img['sf'], '{{IMG_PHOTO}}': img['photo'],
            '{{CATS_JSON}}': json.dumps([dict(name=c['name'], word=c['word'], c=c['c'], skills=c['skills']) for c in CATS_V2]),
            '{{ENGINE}}': engine_v2()}
     for k, v in rep.items():
@@ -668,7 +680,7 @@ def build_preview(face):
     for f in ['nepal-bhoomi-logo.webp', 'slugforge-logo.webp', 'prajwal-gautam.webp']:
         shutil.copy(os.path.join(REPO, 'assets', f), os.path.join(out, 'assets', f))
     a = page_v2(lambda slug: f'{SITE}services/{slug}/', f'{SITE}work/nepal-bhoomi/', f'{SITE}guides/',
-                dict(nb='assets/nepal-bhoomi-logo.webp', sf='assets/slugforge-logo.webp', photo='assets/prajwal-gautam.webp', work=f'{SITE}assets/work/'))
+                dict(nb='assets/nepal-bhoomi-logo.webp', sf='assets/slugforge-logo.webp', photo='assets/prajwal-gautam.webp', work=f'{SITE}assets/work/', logo=f'{SITE}assets/brand/logo.svg'))
     a = a.replace('{{HEAD}}', '<title>Prajwal Gautam Portfolio</title>').replace('{{FACE}}', face)
     a = a.replace('</head>\n<body data-theme="paper">', '<script>document.body.dataset.theme="paper"</script>')
     a = a.replace('</body>\n</html>\n', '')
