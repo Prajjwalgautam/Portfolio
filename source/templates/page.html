@@ -172,6 +172,7 @@ a.work:hover .shot img{transform:scale(1.03)}
 .about .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:start}
 .photo{margin:0;border-radius:18px;overflow:hidden;aspect-ratio:4/5;max-width:100%;background:#d9dade;position:relative}
 .photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1)}
+@media (min-width:901px){.about .photo{position:sticky;top:96px}}
 .photo figcaption{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:12px;background:rgba(0,0,0,.6);color:#fff;padding:6px 9px;border-radius:6px}
 .copy p{font-size:18.5px;line-height:1.6;max-width:58ch}
 .copy p+p{margin-top:16px}
@@ -399,14 +400,17 @@ footer a{text-decoration:none;color:var(--fg)}
       <figure class="photo"><img src="{{IMG_PHOTO}}" alt="Prajwal Gautam in Kathmandu" width="620" height="823" loading="lazy"><figcaption>Prajwal Gautam · Kathmandu</figcaption></figure>
       <div class="copy">
         <p class="label">About</p>
-        <h2 style="margin:14px 0 22px">Marketer who<br>can code</h2>
-        <p>I’m Prajwal Gautam, based in Kathmandu. I studied Computer Science and shipped Laravel and Node.js systems for two software companies. On the marketing side, I worked across the marketing department at DigiTech Kathmandu, pitching web and digital marketing services to international clients and leading SEO, AEO and GEO research, and I run the marketing for a real-estate brand: video, social media, SEO, ads and monthly reports.</p>
-        <p>That mix is the point. When a campaign needs a landing page, a tracking fix or an AI tool, I build it the same week instead of waiting on another team.</p>
+        <h2 style="margin:14px 0 22px">I build it.<br>Then I make<br>people <em>want it.</em></h2>
+        <p>I started as a developer: websites in HTML, CSS and JavaScript, then backends in PHP and Laravel with MySQL, then Node.js, Next.js, React and Python. I’ve built Fitfutures, a student management platform for an Australian school; an HR system; First Math, a learning game for children; the backend of Sayapatri, an Australian clothing store; and most recently the Slugforge Studio and Nepal Bhoomi websites.</p>
+        <p>I ship the whole stack, from hosting to databases, and I build AI automations that answer customers and run business tasks. I read code and research fast, so I can automate almost anything.</p>
+        <p>On that base I moved into marketing: client relationships, AI video and graphics, scripted campaigns, and SEO, AEO and GEO for websites and social media. Next: my own AI apps for everyday life, coming soon to the Play Store.</p>
         <div class="facts">
-          <div><b>BSc CSIT</b><span>Tribhuvan University</span></div>
-          <div><b>English, Nepali, Hindi</b><span>Content and calls</span></div>
-          <div><b>Kathmandu, UTC+5:45</b><span>Clients in Nepal and abroad</span></div>
-          <div><b>Marketing + development</b><span>One person, one plan</span></div>
+          <div><b>Build</b><span>Next.js, React, Node.js, Laravel, PHP, Python</span></div>
+          <div><b>Data</b><span>PostgreSQL, MySQL, NoSQL, Supabase auth, Redis cache</span></div>
+          <div><b>Ship</b><span>Vercel hosting, Cloudflare R2 for photos and video</span></div>
+          <div><b>Automate with AI</b><span>Claude, ChatGPT, OpenRouter and AI video models</span></div>
+          <div><b>Market</b><span>SEO, AEO, GEO, social media, ads, client relations</span></div>
+          <div><b>BSc CSIT · Kathmandu</b><span>English, Nepali and Hindi</span></div>
         </div>
         <ul class="exp">
           <li><b>Nepal Bhoomi</b><em>Project</em><span>Marketing, video and platform for a Kathmandu real-estate brand</span></li>
