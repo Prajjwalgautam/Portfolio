@@ -2,6 +2,8 @@
 
 > AI engineer and digital marketing expert in Kathmandu, Nepal. AI-powered websites and apps, plus lead generation, social media, Google and Meta ads and SEO.
 
+Started as a full-stack developer (HTML, CSS, JavaScript, PHP and Laravel with MySQL, then Node.js, Next.js, React and Python) building platforms for clients in Nepal and Australia, then moved into digital marketing: lead generation, social media, client relationships, AI video and SEO, AEO and GEO. Ships the full stack (Vercel, Supabase, Cloudflare R2, Redis, PostgreSQL, MySQL) and builds AI automations with Claude, ChatGPT and OpenRouter.
+
 Website: https://prajjwalgautam.com.np/
 
 ## Roles
@@ -18,21 +20,21 @@ Website: https://prajjwalgautam.com.np/
 
 ## Service pages
 - [AI Engineer in Nepal](https://prajjwalgautam.com.np/services/ai-engineer-nepal/): Hire Prajwal Gautam, an AI engineer in Kathmandu, Nepal, for LLM integrations, AI automation, chatbots and AI-powered websites and apps for clients worldwide.
-- [Full-Stack Developer in Nepal](https://prajjwalgautam.com.np/services/full-stack-developer-nepal/): Freelance full-stack developer in Kathmandu, Nepal. Laravel, PHP, Node.js, React, Django, MySQL and MongoDB websites, dashboards and web apps built to run your business.
+- [Full-Stack Developer in Nepal](https://prajjwalgautam.com.np/services/full-stack-developer-nepal/): Freelance full-stack developer in Kathmandu, Nepal: Next.js, React, Node.js, Laravel and PHP websites, dashboards and web apps with secure databases.
 - [App Developer in Nepal](https://prajjwalgautam.com.np/services/app-developer-nepal/): Mobile and web app developer in Kathmandu, Nepal. Apps with logins, payments, real-time data and admin dashboards, from first prototype to launch.
 - [AI Video Production Services](https://prajjwalgautam.com.np/services/ai-video-production/): AI video production by Prajwal Gautam: AI-assisted scripts, visuals, editing, colour grading and motion graphics for brands, real estate, education and YouTube.
 - [SEO Expert in Nepal](https://prajjwalgautam.com.np/services/seo-expert-nepal/): SEO expert in Kathmandu, Nepal: technical SEO, keyword and market research, SEO content and structured data that rank on Google and in AI answers.
 - [Google Ads & Meta Ads Expert in Nepal](https://prajjwalgautam.com.np/services/google-meta-ads-expert-nepal/): Google Ads, Facebook and Instagram (Meta) ad campaigns run from Kathmandu, Nepal: research, creative, targeting, tracking and monthly performance reports.
 - [Growth Marketing Consultant](https://prajjwalgautam.com.np/services/growth-marketing-consultant/): Freelance growth marketing consultant: research, SEO, ads, video content, e-commerce marketing and monthly reporting to grow revenue, from Kathmandu, Nepal.
 - [Web Developer in Kathmandu](https://prajjwalgautam.com.np/services/web-developer-kathmandu/): Freelance web developer in Kathmandu, Nepal building fast, SEO-ready websites, 3D interactive sites and web apps for local businesses and international clients.
-- [Hire a Freelance AI Developer](https://prajjwalgautam.com.np/services/hire-ai-developer/): Hire a freelance AI developer who can also build the full product and market it: LLM apps, AI automation and AI content, remote from Nepal for clients worldwide.
-- [Digital Marketing & Branding in Nepal](https://prajjwalgautam.com.np/services/branding-digital-marketing-nepal/): Digital marketing and branding in Kathmandu, Nepal: brand identity, social media, content strategy, video, SEO and ads, delivered by one person across every channel.
-- [AEO & GEO Expert](https://prajjwalgautam.com.np/services/aeo-geo-expert/): AEO and GEO expert in Nepal: get your business cited in ChatGPT, Perplexity, Gemini, Claude and Google AI Overviews with structured data, answer-first content and entity SEO.
-- [Real Estate Marketing in Nepal](https://prajjwalgautam.com.np/services/real-estate-marketing-nepal/): Real estate marketing in Kathmandu, Nepal: property reels and drone videos, listing websites, SEO, AEO and Meta and Google ads that sell land, houses and apartments.
+- [Hire a Freelance AI Developer](https://prajjwalgautam.com.np/services/hire-ai-developer/): Hire a freelance AI developer who can build the full product and market it: LLM apps, AI automation and AI content, from Nepal for clients worldwide.
+- [Digital Marketing & Branding in Nepal](https://prajjwalgautam.com.np/services/branding-digital-marketing-nepal/): Digital marketing and branding in Kathmandu, Nepal: brand identity, social media, content strategy, video, SEO and ads, from one person across every channel.
+- [AEO & GEO Expert](https://prajjwalgautam.com.np/services/aeo-geo-expert/): AEO and GEO expert in Nepal: get your business quoted by ChatGPT, Perplexity, Gemini and Google AI Overviews with structured data and answer-first content.
+- [Real Estate Marketing in Nepal](https://prajjwalgautam.com.np/services/real-estate-marketing-nepal/): Real estate marketing in Kathmandu, Nepal: property reels, listing websites, SEO and Meta and Google ads that bring enquiries for land, houses and apartments.
 - [Jewellery Marketing & Product Video](https://prajjwalgautam.com.np/services/jewellery-marketing-nepal/): Jewellery marketing for jewellers in Nepal and abroad: macro product videos, 3D renders, graphics, catalogue websites, festive and wedding-season ads.
-- [Motion Design & Animation for SaaS](https://prajjwalgautam.com.np/services/saas-motion-design/): Motion design and animation for SaaS and tech: product explainer videos, UI animations, launch videos and 3D, made in code with Remotion so they update with your product.
-- [Digital Marketing Expert in Nepal](https://prajjwalgautam.com.np/services/digital-marketing-expert-nepal/): Digital marketing expert in Kathmandu, Nepal: lead generation, social media marketing, Facebook, Instagram and Google ads, content, branding and SEO, run like an agency by one person.
-- [Social Media Marketing in Nepal](https://prajjwalgautam.com.np/services/social-media-marketing-nepal/): Social media marketing and management in Kathmandu, Nepal: content calendars, reels, graphics, community management and Facebook, Instagram and TikTok ads that bring enquiries.
+- [Motion Design & Animation for SaaS](https://prajjwalgautam.com.np/services/saas-motion-design/): Motion design for SaaS and tech: product explainers, UI animation and launch videos, made in code with Remotion so they update with your product.
+- [Digital Marketing Expert in Nepal](https://prajjwalgautam.com.np/services/digital-marketing-expert-nepal/): Digital marketing expert in Kathmandu, Nepal: lead generation, social media, Facebook, Instagram and Google ads, content and SEO, run like an agency.
+- [Social Media Marketing in Nepal](https://prajjwalgautam.com.np/services/social-media-marketing-nepal/): Social media marketing in Kathmandu, Nepal: content calendars, reels, graphics, replies and Facebook, Instagram and TikTok ads that bring enquiries.
 - [Lead Generation in Nepal](https://prajjwalgautam.com.np/services/lead-generation-nepal/): Lead generation for businesses in Nepal: Facebook and Instagram lead ads, Google Ads, landing pages, WhatsApp follow-up and tracking from first click to sale.
 
 ## Experience

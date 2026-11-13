@@ -11,7 +11,7 @@ PROCESS = [
 
 SERVICES = [
  dict(slug='ai-engineer-nepal', kw='AI Engineer in Nepal', short='AI Engineering',
-  title='AI Engineer in Nepal – Prajwal Gautam | LLM Apps & AI Automation',
+  title='AI Engineer in Nepal – LLM Apps & Automation | Prajwal Gautam',
   desc='Hire Prajwal Gautam, an AI engineer in Kathmandu, Nepal, for LLM integrations, AI automation, chatbots and AI-powered websites and apps for clients worldwide.',
   lede='I build AI into real products: language-model features, chat assistants, automations and AI content pipelines that save a team hours every week.',
   intro=['Most businesses do not need a research lab. They need someone who can take a modern AI model, connect it to their own data and tools, and ship something staff and customers actually use. That is the work I do from Kathmandu for clients in Nepal and abroad.',
@@ -38,8 +38,8 @@ SERVICES = [
   related=['hire-ai-developer','full-stack-developer-nepal','ai-video-production']),
 
  dict(slug='full-stack-developer-nepal', kw='Full-Stack Developer in Nepal', short='Full-Stack Development',
-  title='Full-Stack Developer in Nepal – Prajwal Gautam | Next.js, Laravel',
-  desc='Freelance full-stack developer in Kathmandu, Nepal. Laravel, PHP, Node.js, React, Django, MySQL and MongoDB websites, dashboards and web apps built to run your business.',
+  title='Full-Stack Developer in Nepal – Next.js & Laravel | Prajwal',
+  desc='Freelance full-stack developer in Kathmandu, Nepal: Next.js, React, Node.js, Laravel and PHP websites, dashboards and web apps with secure databases.',
   lede='Websites and web platforms built end to end, from the database to the last pixel, by one developer who answers for all of it.',
   intro=['I have built HR systems, e-learning platforms, e-commerce backends and quiz games for software companies in Kathmandu and Lalitpur. I now take on full-stack projects directly for businesses in Nepal and abroad.',
          'Full-stack means you deal with one person for the design, the frontend, the backend, the database and the launch. Fewer hand-offs, faster fixes, and one person who understands the whole system.'],
@@ -65,7 +65,7 @@ SERVICES = [
   related=['web-developer-kathmandu','app-developer-nepal','ai-engineer-nepal']),
 
  dict(slug='app-developer-nepal', kw='App Developer in Nepal', short='App Development',
-  title='App Developer in Nepal – Prajwal Gautam | Mobile & Web Apps, Kathmandu',
+  title='App Developer in Nepal – Mobile & Web Apps | Prajwal Gautam',
   desc='Mobile and web app developer in Kathmandu, Nepal. Apps with logins, payments, real-time data and admin dashboards, from first prototype to launch.',
   lede='Mobile and web apps that people keep opening: clear screens, fast logins, payments that work and an admin panel behind every one.',
   intro=['I build apps for founders and businesses who need a working product, not just a design. My apps include a habit-coaching mobile app, a social activity app in development, a quiz game and a finance tracker.',
@@ -92,7 +92,7 @@ SERVICES = [
   related=['full-stack-developer-nepal','hire-ai-developer','growth-marketing-consultant']),
 
  dict(slug='ai-video-production', kw='AI Video Production Services', short='AI Video',
-  title='AI Video Production Services – Prajwal Gautam | AI Video Editor, Nepal',
+  title='AI Video Production in Nepal – Reels & Ads | Prajwal Gautam',
   desc='AI video production by Prajwal Gautam: AI-assisted scripts, visuals, editing, colour grading and motion graphics for brands, real estate, education and YouTube.',
   lede='Video at the speed of social media: AI-assisted scripting and visuals, finished by a human editor who knows what makes people stop scrolling.',
   intro=['I produce the property videos for Nepal Bhoomi, a real-estate company in Kathmandu, and run an educational YouTube channel made with AI-assisted scripts and visuals.',
@@ -119,7 +119,7 @@ SERVICES = [
   related=['growth-marketing-consultant','seo-expert-nepal','branding-digital-marketing-nepal']),
 
  dict(slug='seo-expert-nepal', kw='SEO Expert in Nepal', short='SEO',
-  title='SEO Expert in Nepal – Prajwal Gautam | Technical SEO & AI Search',
+  title='SEO Expert in Nepal – Technical SEO & AI Search | Prajwal',
   desc='SEO expert in Kathmandu, Nepal: technical SEO, keyword and market research, SEO content and structured data that rank on Google and in AI answers.',
   lede='Rank where your customers look: on Google, on YouTube and in AI answers from ChatGPT, Perplexity and Google AI Overviews.',
   intro=['I am a developer who does SEO, which matters: most ranking problems are technical. I fix site speed, structure and schema, then build content around what your customers actually search for.',
@@ -200,7 +200,7 @@ SERVICES = [
   related=['google-meta-ads-expert-nepal','branding-digital-marketing-nepal','seo-expert-nepal']),
 
  dict(slug='web-developer-kathmandu', kw='Web Developer in Kathmandu', short='Web Development',
-  title='Web Developer in Kathmandu – Prajwal Gautam | Websites That Rank',
+  title='Web Developer in Kathmandu – Websites That Rank | Prajwal',
   desc='Freelance web developer in Kathmandu, Nepal building fast, SEO-ready websites, 3D interactive sites and web apps for local businesses and international clients.',
   lede='Websites that look premium, load fast on Nepali mobile networks and rank on Google from day one.',
   intro=['I am a Kathmandu-based web developer with experience at Uno Technology in Gyaneshwor and Ek Ra Sunya in Lalitpur, and I build websites for my own real-estate brand, Nepal Bhoomi.',
@@ -228,7 +228,7 @@ SERVICES = [
 
  dict(slug='hire-ai-developer', kw='Hire a Freelance AI Developer', short='Hire an AI Developer',
   title=f'Hire a Freelance AI Developer ({MONTH}) – Prajwal Gautam',
-  desc='Hire a freelance AI developer who can also build the full product and market it: LLM apps, AI automation and AI content, remote from Nepal for clients worldwide.',
+  desc='Hire a freelance AI developer who can build the full product and market it: LLM apps, AI automation and AI content, from Nepal for clients worldwide.',
   lede='Most AI developers stop at the model. I build the product around it and help you put it in front of customers.',
   intro=['Hiring a freelance AI developer through a large marketplace means fees and a profile you cannot see past. Working with me directly, you get one person who covers AI, full-stack development and growth marketing.',
          'I work remotely from Kathmandu, Nepal, with a time zone that overlaps Asia, the Middle East, Europe and Australia.'],
@@ -255,7 +255,7 @@ SERVICES = [
 
  dict(slug='branding-digital-marketing-nepal', kw='Digital Marketing & Branding in Nepal', short='Branding & Digital Marketing',
   title='Digital Marketing & Branding in Nepal – Prajwal Gautam',
-  desc='Digital marketing and branding in Kathmandu, Nepal: brand identity, social media, content strategy, video, SEO and ads, delivered by one person across every channel.',
+  desc='Digital marketing and branding in Kathmandu, Nepal: brand identity, social media, content strategy, video, SEO and ads, from one person across every channel.',
   lede='A brand people recognise and a marketing engine that keeps it in front of them, without hiring a whole agency.',
   intro=['I market a real brand every day. At Nepal Bhoomi I create the videos and graphics, plan content, run social media and report on results each month.',
          'I offer the same mix to other businesses: a clear brand, consistent content and the SEO and ads to grow it.'],
@@ -285,8 +285,8 @@ BY_SLUG = {s['slug']: s for s in SERVICES}
 
 SERVICES += [
  dict(slug='aeo-geo-expert', kw='AEO & GEO Expert', short='AEO & AI Search',
-  title='AEO & GEO Expert – Get Cited by ChatGPT & AI Search | Prajwal Gautam',
-  desc='AEO and GEO expert in Nepal: get your business cited in ChatGPT, Perplexity, Gemini, Claude and Google AI Overviews with structured data, answer-first content and entity SEO.',
+  title='AEO & GEO Expert in Nepal – Get Cited by AI | Prajwal Gautam',
+  desc='AEO and GEO expert in Nepal: get your business quoted by ChatGPT, Perplexity, Gemini and Google AI Overviews with structured data and answer-first content.',
   lede='Search is turning into answers. I make sure that when people ask ChatGPT, Perplexity or Google AI who to hire, your business is the answer.',
   intro=['Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) are the next layer of SEO. Instead of ten blue links, AI assistants read the web and write one answer. If your business is not clear, consistent and quotable, it is left out.',
          'I am a developer and SEO specialist, so I work on both sides: the technical signals AI crawlers read, and the content they quote. This portfolio itself is built that way, with structured data on every page, an llms.txt file and answer-first FAQs.'],
@@ -312,8 +312,8 @@ SERVICES += [
   related=['seo-expert-nepal','growth-marketing-consultant','branding-digital-marketing-nepal']),
 
  dict(slug='real-estate-marketing-nepal', kw='Real Estate Marketing in Nepal', short='Real Estate Marketing',
-  title='Real Estate Marketing in Nepal: Videos, Web & Ads – Prajwal Gautam',
-  desc='Real estate marketing in Kathmandu, Nepal: property reels and drone videos, listing websites, SEO, AEO and Meta and Google ads that sell land, houses and apartments.',
+  title='Real Estate Marketing in Nepal – Video, Web & Ads | Prajwal',
+  desc='Real estate marketing in Kathmandu, Nepal: property reels, listing websites, SEO and Meta and Google ads that bring enquiries for land, houses and apartments.',
   lede='I market property every day. Reels, listing platforms, SEO and ads, built and tested on my own real-estate brand before they reach yours.',
   intro=['Nepal Bhoomi, a real-estate company in Kathmandu, is where I do this work every day: a full-stack listing platform, property films, a sonic logo and monthly growth reports.',
          'Agents, developers and land sellers get the same system: content that makes people stop scrolling, a website that captures enquiries and ads that reach serious buyers.'],
@@ -339,7 +339,7 @@ SERVICES += [
   related=['ai-video-production','google-meta-ads-expert-nepal','web-developer-kathmandu']),
 
  dict(slug='jewellery-marketing-nepal', kw='Jewellery Marketing & Product Video', short='Jewellery Marketing',
-  title='Jewellery Marketing in Nepal: Videos, 3D & Ads – Prajwal Gautam',
+  title='Jewellery Marketing in Nepal – Video, 3D & Ads | Prajwal',
   desc='Jewellery marketing for jewellers in Nepal and abroad: macro product videos, 3D renders, graphics, catalogue websites, festive and wedding-season ads.',
   lede='Jewellery sells on detail and trust. I make every piece shine on screen, then put it in front of buyers at the moments they shop.',
   intro=['Jewellers compete on how a piece looks in a three-second scroll. Light, colour, motion and sound decide whether a necklace feels precious or ordinary.',
@@ -366,8 +366,8 @@ SERVICES += [
   related=['saas-motion-design','branding-digital-marketing-nepal','google-meta-ads-expert-nepal']),
 
  dict(slug='saas-motion-design', kw='Motion Design & Animation for SaaS', short='SaaS Motion Design',
-  title='Motion Design for SaaS: Explainers & UI Animation – Prajwal Gautam',
-  desc='Motion design and animation for SaaS and tech: product explainer videos, UI animations, launch videos and 3D, made in code with Remotion so they update with your product.',
+  title='Motion Design for SaaS – Explainers & UI Animation | Prajwal',
+  desc='Motion design for SaaS and tech: product explainers, UI animation and launch videos, made in code with Remotion so they update with your product.',
   lede='Product videos that explain in seconds and stay up to date, because they are built from code, not just keyframes.',
   intro=['SaaS products change every sprint, so traditional explainer videos go out of date fast. I build product motion in Remotion, a code-based video framework, so changing a feature, a price or a screen means re-rendering, not re-animating.',
          'As a full-stack developer I understand your product, and as a video producer I know how to make it look clear and premium. This portfolio, with 9,105 animated cards in WebGL, is an example of the motion work I build.'],
@@ -395,8 +395,8 @@ SERVICES += [
 # Marketing pages: lead generation and social media, the way a marketing agency covers them.
 SERVICES += [
  dict(slug='digital-marketing-expert-nepal', kw='Digital Marketing Expert in Nepal', short='Digital Marketing',
-  title='Digital Marketing Expert in Nepal – Leads, Social Media & Ads | Prajwal Gautam',
-  desc='Digital marketing expert in Kathmandu, Nepal: lead generation, social media marketing, Facebook, Instagram and Google ads, content, branding and SEO, run like an agency by one person.',
+  title='Digital Marketing Expert in Nepal – Leads & Ads | Prajwal',
+  desc='Digital marketing expert in Kathmandu, Nepal: lead generation, social media, Facebook, Instagram and Google ads, content and SEO, run like an agency.',
   lede='Everything a marketing agency does for your business, from one person who also builds the website it runs on.',
   intro=['Digital marketing is how a business gets found, trusted and chosen online. For most businesses in Nepal that means social media, ads on Facebook, Instagram and Google, a website that turns visitors into enquiries, and quick replies on WhatsApp.',
          'I run this for real brands. At Nepal Bhoomi I plan and make the content, run social media, track ads and enquiries, handle SEO and audience research, and report on results every month. I offer the same full service to other businesses, in Nepal and abroad.'],
@@ -423,8 +423,8 @@ SERVICES += [
   related=['social-media-marketing-nepal','lead-generation-nepal','google-meta-ads-expert-nepal']),
 
  dict(slug='social-media-marketing-nepal', kw='Social Media Marketing in Nepal', short='Social Media Marketing',
-  title='Social Media Marketing in Nepal – Facebook, Instagram & TikTok | Prajwal Gautam',
-  desc='Social media marketing and management in Kathmandu, Nepal: content calendars, reels, graphics, community management and Facebook, Instagram and TikTok ads that bring enquiries.',
+  title='Social Media Marketing in Nepal – Reels & Ads | Prajwal',
+  desc='Social media marketing in Kathmandu, Nepal: content calendars, reels, graphics, replies and Facebook, Instagram and TikTok ads that bring enquiries.',
   lede='Social media that brings in customers, not just likes: planned content, steady posting, fast replies and ads that reach the right people.',
   intro=['In Nepal, most customers discover a business on Facebook, Instagram or TikTok before they visit a website. A page that posts rarely, replies slowly or looks different every week loses them to a competitor that shows up every day.',
          'I manage social media the way I do for Nepal Bhoomi: a monthly content plan, short videos and graphics made in-house, quick replies, ads for reach and leads, and a report at the end of each month.'],
@@ -450,7 +450,7 @@ SERVICES += [
   related=['digital-marketing-expert-nepal','lead-generation-nepal','ai-video-production']),
 
  dict(slug='lead-generation-nepal', kw='Lead Generation in Nepal', short='Lead Generation',
-  title='Lead Generation in Nepal – Facebook Lead Ads, Google & WhatsApp | Prajwal Gautam',
+  title='Lead Generation in Nepal – Lead Ads & WhatsApp | Prajwal',
   desc='Lead generation for businesses in Nepal: Facebook and Instagram lead ads, Google Ads, landing pages, WhatsApp follow-up and tracking from first click to sale.',
   lede='More enquiries you can actually call, from ads, pages and follow-up built to work together.',
   intro=['Lead generation means bringing in people who have raised their hand: they filled a form, sent a message or called. For real estate, education, clinics, travel and services in Nepal, that is usually what drives sales.',

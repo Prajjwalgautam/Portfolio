@@ -7,8 +7,8 @@ YEAR = datetime.date.today().year
 
 GUIDES = [
  dict(slug='what-is-aeo-geo',
-  title=f'AEO vs GEO vs SEO: What’s the Difference? A Plain-English Guide ({YEAR})',
-  desc='What AEO and GEO mean, how they differ from SEO, and how to get your business cited by ChatGPT, Perplexity, Gemini and Google AI Overviews. Practical steps from Kathmandu.',
+  title=f'AEO vs GEO vs SEO: What’s the Difference? ({YEAR})',
+  desc='What AEO and GEO mean, how they differ from SEO, and how to get your business cited by ChatGPT, Perplexity, Gemini and Google AI Overviews.',
   h1='What are AEO and GEO?',
   answer='AEO (Answer Engine Optimization) makes your content the answer that AI tools, featured snippets and voice assistants quote. GEO (Generative Engine Optimization) makes AI tools such as ChatGPT, Gemini and Perplexity cite and recommend your brand by name. Both build on SEO, which gets your website ranked in Google and Bing.',
   sections=[
@@ -46,8 +46,8 @@ GUIDES = [
   related=['aeo-geo-expert','seo-expert-nepal']),
 
  dict(slug='get-business-on-google-nepal',
-  title='How to Get Your Business on Google & Google Maps in Nepal (Free Guide)',
-  desc='Get your Nepali business on Google Search and Google Maps for free: Google Business Profile (Google My Business), Search Console, reviews and local SEO for Kathmandu.',
+  title='How to Get Your Business on Google Maps in Nepal (Free)',
+  desc='Put your Nepali business on Google Search and Maps for free: Google Business Profile, Search Console, reviews and local SEO for Kathmandu.',
   h1='How to get your business on Google in Nepal',
   answer='Create and verify a free Google Business Profile so you appear on Google Maps, then verify your website in Google Search Console and submit your sitemap. Keep your name, address and phone number the same everywhere, ask customers for reviews, and import your site into Bing Webmaster Tools. All of this is free.',
   sections=[
@@ -82,8 +82,8 @@ GUIDES = [
   related=['seo-expert-nepal','web-developer-kathmandu']),
 
  dict(slug='hire-ai-engineer-nepal',
-  title='How to Hire an AI Engineer in Nepal: Checklist, Questions & Costs',
-  desc='What an AI engineer does, what to put in your project brief, questions to ask and how pricing works when you hire an AI engineer in Nepal. From a Kathmandu AI engineer.',
+  title='How to Hire an AI Engineer in Nepal: Checklist & Costs',
+  desc='What an AI engineer does, what to put in your brief, questions to ask and how pricing works when you hire an AI engineer in Nepal.',
   h1='How to hire an AI engineer in Nepal',
   answer='Hire an AI engineer in Nepal who can show live, working projects, not only demos. Write a short project brief, ask how they will connect AI to your own data, agree a small first project with a fixed quote, and make sure you own the code, prompts and data at the end.',
   sections=[
@@ -117,8 +117,8 @@ GUIDES = [
   related=['ai-engineer-nepal','hire-ai-developer']),
 
  dict(slug='real-estate-marketing-nepal-guide',
-  title=f'Real Estate Digital Marketing in Nepal: What Works Online ({YEAR})',
-  desc='What sells property online in Nepal: property videos, listing websites, Facebook and Instagram ads, WhatsApp Business, local SEO and lead tracking. Lessons from Nepal Bhoomi.',
+  title=f'Real Estate Marketing in Nepal: What Works Online ({YEAR})',
+  desc='What sells property online in Nepal: property videos, listing sites, Facebook and Instagram ads, WhatsApp Business, local SEO and lead tracking.',
   h1='Real estate marketing in Nepal: what works online',
   answer='In Nepal, property sells online through short videos on Facebook, Instagram and TikTok, a fast listing website with clear price and location, Facebook and Instagram lead ads, quick replies on WhatsApp Business, and local SEO for areas such as Kathmandu, Lalitpur and Bhaktapur. Track every lead back to the ad that brought it.',
   sections=[
@@ -149,8 +149,8 @@ GUIDES = [
   related=['real-estate-marketing-nepal','ai-video-production']),
 
  dict(slug='nextjs-vs-laravel-nepal',
-  title=f'Next.js vs Laravel ({YEAR}): Which Is Better for Your Website or Web App?',
-  desc='Next.js or Laravel? A plain comparison of SEO, performance, hosting, hiring, mobile apps and cost, from a developer in Nepal who has shipped production systems in both.',
+  title=f'Next.js vs Laravel ({YEAR}): Which Should You Choose?',
+  desc='Next.js or Laravel? A plain comparison of SEO, speed, hosting, hiring, mobile apps and cost, from a developer who has shipped both.',
   h1='Next.js vs Laravel: which should you choose?',
   thead=('', 'Next.js', 'Laravel'),
   answer='Choose Next.js for fast, SEO-friendly websites and interactive web apps, especially if a React Native mobile app may follow. Choose Laravel for back-end-heavy systems such as admin panels, forms, records and APIs, or when you need low-cost PHP hosting. You can also combine them: a Laravel API with a Next.js front end.',

@@ -354,6 +354,7 @@ def page_service(s, home, svc_link, assets):
 <meta property="og:type" content="website"><meta property="og:site_name" content="Prajwal Gautam">
 <meta property="og:title" content="{E(s['title'])}"><meta property="og:description" content="{E(s['desc'])}">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Prajwal Gautam, AI engineer and digital marketing expert in Kathmandu, Nepal">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="geo.region" content="NP-BA"><meta name="geo.placename" content="Kathmandu">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -405,8 +406,8 @@ def page_service(s, home, svc_link, assets):
 # ------------------------------------------------------------------ case study
 CASE = dict(
   slug='nepal-bhoomi',
-  title='Nepal Bhoomi Case Study – Real-Estate Platform, Video & SEO | Prajwal Gautam',
-  desc='How Prajwal Gautam co-built the Nepal Bhoomi real-estate platform in Next.js and PostgreSQL, built a code-driven video pipeline, and runs its SEO and growth reporting.',
+  title='Nepal Bhoomi Case Study – Platform, Video & SEO | Prajwal',
+  desc='How Prajwal Gautam co-built the Nepal Bhoomi real-estate platform, built its code-driven video pipeline and runs its SEO and growth reporting.',
   h1='Nepal Bhoomi case study',
   summary='Nepal Bhoomi is a real-estate company in Lazimpat, Kathmandu that sells and rents houses, land, apartments and commercial property across Kathmandu, Lalitpur and Bhaktapur. I co-built its web platform, built the system that produces its property videos, and run its SEO, audience research and monthly growth reports.',
   facts=[('Client','Nepal Bhoomi'),('Industry','Real estate'),('Location','Lazimpat, Kathmandu, Nepal'),('My role','Platform developer and digital lead'),
@@ -466,6 +467,7 @@ def page_case(c, home, svc_link, assets):
 <meta property="og:type" content="article"><meta property="og:site_name" content="Prajwal Gautam">
 <meta property="og:title" content="{E(c['title'])}"><meta property="og:description" content="{E(c['desc'])}">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Prajwal Gautam, AI engineer and digital marketing expert in Kathmandu, Nepal">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="geo.region" content="NP-BA"><meta name="geo.placename" content="Kathmandu">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -521,6 +523,7 @@ def _head(title, desc, url, assets, ld, kind='article'):
 <meta property="og:type" content="{kind}"><meta property="og:site_name" content="Prajwal Gautam">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Prajwal Gautam, AI engineer and digital marketing expert in Kathmandu, Nepal">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="geo.region" content="NP-BA"><meta name="geo.placename" content="Kathmandu">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -615,7 +618,7 @@ def page_guides_index():
     ld = json.dumps({"@context":"https://schema.org","@graph":graph}, ensure_ascii=False)
     items = ''.join(f'<a href="{g["slug"]}/"><div><h2>{E(g["h1"])}</h2><p>{E(g["answer"])}</p></div><span aria-hidden="true">↗</span></a>' for g in GUIDES)
     desc = 'Plain-English guides on SEO, AEO, GEO, AI engineering, web development and real-estate marketing in Nepal, written from real projects in Kathmandu.'
-    h = _head('Guides: SEO, AEO, AI & Web Development in Nepal | Prajwal Gautam', desc, url, '../assets/', ld, 'website')
+    h = _head('Guides: SEO, AEO, AI & Web Development in Nepal | Prajwal', desc, url, '../assets/', ld, 'website')
     h = h.replace('href="../../', 'href="../').replace('href="../guides/"', 'href="./"')
     return h + f"""<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> / <span aria-current="page">Guides</span></nav>
 <header style="padding-block:30px 50px">
@@ -746,7 +749,7 @@ Allow: /
 
 Sitemap: {SITE}sitemap.xml
 """)
-    llms = ["# Prajwal Gautam", "", f"> {DESC}", "", "Website: " + SITE, "",
+    llms = ["# Prajwal Gautam", "", f"> {DESC}", "", "Started as a full-stack developer (HTML, CSS, JavaScript, PHP and Laravel with MySQL, then Node.js, Next.js, React and Python) building platforms for clients in Nepal and Australia, then moved into digital marketing: lead generation, social media, client relationships, AI video and SEO, AEO and GEO. Ships the full stack (Vercel, Supabase, Cloudflare R2, Redis, PostgreSQL, MySQL) and builds AI automations with Claude, ChatGPT and OpenRouter.", "", "Website: " + SITE, "",
             "## Roles", "- AI Engineer", "- Digital Marketing Expert: lead generation, social media marketing and management, Facebook, Instagram and Google ads", "- Full-Stack Web Developer", "- App Developer (mobile and web)", "- AI Video Producer",
             "- SEO and AEO/GEO Specialist (AI search optimization) and Marketing Researcher", "- Motion Designer (SaaS product animation, 3D)", "- Industries: real estate, jewellery, SaaS and tech, e-commerce, education, food and travel", "- Google Ads and Meta Ads Campaign Strategist", "- Growth, E-commerce and Brand Marketer", "",
             "## Service pages"] + [f"- [{s['kw']}]({SITE}services/{s['slug']}/): {s['desc']}" for s in SERVICES] + ["",
